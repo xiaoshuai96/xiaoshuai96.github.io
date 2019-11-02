@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="在IDEA中初次创建maven项目，并部署到Tomcat1.先在maven官网上下载maven，在本地安装maven。完成之后需要在maven根目录的conf下修改settings.xml配置文件">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-30T13:23:02.890Z">
+<meta property="og:updated_time" content="2019-11-01T08:31:42.945Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
@@ -166,13 +166,17 @@
       
         <h2 id="在IDEA中初次创建maven项目，并部署到Tomcat"><a href="#在IDEA中初次创建maven项目，并部署到Tomcat" class="headerlink" title="在IDEA中初次创建maven项目，并部署到Tomcat"></a>在IDEA中初次创建maven项目，并部署到Tomcat</h2><p>1.先在maven官网上下载maven，在本地安装maven。完成之后需要在maven根目录的conf下修改settings.xml配置文件</p>
 <a id="more"></a>
+
 <pre><code>（这里的maven版本是非常重要的，在这里浪费了太多的时间，首先我刚开始使用的环境是IDEA.2019+tomcat7+JDK1.9
   但是出现了Unable to import Maven project See logs for detail的红字，我开始查找问题，因为在创建maven项目时
   大家出现的问题都是各种各样，所以我在网上查找的非常的慢，没有办法我只能查看日志，开始发现jdk的版本是不是和项目
   不太匹配，所以我更换了jdk的版本，将其降为1.8版本，但是上述的问题还是没有得到解决。只能再次查看日志文件（确实看
   的不怎么懂），但是可能是god看我太辛苦，让我在万千网页中找到了一些头绪：可能是maven版本的问题，因为是最新的IDEA
   和最新的maven，说不定在匹配上就是会存在一些问题，所以我去maven官网的历史版本中下载了maven3.6.1版本，重新测试之
-  后，问题得到了解决。）</code></pre><p>2.在<mirrors></mirrors>标签中添加<br>     <mirror><br>      <id>alimaven</id><br>      <name>aliyun maven</name><br>      <url><a href="http://maven.aliyun.com/nexus/content/groups/public" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public</a></url><br>      <mirrorOf>central</mirrorOf><br>     </mirror><br>3.在IDEA的setting中找到Build,Execution,Deployment–&gt;Build Tools–&gt;Maven配置本地仓库等这些内容(其他的不再赘述)<br>    （如果本机中不存在maven的本地仓库，系统会默认选择系统盘的仓库，然后从官网上下载到本地）<br>4.完成之后新建maven项目  选择框架maven-archetype-webapp，然后继续填写需要的内容。<br>5.之后就将maven项目部署到Tomcat上就可以看到”Hello World”的字样。</p>
+  后，问题得到了解决。）</code></pre><p>2.在<mirrors></mirrors>标签中添加<br>     <mirror><br>      <id>alimaven</id><br>      <name>aliyun maven</name><br>      <url><a href="http://maven.aliyun.com/nexus/content/groups/public" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public</a></url><br>      <mirrorOf>central</mirrorOf><br>     </mirror></p>
+<p>3.在IDEA的setting中找到Build,Execution,Deployment–&gt;Build Tools–&gt;Maven配置本地仓库等这些内容(其他的不再赘述)<br>    （如果本机中不存在maven的本地仓库，系统会默认选择系统盘的仓库，然后从官网上下载到本地）</p>
+<p>4.完成之后新建maven项目  选择框架maven-archetype-webapp，然后继续填写需要的内容。</p>
+<p>5.之后就将maven项目部署到Tomcat上就可以看到”Hello World”的字样。</p>
 
       
 
@@ -265,6 +269,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/11/01/%E3%80%90Spring%E3%80%91%E5%88%9D%E6%AC%A1%E5%AD%A6%E4%B9%A0Spring/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【Spring】初次学习Spring
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/24/%E3%80%90Hexo%E3%80%91%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E5%88%B0GitHub%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
@@ -395,6 +408,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
             
             <div class="clearfix"></div>
