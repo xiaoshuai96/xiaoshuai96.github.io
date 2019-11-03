@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 英文 经典短语 | Hello World</title>
+  <title>【mybatis】mybatis的学习 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E8%8B%B1%E6%96%87-%E7%BB%8F%E5%85%B8%E7%9F%AD%E8%AF%AD&#x2F;index.html">
+  <meta name="description" content="mybatis(持久层框架) 持久层技术解决方案  JDBC技术:     Connection     PreparedStatement     ResultSet">
+<meta name="keywords" content="mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【mybatis】mybatis的学习">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="mybatis(持久层框架) 持久层技术解决方案  JDBC技术:     Connection     PreparedStatement     ResultSet">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-03T11:47:08.727Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
@@ -141,60 +145,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-【mybatis】mybatis的学习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2019-10-24T04:08:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">英文经典短句摘录</a>
+    <h1 class="article-title" itemprop="name">
+      【mybatis】mybatis的学习
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2019-11-02T04:51:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mybatis-持久层框架"><a href="#mybatis-持久层框架" class="headerlink" title="mybatis(持久层框架)"></a>mybatis(持久层框架)</h1><hr>
+<h4>持久层技术解决方案</h4>
+
+<pre><code>JDBC技术:
+    Connection
+    PreparedStatement
+    ResultSet</code></pre><a id="more"></a>    
+<pre><code>Spring的JdbcTemplate:
+    Spring中对jdbc的简单封装
+
+Apache的DBUtils:
+    它和Spring的JdbcTemplate很像，也是对jdbc的简单封装</code></pre><h3 id="但是以上都不是框架，JDBC是规范，上述的的JdbcTemplate和DBUtils都只是工具类"><a href="#但是以上都不是框架，JDBC是规范，上述的的JdbcTemplate和DBUtils都只是工具类" class="headerlink" title="但是以上都不是框架，JDBC是规范，上述的的JdbcTemplate和DBUtils都只是工具类"></a>但是以上都不是框架，JDBC是规范，上述的的JdbcTemplate和DBUtils都只是工具类</h3><hr>
+<h2 id="1-mybatis概述"><a href="#1-mybatis概述" class="headerlink" title="1.mybatis概述"></a>1.mybatis概述</h2><pre><code>MyBatis 是一款优秀的持久层框架，它内部封装了jdbc，使开发者只需要关注sql语句本身，而不需要费精力去处理加载驱动、创建链接、创建statement等繁杂的
+过程。
+mybatis通过xml或者注解的方式将要执行的各种statement配置起来，并通过java对象和statement中sql的动态参数进行映射生成最终执行的sql语句，最后由
+mybatis框架执行sql并将结果映射为java对象并返回。
+
+
+ORM:
+    Object Relational Mapping  对象关系映射
+    简单的说：
+        就是把数据库表和实体类的属性对应起来
+        让我们可以操作实体类就能实现操作数据库表。
+
+        user          User
+        id            userId
+        user_name     userName</code></pre><h2 id="2-mybatis入门"><a href="#2-mybatis入门" class="headerlink" title="2.mybatis入门"></a>2.mybatis入门</h2><pre><code>mybatis的环境搭建：
+    1.创建maven工程并导入坐标
+    2.创建实体类和dao的接口
+    3.创建mybatis的主配置文件SqlMapConfig.xml
+    4.创建映射配置文件IUserDao.xml
+mybatis环境搭建的注意事项：
+    1.在mybatis中，持久层的操作接口名称和映射文件也叫做：Mapper
+      所以IUserDao和IUserMapper是一回事。
+    2.在idea中创建包和目录的时候是不一样的
+      在创建包时：com.itheima.dao  这是三级结构
+      在创建目录时：com.itheima.dao  这是一级结构
+    3.mybatis的映射配置文件位置和dao接口的包结构相同
+    4.映射配置文件的mapper的属性namespace的取值必须是dao接口的全限定类名
+    5.映射配置文件的操作配置，id属性的取值必须是dao接口中的方法名 </code></pre><p>而当我们遵从了3、4、5点之后，在开发中就无需再写dao的实现类。</p>
+<hr>
+<pre><code>mybatis入门案例:    
+    1.读取配置文件
+    2.创建SqlSessionFactory工厂
+    3.创建SqlSession
+    4.创建Dao接口的代理对象
+    5.执行dao中的方法
+    6.释放资源
+
+注意事项：
+    不要忘记在映射配置中告知mybatis要封装到哪个实体类中
+    配置的方式：指定实体类的全限定类名</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">英文 经典短语</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/01/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Spring】初次学习Spring</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -217,9 +378,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
