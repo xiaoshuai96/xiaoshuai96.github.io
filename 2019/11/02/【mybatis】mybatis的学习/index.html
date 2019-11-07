@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="mybatis(持久层框架) 持久层技术解决方案  JDBC技术:     Connection     PreparedStatement     ResultSet">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-03T11:47:08.727Z">
+<meta property="og:updated_time" content="2019-11-04T04:11:24.279Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
@@ -216,7 +216,22 @@ mybatis环境搭建的注意事项：
 
 注意事项：
     不要忘记在映射配置中告知mybatis要封装到哪个实体类中
-    配置的方式：指定实体类的全限定类名</code></pre>
+    配置的方式：指定实体类的全限定类名
+
+
+mybatis基于注解的入门案例：
+    移除掉IUserDao.xml文件，在接口的方法上使用select注解，并指明SQL语句
+    同时需要在SqlMapConfig.xml文件的mapper标签配置中，使用class属性并指定dao接口的全限定类名。
+
+自定义Mybatis的分析：
+    mybatis在使用代理dao的方式实现增删改查时做了什么事？
+    答：两件事：
+        1.创建代理对象
+        2.在代理对象中调用selectList
+
+
+自定义mybatis能通过入门案例看到类：
+    class Resources</code></pre>
       
 
       
@@ -319,6 +334,15 @@ mybatis环境搭建的注意事项：
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/11/07/%E3%80%90BinarySortTree%E3%80%91%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E7%9A%84%E7%BB%93%E7%82%B9%E7%9A%84%E5%88%A0%E9%99%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【BinarySortTree】二叉排序树的结点的删除
+        
+      </div>
+    </a>
   
   
     <a href="/2019/11/01/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -448,15 +472,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
