@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【maven】初次使用IDEA创建maven项目所遇到的问题 | Hello World</title>
+  <title>【项目中版本兼容问题】tomcat和jdk版本 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在IDEA中初次创建maven项目，并部署到Tomcat1.先在maven官网上下载maven，在本地安装maven。完成之后需要在maven根目录的conf下修改settings.xml配置文件">
+  <meta name="description" content="版本问题初始的环境:idea+tomcat7+jdk1.8(32位)在使用上述的环境搭建完工程，启动tomcat服务器之后，网页上出现了500错误">
+<meta name="keywords" content="IDEA tomcat jdk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【maven】初次使用IDEA创建maven项目所遇到的问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;%E3%80%90maven%E3%80%91%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8IDEA%E5%88%9B%E5%BB%BAmaven%E9%A1%B9%E7%9B%AE%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:title" content="【项目中版本兼容问题】tomcat和jdk版本">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="在IDEA中初次创建maven项目，并部署到Tomcat1.先在maven官网上下载maven，在本地安装maven。完成之后需要在maven根目录的conf下修改settings.xml配置文件">
+<meta property="og:description" content="版本问题初始的环境:idea+tomcat7+jdk1.8(32位)在使用上述的环境搭建完工程，启动tomcat服务器之后，网页上出现了500错误">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-01T08:31:42.945Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC&#x2F;exceptionReport.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC&#x2F;down_jdk.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC&#x2F;windowsClean.png">
+<meta property="og:updated_time" content="2019-11-26T10:29:46.492Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC&#x2F;exceptionReport.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -144,39 +149,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【maven】初次使用IDEA创建maven项目所遇到的问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【项目中版本兼容问题】tomcat和jdk版本" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【maven】初次使用IDEA创建maven项目所遇到的问题
+      【项目中版本兼容问题】tomcat和jdk版本
     </h1>
   
 
         
-        <a href="/2019/10/30/%E3%80%90maven%E3%80%91%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8IDEA%E5%88%9B%E5%BB%BAmaven%E9%A1%B9%E7%9B%AE%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2019-10-30T12:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+        <a href="/2019/11/26/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC/" class="archive-article-date">
+  	<time datetime="2019-11-26T09:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在IDEA中初次创建maven项目，并部署到Tomcat"><a href="#在IDEA中初次创建maven项目，并部署到Tomcat" class="headerlink" title="在IDEA中初次创建maven项目，并部署到Tomcat"></a>在IDEA中初次创建maven项目，并部署到Tomcat</h2><p>1.先在maven官网上下载maven，在本地安装maven。完成之后需要在maven根目录的conf下修改settings.xml配置文件</p>
-<a id="more"></a>
-
-<pre><code>（这里的maven版本是非常重要的，在这里浪费了太多的时间，首先我刚开始使用的环境是IDEA.2019+tomcat7+JDK1.9
-  但是出现了Unable to import Maven project See logs for detail的红字，我开始查找问题，因为在创建maven项目时
-  大家出现的问题都是各种各样，所以我在网上查找的非常的慢，没有办法我只能查看日志，开始发现jdk的版本是不是和项目
-  不太匹配，所以我更换了jdk的版本，将其降为1.8版本，但是上述的问题还是没有得到解决。只能再次查看日志文件（确实看
-  的不怎么懂），但是可能是god看我太辛苦，让我在万千网页中找到了一些头绪：可能是maven版本的问题，因为是最新的IDEA
-  和最新的maven，说不定在匹配上就是会存在一些问题，所以我去maven官网的历史版本中下载了maven3.6.1版本，重新测试之
-  后，问题得到了解决。）</code></pre><p>2.在<mirrors></mirrors>标签中添加<br>     <mirror><br>      <id>alimaven</id><br>      <name>aliyun maven</name><br>      <url><a href="http://maven.aliyun.com/nexus/content/groups/public" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public</a></url><br>      <mirrorOf>central</mirrorOf><br>     </mirror></p>
-<p>3.在IDEA的setting中找到Build,Execution,Deployment–&gt;Build Tools–&gt;Maven配置本地仓库等这些内容(其他的不再赘述)<br>    （如果本机中不存在maven的本地仓库，系统会默认选择系统盘的仓库，然后从官网上下载到本地）</p>
-<p>4.完成之后新建maven项目  选择框架maven-archetype-webapp，然后继续填写需要的内容。</p>
-<p>5.之后就将maven项目部署到Tomcat上就可以看到”Hello World”的字样。</p>
+        <h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a><h1><em>版本问题</em></h1></h1><h2 id="初始的环境-idea-tomcat7-jdk1-8-32位"><a href="#初始的环境-idea-tomcat7-jdk1-8-32位" class="headerlink" title="初始的环境:idea+tomcat7+jdk1.8(32位)"></a>初始的环境:idea+tomcat7+jdk1.8(32位)</h2><h3 id="在使用上述的环境搭建完工程，启动tomcat服务器之后，网页上出现了500错误"><a href="#在使用上述的环境搭建完工程，启动tomcat服务器之后，网页上出现了500错误" class="headerlink" title="在使用上述的环境搭建完工程，启动tomcat服务器之后，网页上出现了500错误"></a>在使用上述的环境搭建完工程，启动tomcat服务器之后，网页上出现了500错误</h3><a id="more"></a> 
+<p><img src="/2019/11/26/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC/exceptionReport.png" alt="report"><br>然后根据上述异常的提示，我开始查找问题<br>根据百度搜索中的提示最终定位到：<br>–可能是tomcat版本过低的问题，我所使用的版本是tomcat7，其中8版本中包含了一些7所不具备的包和类<br>下载tomcat8版本，重新配置过后，问题得到解决。  </p>
+<p>但是新的问题又产生了：  </p>
+<h3 id="在tomcat服务器启动的时候，会出现-APR-based-Apache-Tomcat-Native-library-is-installed"><a href="#在tomcat服务器启动的时候，会出现-APR-based-Apache-Tomcat-Native-library-is-installed" class="headerlink" title="在tomcat服务器启动的时候，会出现 APR based Apache Tomcat Native library is installed"></a>在tomcat服务器启动的时候，会出现 APR based Apache Tomcat Native library is installed</h3><p>刚开始我将目光集中在了上述的提示上，经过网上的提示对tcnative-1.dll文件进行更新、替换，但是还是没有解决我的问题。  </p>
+<p>我没有注意到的是下面的问题： </p>
+<h3 id="Can’t-load-AMD-64-bit-dll-on-a-IA-32-bit’-platform"><a href="#Can’t-load-AMD-64-bit-dll-on-a-IA-32-bit’-platform" class="headerlink" title="Can’t load AMD 64-bit .dll on a IA 32-bit’ platform"></a>Can’t load AMD 64-bit .dll on a IA 32-bit’ platform</h3><p>然后就将问题定位到了jdk的位数问题上，可以使用命令 java -version 查询下自己的jdk版本，第三行没有出现64字样，那就说明你的jdk是32位，而32位是不能加载一些项目和服务器所需要的东西<br>下载jdk8-64bit地址<br><a><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></a><br><img src="/2019/11/26/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC/down_jdk.png" alt="down">  </p>
+<h2 id="新的问题再次出现"><a href="#新的问题再次出现" class="headerlink" title="新的问题再次出现"></a>新的问题再次出现</h2><p>我在安装新的jdk之前，想要卸载旧的的jdk版本，卸载完成之后，系统还是提醒我jdk并没有被卸载，此时命令行中的java、javac等等关于java的命令已经无法使用，我也去删掉了注册表中的software文件夹，但是还是无法安装新版本。  </p>
+<p>以下内容摘自互联网：</p>
+<h3 id="关于-jdk卸载不掉的问题"><a href="#关于-jdk卸载不掉的问题" class="headerlink" title="关于 jdk卸载不掉的问题:"></a>关于 jdk卸载不掉的问题:</h3><p>下面是SUN公司给出的解决办法：<br> If the normal uninstallation process (as mentioned above) fails, then please try Microsoft Windows Installer Cleanup Utility. This tool will ensure that all irrelevant Java Runtime Environment Microsoft Installer (msi) registries are removed. Detailed information and download is available at: Description of the Windows Installer CleanUp Utility<br> 可以看到，它是让我们去Windows的官网去下载一个所谓的Windows安装清理工具，说这个工具可以将注册表中的信息一起清掉，安装运行这个工具在里面选择Java清除，当然这样做了有可能还是无法安装新的，因为注册表没有清理干净，找到Java注册表键值 HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft ，将文件夹JavaSoft改名，最好只是改名，因为一旦出了问题还可以再改回来。然后再装旧版jre，原路经下安装可能还会报错，换一个路径安装，看看是不是没问题了，看看控制面板上Java的版本是不是换了。 卸载JDK前，先将环境变量中的CLASSPATH删掉，将PATH中与JAVA有关的部分也给去掉。<br> windows 清理工具地址：<a><a href="http://down.tech.sina.com.cn/page/16877.html" target="_blank" rel="noopener">http://down.tech.sina.com.cn/page/16877.html</a></a><br><img src="/2019/11/26/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC/windowsClean.png" alt="clean"><br>到此该问题全部解决，真是积极向上的一下午（微笑脸）</p>
 
       
 
@@ -206,6 +207,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">IDEA tomcat jdk</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -256,7 +268,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/30/%E3%80%90maven%E3%80%91%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8IDEA%E5%88%9B%E5%BB%BAmaven%E9%A1%B9%E7%9B%AE%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/26/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E3%80%91tomcat%E5%92%8Cjdk%E7%89%88%E6%9C%AC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,18 +282,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/01/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【Spring】初次学习Spring
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/24/%E3%80%90Hexo%E3%80%91%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E5%88%B0GitHub%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【Hexo】利用Hexo搭建个人博客，部署到GitHub</div>
+    <a href="/2019/11/22/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【LeetCode】力扣--101-对称二叉树</div>
       <i class="icon-circle-right"></i>
     </a>
   
