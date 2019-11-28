@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="mybatis(持久层框架) 持久层技术解决方案  JDBC技术:     Connection     PreparedStatement     ResultSet">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-04T04:11:24.279Z">
+<meta property="og:updated_time" content="2019-11-28T10:06:22.842Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
@@ -231,7 +231,91 @@ mybatis基于注解的入门案例：
 
 
 自定义mybatis能通过入门案例看到类：
-    class Resources</code></pre>
+    class Resources
+    class SqlSessionFactoryBuilder
+    interface SqlSessionFactory
+    interface SqlSession</code></pre><h3 id="OGNL表达式："><a href="#OGNL表达式：" class="headerlink" title="OGNL表达式："></a>OGNL表达式：</h3><pre><code>Object    Graphic    Navigation    Language
+对象            图           导航             语言
+
+它是通过对象的取值方法来获取数据。在写法上把get给省略了。
+比如：我们获取用户的名称
+    类中的写法：user.getUsername();
+    OGNL表达式写法：user.username
+mybatis中为什么能直接写username,而不用user.呢？
+    因为在parameterType中已经提供了属性所属的类，所以此时不需要写对象名</code></pre><h3 id="mybatis中的连接池以及事务控制-原理部分了解，应用部分会用"><a href="#mybatis中的连接池以及事务控制-原理部分了解，应用部分会用" class="headerlink" title="mybatis中的连接池以及事务控制            原理部分了解，应用部分会用"></a>mybatis中的连接池以及事务控制            原理部分了解，应用部分会用</h3><pre><code>mybatis中连接池使用及分析
+mybatis事务控制的分析</code></pre><h3 id="mybatis基于XML配置的动态SQL语句使用"><a href="#mybatis基于XML配置的动态SQL语句使用" class="headerlink" title="mybatis基于XML配置的动态SQL语句使用"></a>mybatis基于XML配置的动态SQL语句使用</h3><pre><code>mappers配置文件中的几个标签：
+    &lt;if&gt;
+    &lt;where&gt;
+    &lt;foreach&gt;
+    &lt;sql&gt;</code></pre><h3 id="mybatis中的多表操作-掌握应用"><a href="#mybatis中的多表操作-掌握应用" class="headerlink" title="mybatis中的多表操作                掌握应用"></a>mybatis中的多表操作                掌握应用</h3><pre><code>一对多
+一对一（？）
+多对多  </code></pre><h3 id="连接池："><a href="#连接池：" class="headerlink" title="连接池："></a>连接池：</h3><pre><code>我们在实际开发中都会使用连接池。
+因为它可以减少我们获取连接所消耗的时间。  </code></pre><h3 id="mybatis中的连接池"><a href="#mybatis中的连接池" class="headerlink" title="mybatis中的连接池"></a>mybatis中的连接池</h3><pre><code>mybatis连接池提供了3种方式的配置：
+    配置的位置：
+        主配置文件SqlMapConfig.xml中的dataSource标签，type属性就是表示采用何种连接池方式。
+    type属性的取值：
+        POOLED     采用传统的javax.sql.DataSource规范中的连接池，mybatis中有针对规范的实现
+        UNPOOLED 采用传统的获取连接的方式，虽然也实现Javax.sql.DataSource接口，但是并没有使用池的思想。
+        JNDI     采用服务器提供的JNDI技术实现，来获取DataSource对象，不同的服务器所能拿到DataSource是不一样。
+             注意：如果不是web或者maven的war工程，是不能使用的。
+             我们课程中使用的是tomcat服务器，采用连接池就是dbcp连接池。</code></pre><h3 id="mybatis中的事务"><a href="#mybatis中的事务" class="headerlink" title="mybatis中的事务"></a>mybatis中的事务</h3><pre><code>什么是事务
+事务的四大特性ACID
+不考虑隔离性会产生的3个问题
+解决办法：四种隔离级别
+
+它是通过sqlsession对象的commit方法和rollback方法实现事务的提交和回滚</code></pre><h3 id="mybatis中的多表查询"><a href="#mybatis中的多表查询" class="headerlink" title="mybatis中的多表查询"></a>mybatis中的多表查询</h3><pre><code>表之间的关系有几种：
+    一对多
+    多对一
+    一对一
+    多对多
+举例：
+    用户和订单就是一对多
+    订单和用户就是多对一
+        一个用户可以下多个订单
+        多个订单属于同一个用户
+
+    人和身份证号就是一对一
+        一个人只能有一个身份证号
+        一个身份证号只能属于一个人
+
+    老师和学生之间就是多对多
+        一个学生可以被多个老师教过
+        一个老师可以教多个学生
+特例：
+    如果拿出每一个订单，他都只能属于一个用户。
+    所以Mybatis就把多对一看成了一对一。
+
+mybatis中的多表查询：
+    示例：用户和账户
+        一个用户可以有多个账户
+        一个账户只能属于一个用户（多个账户也可以属于同一个用户）
+    步骤：
+        1、建立两张表：用户表，账户表
+            让用户表和账户表之间具备一对多的关系：需要使用外键在账户表中添加
+        2、建立两个实体类：用户实体类和账户实体类
+            让用户和账户的实体类能体现出来一对多的关系
+        3、建立两个配置文件
+            用户的配置文件
+            账户的配置文件
+        4、实现配置：
+            当我们查询用户时，可以同时得到用户下所包含的账户信息
+            当我们查询账户时，可以同时得到账户的所属用户信息
+
+    示例：用户和角色
+        一个用户可以有多个角色
+        一个角色可以赋予多个用户
+    步骤：
+        1、建立两张表：用户表，角色表
+            让用户表和角色表具有多对多的关系。需要使用中间表，中间表中包含各自的主键，在中间表中是外键。
+        2、建立两个实体类：用户实体类和角色实体类
+            让用户和角色的实体类能体现出来多对多的关系
+            各自包含对方一个集合引用
+        3、建立两个配置文件
+            用户的配置文件
+            角色的配置文件
+        4、实现配置：
+            当我们查询用户时，可以同时得到用户所包含的角色信息
+            当我们查询角色时，可以同时得到角色的所赋予的用户信息</code></pre>
       
 
       
@@ -484,11 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
