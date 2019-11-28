@@ -16,8 +16,11 @@
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="mybatis(持久层框架) 持久层技术解决方案  JDBC技术:     Connection     PreparedStatement     ResultSet">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-28T13:48:34.779Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;pool.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD.png">
+<meta property="og:updated_time" content="2019-11-28T13:56:59.615Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;pool.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -258,7 +261,8 @@ type属性的取值：
     UNPOOLED 采用传统的获取连接的方式，虽然也实现Javax.sql.DataSource接口，但是并没有使用池的思想。
     JNDI     采用服务器提供的JNDI技术实现，来获取DataSource对象，不同的服务器所能拿到DataSource是不一样。
          注意：如果不是web或者maven的war工程，是不能使用的。
-         我们课程中使用的是tomcat服务器，采用连接池就是dbcp连接池。</code></pre><h2 id="mybatis中的事务"><a href="#mybatis中的事务" class="headerlink" title="mybatis中的事务"></a>mybatis中的事务</h2><pre><code>什么是事务
+         我们课程中使用的是tomcat服务器，采用连接池就是dbcp连接池。  </code></pre><p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/pool.png" alt="pool"></p>
+<h2 id="mybatis中的事务"><a href="#mybatis中的事务" class="headerlink" title="mybatis中的事务"></a>mybatis中的事务</h2><pre><code>什么是事务
 事务的四大特性ACID
 不考虑隔离性会产生的3个问题
 解决办法：四种隔离级别
@@ -320,7 +324,8 @@ mybatis中的多表查询：
   在查询账户的时候，要不要把关联的用户查出来？
 
   在查询用户时，用户下的账户信息应该是，什么时候使用，什么时候查询的。
-  在查询账户时，账户的所属用户信息应该是随着账户查询时一起查询出来。</code></pre><h3 id="什么是延迟加载"><a href="#什么是延迟加载" class="headerlink" title="什么是延迟加载"></a>什么是延迟加载</h3><pre><code>在真正使用数据时才发起查询，不用的时候不查询。按需加载（也叫懒加载）</code></pre><h3 id="什么是立即加载"><a href="#什么是立即加载" class="headerlink" title="什么是立即加载"></a>什么是立即加载</h3><pre><code>不管用不用，只要一调用方法，马上发起查询。</code></pre><p>在对应的四种表关系中：<br>     一对多，多对一，一对一，多对多<br>    一对多，多对多：通常情况下我们都是采用延迟加载。<br>    多对一，一对一：通常情况下我们都是采用立即加载。</p>
+  在查询账户时，账户的所属用户信息应该是随着账户查询时一起查询出来。</code></pre><h3 id="什么是延迟加载"><a href="#什么是延迟加载" class="headerlink" title="什么是延迟加载"></a>什么是延迟加载</h3><pre><code>在真正使用数据时才发起查询，不用的时候不查询。按需加载（也叫懒加载）</code></pre><p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD.png" alt="pool"></p>
+<h3 id="什么是立即加载"><a href="#什么是立即加载" class="headerlink" title="什么是立即加载"></a>什么是立即加载</h3><pre><code>不管用不用，只要一调用方法，马上发起查询。</code></pre><p>在对应的四种表关系中：<br>     一对多，多对一，一对一，多对多<br>    一对多，多对多：通常情况下我们都是采用延迟加载。<br>    多对一，一对一：通常情况下我们都是采用立即加载。</p>
 <h2 id="Mybatis中的缓存"><a href="#Mybatis中的缓存" class="headerlink" title="Mybatis中的缓存"></a>Mybatis中的缓存</h2><h3 id="什么是缓存？"><a href="#什么是缓存？" class="headerlink" title="什么是缓存？"></a>什么是缓存？</h3><pre><code>存在于内存中的临时数据。</code></pre><h3 id="为什么使用缓存？"><a href="#为什么使用缓存？" class="headerlink" title="为什么使用缓存？"></a>为什么使用缓存？</h3><pre><code>减少和数据库的交互次数，提高执行效率。</code></pre><h3 id="什么样的数据能使用缓存，什么样的数据不能使用？"><a href="#什么样的数据能使用缓存，什么样的数据不能使用？" class="headerlink" title="什么样的数据能使用缓存，什么样的数据不能使用？"></a>什么样的数据能使用缓存，什么样的数据不能使用？</h3><pre><code>适用于缓存：
     经常查询并且不经常改变的。
     数据的正确与否对最终结果影响不大的。
@@ -588,11 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,11 +613,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
+                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
               </li>
             
             <div class="clearfix"></div>
