@@ -18,7 +18,14 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;pool.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD.png">
-<meta property="og:updated_time" content="2019-11-28T13:56:59.615Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;DirStruct.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;DirStruct2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;SqlMapConfig.xml.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;CRUD.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;OneOnOne_Config.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;OneOnMany_config.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;SecondLevelCacheAnnot.png">
+<meta property="og:updated_time" content="2019-12-01T11:25:39.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;pool.png">
   
@@ -344,7 +351,14 @@ mybatis中的多表查询：
     二级缓存的使用步骤：
         第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）
         第二步：让当前的映射文件支持二级缓存（在IUserDao.xml中配置）
-        第三步：让当前的操作支持二级缓存（在select标签中配置（useCache属性置为true））</code></pre>
+        第三步：让当前的操作支持二级缓存（在select标签中配置（useCache属性置为true））</code></pre><h3 id="Mybatis中的注解开发"><a href="#Mybatis中的注解开发" class="headerlink" title="Mybatis中的注解开发"></a>Mybatis中的注解开发</h3><pre><code>环境搭建  </code></pre><p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/DirStruct.png" alt="struct">  </p>
+<p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/DirStruct2.png" alt="struct"> </p>
+<p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/SqlMapConfig.xml.png" alt="sqlMapConfig">  </p>
+<pre><code>单表CRUD操作（代理Dao方式）  </code></pre><p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/CRUD.png" alt="crud">  </p>
+<pre><code>多表查询操作  </code></pre><p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/OneOnOne_Config.png" alt="one">   </p>
+<p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/OneOnMany_config.png" alt="many">  </p>
+<pre><code>缓存的配置</code></pre><p><img src="/2019/11/02/%E3%80%90mybatis%E3%80%91mybatis%E7%9A%84%E5%AD%A6%E4%B9%A0/SecondLevelCacheAnnot.png" alt="cache"></p>
+
       
 
       
@@ -585,11 +599,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,11 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
