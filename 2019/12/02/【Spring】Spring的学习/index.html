@@ -23,7 +23,11 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;dirStr.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;bean_scope.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;life.png">
-<meta property="og:updated_time" content="2019-12-03T13:53:56.597Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;structFun.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;setMethod.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;many1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;many2.png">
+<meta property="og:updated_time" content="2019-12-05T14:55:36.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -233,7 +237,48 @@ applicationContext.
 2.使用普通工厂中的方法创建对象（使用某个类中的方法创建对象，并存入spring容器）
 
 3.使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象，并存入spring容器）</code></pre><h3 id="bean对象的作用范围"><a href="#bean对象的作用范围" class="headerlink" title="bean对象的作用范围"></a>bean对象的作用范围</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/bean_scope.png" alt="scope">  </p>
-<h3 id="bean对象的生命周期"><a href="#bean对象的生命周期" class="headerlink" title="bean对象的生命周期"></a>bean对象的生命周期</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/life.png" alt="life"> </p>
+<h3 id="bean对象的生命周期"><a href="#bean对象的生命周期" class="headerlink" title="bean对象的生命周期"></a>bean对象的生命周期</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/life.png" alt="life">   </p>
+<h2 id="spring的依赖注入"><a href="#spring的依赖注入" class="headerlink" title="spring的依赖注入"></a>spring的依赖注入</h2><pre><code>依赖注入(Dependency Injection):
+IOC的作用：  
+    降低程序间的耦合（依赖关系）  
+依赖关系的管理：
+    以后都交给spring来维护
+在当前类需要用到其他类的对象，由spring为我们提供，我们只需要在配置文件中说明即可。
+依赖关系的维护：
+    就称之为依赖注入。
+ 依赖注入：
+    能注入的数据：三类
+        基本类型和String
+        其他bean类型（在配置文件中或者注解配置过的bean）
+        复杂类型/集合类型
+    注入的方式：三种
+        第一种：使用构造函数提供
+        第二种：使用set方法提供
+        第三种：使用注解提供 </code></pre><h3 id="构造函数的注入"><a href="#构造函数的注入" class="headerlink" title="构造函数的注入"></a>构造函数的注入</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/structFun.png" alt="structFun">   </p>
+<h4 id="上图中的注入数据包括基本类型、String类型和其他bean类型"><a href="#上图中的注入数据包括基本类型、String类型和其他bean类型" class="headerlink" title="上图中的注入数据包括基本类型、String类型和其他bean类型"></a>上图中的注入数据包括基本类型、String类型和其他bean类型</h4><pre><code>构造函数注入：
+使用的标签：constructor-arg
+标签出现的位置：bean标签的内部
+标签中的属性：
+    type：用于指定要注入的数据的数据类型，该数据类型也是构造函数中某个或者某些参数的类型
+    index：用于指定要注入的数据结构函数中指定索引位置的参数赋值，参数索引的位置是从0开始
+    name：用于指定给构造函数中指定名称的参数赋值                常用的
+================以上三个属性用于指定给构造函数中的哪个参数赋值==========================
+
+    value：用于提供基本类型和String类型的数据
+    ref：用于指定其他的bean类型数据。他指的就是在spring核心容器中，出现过的bean对象
+
+优势：在获取bean对象时，注入数据是必须的操作，否则bean对象无法创建成功。
+弊端：改变了bean对象的实例化方式，使我们在创建对象时，即便用不到其中的全部数据，也必须提供完全。  </code></pre><h3 id="set方法的注入"><a href="#set方法的注入" class="headerlink" title="set方法的注入"></a>set方法的注入</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/setMethod.png" alt="setMethod">    </p>
+<pre><code>set方法注入(实际开发中比较常用)
+涉及的标签：properties
+出现的位置：bean标签的内部
+标签中的属性：
+    name：用于指定注入时所调用的set方法名称（拿掉set字符）
+    value：用于提供基本类型和String类型的数据
+    ref：用于指定其他的bean类型数据。他指的就是在spring核心容器中，出现过的bean对象
+
+优势：创建对象时没有明确的限制，可以直接使用默认构造函数，同时也很好的解决了使用构造函数注入数据的问题。
+弊端：如果某个成员变量必须有值，则获取对象时是有可能set方法没有执行。   </code></pre><h4 id="下图中的注入数据为复杂类型-集合类型"><a href="#下图中的注入数据为复杂类型-集合类型" class="headerlink" title="下图中的注入数据为复杂类型/集合类型"></a>下图中的注入数据为复杂类型/集合类型</h4><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/many1.png" alt="many1"><br><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/many2.png" alt="many2"></p>
 
       
 
@@ -466,10 +511,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
@@ -478,11 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
