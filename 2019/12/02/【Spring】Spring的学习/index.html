@@ -27,7 +27,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;setMethod.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;many1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;many2.png">
-<meta property="og:updated_time" content="2019-12-05T14:55:36.612Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;anno_ioc.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;ConfigurationClass.png">
+<meta property="og:updated_time" content="2019-12-08T13:14:03.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -278,7 +280,74 @@ IOC的作用：
     ref：用于指定其他的bean类型数据。他指的就是在spring核心容器中，出现过的bean对象
 
 优势：创建对象时没有明确的限制，可以直接使用默认构造函数，同时也很好的解决了使用构造函数注入数据的问题。
-弊端：如果某个成员变量必须有值，则获取对象时是有可能set方法没有执行。   </code></pre><h4 id="下图中的注入数据为复杂类型-集合类型"><a href="#下图中的注入数据为复杂类型-集合类型" class="headerlink" title="下图中的注入数据为复杂类型/集合类型"></a>下图中的注入数据为复杂类型/集合类型</h4><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/many1.png" alt="many1"><br><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/many2.png" alt="many2"></p>
+弊端：如果某个成员变量必须有值，则获取对象时是有可能set方法没有执行。   </code></pre><h4 id="下图中的注入数据为复杂类型-集合类型"><a href="#下图中的注入数据为复杂类型-集合类型" class="headerlink" title="下图中的注入数据为复杂类型/集合类型"></a>下图中的注入数据为复杂类型/集合类型</h4><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/many1.png" alt="many1"><br><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/many2.png" alt="many2">  </p>
+<h3 id="注解配置IoC"><a href="#注解配置IoC" class="headerlink" title="注解配置IoC"></a>注解配置IoC</h3><pre><code>用于创建对象的：
+   他们的作用就和在XML文件中编写一个&lt;bean&gt;标签实现的功能是一样的
+   @Component:
+         作用：用于把当前类的对象存入spring容器中
+         属性：
+           value：用于指定bean的id，当不写该属性时，默认值是当前类名且首字母改小写
+   @Controller:一般用在表现层
+   @Service:一般用在业务层
+   @Repository:一般用于持久层
+   以上三个注解，作用和属性与Component完全相同。
+   他们三个是spring框架为我们提供明确的三层使用，使我们的三层对象更加清晰。
+
+
+用于注入数据的：
+   他们的作用就和在XML文件中的&lt;bean&gt;标签中写一个&lt;properties&gt;标签的作用是一样的
+   @AutoWired:
+       作用：自动按照类型注入，只要容器中有唯一的一个bean对象类型和要注入的变量类型匹配，就可以注入成功。
+            如果IOC容器中没有任何一个bean的类型和要注入的变量类型相匹配，则报错。
+            如果IOC容器中有多个类型匹配时，
+       出现的位置：可以是变量上，也可以是方法上
+       细节：在使用注解注入时，set方法就不是必须的了
+   @Qualifier:
+      作用：在按照类型注入的基础上再按照名称注入，它在给类成员注入时不能单独使用，但是在给方法参数注入时可以。
+       属性：
+          value：用于指定注入bean的id。
+   @Resource:
+       作用：直接按照bean的id注入，可以独立使用，不依赖于AutoWired注解使用。
+        属性：
+           name：用于指定要注入bean的id。
+   以上三个注入都只能注入其他bean类型的数据，而基本类型和String类型无法使用上述注解实现。
+   另外，集合类型的注入只能通过XML来实现。
+
+   @Value:
+       作用：用于注入基本类型和String类型的数据。
+       属性：
+           value：用于指定数据的值。它可以使用spring中的SpEL（也就是spring中的EL表达式）
+                   SpEL的写法：${表达式}
+
+
+用于改变作用范围的：
+   他们的作用就和在bean标签中使用scope属性实现的功能是一样的。
+   @Scope：
+       作用：用于指定bean的作用范围。
+       属性：
+          value：指定范围的取值。常用取值：singleton prototype
+和生命周期相关的：
+   他们的作用就和在bean标签中使用init-method和destory-method的作用是一样的
+   @PreDestory:
+       作用：用于指定销毁方法
+   @PostConstruct:
+       作用：用于指定初始化方法  </code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/anno_ioc.png" alt="anno">  </p>
+<h3 id="使用注解配置CRUD操作-不需要xml文件"><a href="#使用注解配置CRUD操作-不需要xml文件" class="headerlink" title="使用注解配置CRUD操作(不需要xml文件)"></a>使用注解配置CRUD操作(不需要xml文件)</h3><pre><code>@Configuration
+       作用：指定当前类是一个配置类  
+@ComponentScan:
+       作用：用于通过注解指定spring在创建容器时要扫描的包
+       属性：
+           value：它和basePackages的作用是一样的，都是用于创建容器时要扫描的包。
+                   我们使用此注解就等同于在xml中配置了：
+ &lt;context:component-scan base-package=&quot;com.itheima&quot;&gt;&lt;/context:component-scan&gt;
+@Bean:
+   作用：
+       用于把当前方法的返回值作为bean对象存入spring的ioc容器中
+   属性：
+       name：用于指定bean的id。当不写时，默认值是当前方法的名称
+   细节：
+       当我们使用注解配置时，如果方法有参数，spring框架会去容器中有没有可用的bean对象。
+       查找的方式和autowired注解的作用是一样的。  </code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/ConfigurationClass.png" alt="config">  </p>
 
       
 
@@ -511,7 +580,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,11 +588,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
