@@ -27,9 +27,11 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;setMethod.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;many1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;many2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;qualifier.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;anno_ioc.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;ConfigurationClass.png">
-<meta property="og:updated_time" content="2019-12-08T13:14:03.966Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;spring_junit.png">
+<meta property="og:updated_time" content="2019-12-09T13:01:09.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -305,8 +307,8 @@ IOC的作用：
    @Qualifier:
       作用：在按照类型注入的基础上再按照名称注入，它在给类成员注入时不能单独使用，但是在给方法参数注入时可以。
        属性：
-          value：用于指定注入bean的id。
-   @Resource:
+          value：用于指定注入bean的id。  </code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/qualifier.png" alt="qualifier">  </p>
+<pre><code>   @Resource:
        作用：直接按照bean的id注入，可以独立使用，不依赖于AutoWired注解使用。
         属性：
            name：用于指定要注入bean的id。
@@ -333,7 +335,8 @@ IOC的作用：
    @PostConstruct:
        作用：用于指定初始化方法  </code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/anno_ioc.png" alt="anno">  </p>
 <h3 id="使用注解配置CRUD操作-不需要xml文件"><a href="#使用注解配置CRUD操作-不需要xml文件" class="headerlink" title="使用注解配置CRUD操作(不需要xml文件)"></a>使用注解配置CRUD操作(不需要xml文件)</h3><pre><code>@Configuration
-       作用：指定当前类是一个配置类  
+       作用：指定当前类是一个配置类
+       细节：当配置类作为AnnotationConfigApplicationContext对象创建时的参数时，该注解可以不写。
 @ComponentScan:
        作用：用于通过注解指定spring在创建容器时要扫描的包
        属性：
@@ -347,7 +350,29 @@ IOC的作用：
        name：用于指定bean的id。当不写时，默认值是当前方法的名称
    细节：
        当我们使用注解配置时，如果方法有参数，spring框架会去容器中有没有可用的bean对象。
-       查找的方式和autowired注解的作用是一样的。  </code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/ConfigurationClass.png" alt="config">  </p>
+       查找的方式和autowired注解的作用是一样的。   
+
+@Import
+    作用：
+        用于其他的配置类
+    属性：
+        value：用于指定其他配置类的字节码
+        当我们使用该注解后，该类就是主配置类，被导入的类就是子配置类。  
+
+@Properties
+    作用：
+        用于指定properties文件的位置。
+    属性：
+        value：指定文件的名称和路径。
+            关键字：classpath，表示在类路径下。</code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/ConfigurationClass.png" alt="config">  </p>
+<h2 id="Spring整合junit的配置-用spring提供的替换掉junit集成的main方法"><a href="#Spring整合junit的配置-用spring提供的替换掉junit集成的main方法" class="headerlink" title="Spring整合junit的配置(用spring提供的替换掉junit集成的main方法)"></a>Spring整合junit的配置(用spring提供的替换掉junit集成的main方法)</h2><pre><code>*  1.导入spring整合junit的jar包（坐标）
+*  2.使用junit提供的一个注解，将原有的main方法进行替换，替换成spring提供的。
+*      @RunWith
+*  3.告知spring的运行器，spring的ioc创建是基于xml还是注解的，并且指定位置。
+*      @ContextConfiguration
+*          location：指定xml文件的位置，加上classpath关键字，表示在类路径下。
+*          classes：指定注解类的所在位置。
+*  但我们使用spring 5.x版本的时候，要求junit的jar必须是4.1.2及其以上版本</code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/spring_junit.png" alt="spring_junit">  </p>
 
       
 
@@ -593,11 +618,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,19 +630,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
