@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【LeetCode】力扣--70-爬楼梯 | Hello World</title>
+  <title>【InvocationTargetException】使用spring创建代理对象工厂时出现的问题 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述假设你正在爬楼梯。需要 n 阶你才能到达楼顶。  每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？  注意：给定 n 是一个正整数。">
-<meta name="keywords" content="爬楼梯 leetcode">
+  <meta name="description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。   由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。1.当问题出现的时候，我先是了解了这个异常是什么意思？ 当被调用的方法的内部抛出了异常而没有被捕获时，将由">
+<meta name="keywords" content="Exception">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【LeetCode】力扣--70-爬楼梯">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;08&#x2F;%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF&#x2F;index.html">
+<meta property="og:title" content="【InvocationTargetException】使用spring创建代理对象工厂时出现的问题">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="题目描述假设你正在爬楼梯。需要 n 阶你才能到达楼顶。  每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？  注意：给定 n 是一个正整数。">
+<meta property="og:description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。   由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。1.当问题出现的时候，我先是了解了这个异常是什么意思？ 当被调用的方法的内部抛出了异常而没有被捕获时，将由">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-08T14:34:05.819Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;exception.png">
+<meta property="og:updated_time" content="2019-12-12T12:10:06.860Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;exception.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -145,79 +147,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【LeetCode】力扣-70-爬楼梯" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【InvocationTargetException】使用spring创建代理对象工厂时出现的问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【LeetCode】力扣--70-爬楼梯
+      【InvocationTargetException】使用spring创建代理对象工厂时出现的问题
     </h1>
   
 
         
-        <a href="/2019/12/08/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="archive-article-date">
-  	<time datetime="2019-12-08T13:59:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
+        <a href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-12-12T11:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><pre><code>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
-
-每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
-
-注意：给定 n 是一个正整数。  </code></pre><a id="more"></a>
-
-<pre><code>示例 1：
-
-输入： 2
-输出： 2
-解释： 有两种方法可以爬到楼顶。
-1.  1 阶 + 1 阶
-2.  2 阶
-
-示例 2：
-
-输入： 3
-输出： 3
-解释： 有三种方法可以爬到楼顶。
-1.  1 阶 + 1 阶 + 1 阶
-2.  1 阶 + 2 阶
-3.  2 阶 + 1 阶  </code></pre><p>在力扣官网上给出了六种之多的解法：在此不一一列举      </p>
-<pre><code>思路：
-   看到这个题，刚开始我是没有将它和斐波那契数列联系在一块的，后来一看解析，忽然之间就想明白了。  
-   将抽象的问题与现实中的问题对应起来对解题和理解是非常有帮助的。  
-   从第四个数(下标为3)开始，当前数总是前两个数之和  
-   通过前后数之间的联系，很快就能解决该问题。  </code></pre><h3 id="1-动态规划"><a href="#1-动态规划" class="headerlink" title="1.动态规划"></a>1.动态规划</h3><pre><code>public static int climbStairs(int n){
-    if(n == 1) return 1;
-    int[] dp = new int[n+1];
-    dp[1] = 1;
-    dp[2] = 2;
-    for (int i = 3;i &lt;= n;i++) {
-        dp[i] += dp[i - 1] + dp[i - 2];
-    }
-    return dp[n];
-}  </code></pre><h3 id="2-斐波那契数列"><a href="#2-斐波那契数列" class="headerlink" title="2.斐波那契数列"></a>2.斐波那契数列</h3><pre><code>思路：
-    斐波那契数列通式：Fib(n)=Fib(n−1)+Fib(n−2)  
-
-public static int climbStairs2(int n){
-    if(n == 1) return 1;
-    int first = 1;
-    int second = 2;
-    for (int i = 3;i &lt;= n;i++) {
-        int third = first + second;
-        first = second;
-        second = third;
-    }
-    return second;
-}  </code></pre><h3 id="3-斐波那契公式"><a href="#3-斐波那契公式" class="headerlink" title="3.斐波那契公式"></a>3.斐波那契公式</h3><pre><code>public static int climbStairs3(int n){
-    double Sqrt=Math.sqrt(5);
-    double fibn=Math.pow((1+Sqrt)/2,n+1)-Math.pow((1-Sqrt)/2,n+1);
-    return (int)(fibn/Sqrt);
-}</code></pre>
+        <h3 id="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"><a href="#最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。" class="headerlink" title="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"></a>最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。</h3><p><img src="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/exception.png" alt="ex">  </p>
+<h3 id="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"><a href="#由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。" class="headerlink" title="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"></a>由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。</h3><h3 id="1-当问题出现的时候，我先是了解了这个异常是什么意思？"><a href="#1-当问题出现的时候，我先是了解了这个异常是什么意思？" class="headerlink" title="1.当问题出现的时候，我先是了解了这个异常是什么意思？"></a>1.当问题出现的时候，我先是了解了这个异常是什么意思？</h3><p> 当被调用的方法的内部抛出了异常而没有被捕获时，将由此异常接收  </p>
+<h3 id="2-知悉异常之后去排查代码并没有发现没有处理的异常。"><a href="#2-知悉异常之后去排查代码并没有发现没有处理的异常。" class="headerlink" title="2.知悉异常之后去排查代码并没有发现没有处理的异常。"></a>2.知悉异常之后去排查代码并没有发现没有处理的异常。</h3><h3 id="3-排查对象代理工厂类中的代码，没有问题。"><a href="#3-排查对象代理工厂类中的代码，没有问题。" class="headerlink" title="3.排查对象代理工厂类中的代码，没有问题。"></a>3.排查对象代理工厂类中的代码，没有问题。</h3><h3 id="4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"><a href="#4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）" class="headerlink" title="4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"></a>4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）</h3>
       
 
       
@@ -251,7 +203,7 @@ public static int climbStairs2(int n){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬楼梯 leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
         		</li>
       		
 		</ul>
@@ -307,7 +259,7 @@ public static int climbStairs2(int n){
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/08/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +273,9 @@ public static int climbStairs2(int n){
   
 <nav id="article-nav">
   
-    <a href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【InvocationTargetException】使用spring创建代理对象工厂时出现的问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【Spring】Spring的学习</div>
+    <a href="/2019/12/08/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【LeetCode】力扣--70-爬楼梯</div>
       <i class="icon-circle-right"></i>
     </a>
   

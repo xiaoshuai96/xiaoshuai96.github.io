@@ -143,6 +143,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-【InvocationTargetException】使用spring创建代理对象工厂时出现的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/">【InvocationTargetException】使用spring创建代理对象工厂时出现的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-12-12T11:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"><a href="#最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。" class="headerlink" title="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"></a>最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。</h3><p><img src="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/exception.png" alt="ex">  </p>
+<h3 id="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"><a href="#由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。" class="headerlink" title="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"></a>由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。</h3><h3 id="1-当问题出现的时候，我先是了解了这个异常是什么意思？"><a href="#1-当问题出现的时候，我先是了解了这个异常是什么意思？" class="headerlink" title="1.当问题出现的时候，我先是了解了这个异常是什么意思？"></a>1.当问题出现的时候，我先是了解了这个异常是什么意思？</h3><p> 当被调用的方法的内部抛出了异常而没有被捕获时，将由此异常接收  </p>
+<h3 id="2-知悉异常之后去排查代码并没有发现没有处理的异常。"><a href="#2-知悉异常之后去排查代码并没有发现没有处理的异常。" class="headerlink" title="2.知悉异常之后去排查代码并没有发现没有处理的异常。"></a>2.知悉异常之后去排查代码并没有发现没有处理的异常。</h3><h3 id="3-排查对象代理工厂类中的代码，没有问题。"><a href="#3-排查对象代理工厂类中的代码，没有问题。" class="headerlink" title="3.排查对象代理工厂类中的代码，没有问题。"></a>3.排查对象代理工厂类中的代码，没有问题。</h3><h3 id="4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"><a href="#4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）" class="headerlink" title="4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"></a>4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-【LeetCode】力扣-70-爬楼梯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -827,83 +902,6 @@ Spring的诞生是为了解决企业应用级开发的复杂性而创建的。</
 
 
   
-    <article id="post-【Hexo】部署Hexo博客到GitHub教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/24/%E3%80%90Hexo%E3%80%91%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E5%88%B0GitHub%E6%95%99%E7%A8%8B/">【Hexo】利用Hexo搭建个人博客，部署到GitHub</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/24/%E3%80%90Hexo%E3%80%91%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E5%88%B0GitHub%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2019-10-24T13:44:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>话不多说，Let`s do it.</p>
-<h2 id="第一步：部署环境-Windows10"><a href="#第一步：部署环境-Windows10" class="headerlink" title="第一步：部署环境(Windows10)"></a>第一步：部署环境(Windows10)</h2><p>1.需要下载安装Node.js  网址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
-        
-          <a class="article-more-a" href="/2019/10/24/%E3%80%90Hexo%E3%80%91%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E5%88%B0GitHub%E6%95%99%E7%A8%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/24/%E3%80%90Hexo%E3%80%91%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E5%88%B0GitHub%E6%95%99%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1005,19 +1003,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1038,6 +1036,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
             
             <div class="clearfix"></div>
