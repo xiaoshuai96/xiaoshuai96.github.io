@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【InvocationTargetException】使用spring创建代理对象工厂时出现的问题 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。   由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。1.当问题出现的时候，我先是了解了这个异常是什么意思？ 当被调用的方法的内部抛出了异常而没有被捕获时，将由">
+  <meta name="description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。">
 <meta name="keywords" content="Exception">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【InvocationTargetException】使用spring创建代理对象工厂时出现的问题">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。   由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。1.当问题出现的时候，我先是了解了这个异常是什么意思？ 当被调用的方法的内部抛出了异常而没有被捕获时，将由">
+<meta property="og:description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;exception.png">
-<meta property="og:updated_time" content="2019-12-12T12:10:06.860Z">
+<meta property="og:updated_time" content="2019-12-12T12:11:30.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;exception.png">
   
@@ -167,7 +167,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"><a href="#最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。" class="headerlink" title="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"></a>最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。</h3><p><img src="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/exception.png" alt="ex">  </p>
+        <h3 id="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"><a href="#最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。" class="headerlink" title="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"></a>最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。</h3><p><img src="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/exception.png" alt="ex">   </p>
+<a id="more"></a> 
 <h3 id="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"><a href="#由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。" class="headerlink" title="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"></a>由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。</h3><h3 id="1-当问题出现的时候，我先是了解了这个异常是什么意思？"><a href="#1-当问题出现的时候，我先是了解了这个异常是什么意思？" class="headerlink" title="1.当问题出现的时候，我先是了解了这个异常是什么意思？"></a>1.当问题出现的时候，我先是了解了这个异常是什么意思？</h3><p> 当被调用的方法的内部抛出了异常而没有被捕获时，将由此异常接收  </p>
 <h3 id="2-知悉异常之后去排查代码并没有发现没有处理的异常。"><a href="#2-知悉异常之后去排查代码并没有发现没有处理的异常。" class="headerlink" title="2.知悉异常之后去排查代码并没有发现没有处理的异常。"></a>2.知悉异常之后去排查代码并没有发现没有处理的异常。</h3><h3 id="3-排查对象代理工厂类中的代码，没有问题。"><a href="#3-排查对象代理工厂类中的代码，没有问题。" class="headerlink" title="3.排查对象代理工厂类中的代码，没有问题。"></a>3.排查对象代理工厂类中的代码，没有问题。</h3><h3 id="4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"><a href="#4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）" class="headerlink" title="4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"></a>4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）</h3>
       
@@ -421,15 +422,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -438,10 +443,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
             
             <div class="clearfix"></div>
