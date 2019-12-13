@@ -31,7 +31,15 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;anno_ioc.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;ConfigurationClass.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;spring_junit.png">
-<meta property="og:updated_time" content="2019-12-09T13:01:09.178Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;service_transfer.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;conn_utils.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;transactionManager.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;transaction_transfer.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;proxy.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;beanFactory.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;IAccountService.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;factory_xml.png">
+<meta property="og:updated_time" content="2019-12-13T14:25:44.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -373,7 +381,15 @@ IOC的作用：
 *          location：指定xml文件的位置，加上classpath关键字，表示在类路径下。
 *          classes：指定注解类的所在位置。
 *  但我们使用spring 5.x版本的时候，要求junit的jar必须是4.1.2及其以上版本</code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/spring_junit.png" alt="spring_junit">  </p>
-
+<h3 id="在spring中来实现一个典型的转账案例，下图中，但是存在的问题是，假如在一方转账结束后，在另一方收到钱之前出现了异常，按照以前学习的用事务控制的方式就可以解决（要不全部成功，要不全部失败）。即便spring中带有事务控制，但还是出现了“账目不平”的现象，这是因为在整个转账流程进行的过程中，每次和数据库进行交互的时候，先拿到连接，完成交互后便会提交事务，归还连接到连接池中，因为整个流程中有多次和数据库交互的时候，这样就会导致每次拿到的连接并不是同一个，这样就出现了上述的问题。"><a href="#在spring中来实现一个典型的转账案例，下图中，但是存在的问题是，假如在一方转账结束后，在另一方收到钱之前出现了异常，按照以前学习的用事务控制的方式就可以解决（要不全部成功，要不全部失败）。即便spring中带有事务控制，但还是出现了“账目不平”的现象，这是因为在整个转账流程进行的过程中，每次和数据库进行交互的时候，先拿到连接，完成交互后便会提交事务，归还连接到连接池中，因为整个流程中有多次和数据库交互的时候，这样就会导致每次拿到的连接并不是同一个，这样就出现了上述的问题。" class="headerlink" title="在spring中来实现一个典型的转账案例，下图中，但是存在的问题是，假如在一方转账结束后，在另一方收到钱之前出现了异常，按照以前学习的用事务控制的方式就可以解决（要不全部成功，要不全部失败）。即便spring中带有事务控制，但还是出现了“账目不平”的现象，这是因为在整个转账流程进行的过程中，每次和数据库进行交互的时候，先拿到连接，完成交互后便会提交事务，归还连接到连接池中，因为整个流程中有多次和数据库交互的时候，这样就会导致每次拿到的连接并不是同一个，这样就出现了上述的问题。"></a>在spring中来实现一个典型的转账案例，下图中，但是存在的问题是，假如在一方转账结束后，在另一方收到钱之前出现了异常，按照以前学习的用事务控制的方式就可以解决（要不全部成功，要不全部失败）。即便spring中带有事务控制，但还是出现了“账目不平”的现象，这是因为在整个转账流程进行的过程中，每次和数据库进行交互的时候，先拿到连接，完成交互后便会提交事务，归还连接到连接池中，因为整个流程中有多次和数据库交互的时候，这样就会导致每次拿到的连接并不是同一个，这样就出现了上述的问题。</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/service_transfer.png" alt="transfer">   </p>
+<h3 id="那么出现的这个问题我们使用两个类来解决：用于连接的工具类和事务相关的工具类"><a href="#那么出现的这个问题我们使用两个类来解决：用于连接的工具类和事务相关的工具类" class="headerlink" title="那么出现的这个问题我们使用两个类来解决：用于连接的工具类和事务相关的工具类"></a>那么出现的这个问题我们使用两个类来解决：用于连接的工具类和事务相关的工具类</h3><h2 id="连接工具类"><a href="#连接工具类" class="headerlink" title="连接工具类"></a>连接工具类</h2><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/conn_utils.png" alt="conn_utils">   </p>
+<h2 id="事务管理工具类"><a href="#事务管理工具类" class="headerlink" title="事务管理工具类"></a>事务管理工具类</h2><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/transactionManager.png" alt="manager">  </p>
+<h3 id="这样在取到连接之后，先将连接与当前线程进行绑定，然后再执行操作，这样就保证了一整套事务的执行。"><a href="#这样在取到连接之后，先将连接与当前线程进行绑定，然后再执行操作，这样就保证了一整套事务的执行。" class="headerlink" title="这样在取到连接之后，先将连接与当前线程进行绑定，然后再执行操作，这样就保证了一整套事务的执行。"></a>这样在取到连接之后，先将连接与当前线程进行绑定，然后再执行操作，这样就保证了一整套事务的执行。</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/transaction_transfer.png" alt="transaction_manager">  </p>
+<h3 id="但是新的问题又产生了在service层实现的各个方法因为加了事务控制等等，这样就显得代码很臃肿。代码之间的耦合度又提高了。"><a href="#但是新的问题又产生了在service层实现的各个方法因为加了事务控制等等，这样就显得代码很臃肿。代码之间的耦合度又提高了。" class="headerlink" title="但是新的问题又产生了在service层实现的各个方法因为加了事务控制等等，这样就显得代码很臃肿。代码之间的耦合度又提高了。"></a>但是新的问题又产生了在service层实现的各个方法因为加了事务控制等等，这样就显得代码很臃肿。代码之间的耦合度又提高了。</h3><h3 id="这里涉及到代理对象的概念"><a href="#这里涉及到代理对象的概念" class="headerlink" title="这里涉及到代理对象的概念"></a>这里涉及到代理对象的概念</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/proxy.png" alt="proxy">  </p>
+<h2 id="工厂类"><a href="#工厂类" class="headerlink" title="工厂类"></a>工厂类</h2><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/beanFactory.png" alt="factory">  </p>
+<h2 id="获取service的代理对象"><a href="#获取service的代理对象" class="headerlink" title="获取service的代理对象"></a>获取service的代理对象</h2><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/IAccountService.png" alt="IAccount">  </p>
+<h2 id="配置工厂类中的注入对象"><a href="#配置工厂类中的注入对象" class="headerlink" title="配置工厂类中的注入对象"></a>配置工厂类中的注入对象</h2><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/factory_xml.png" alt="xml">  </p>
+<h3 id="此时代码臃肿的问题就得到了控制。"><a href="#此时代码臃肿的问题就得到了控制。" class="headerlink" title="此时代码臃肿的问题就得到了控制。"></a>此时代码臃肿的问题就得到了控制。</h3>
       
 
       
@@ -614,11 +630,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,11 +646,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
