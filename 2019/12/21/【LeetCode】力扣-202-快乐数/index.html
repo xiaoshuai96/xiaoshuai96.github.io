@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【InvocationTargetException】使用spring创建代理对象工厂时出现的问题 | Hello World</title>
+  <title>【LeetCode】力扣-202-快乐数 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。">
-<meta name="keywords" content="Exception">
+  <meta name="description" content="力扣——快乐数题目描述编写一个算法来判断一个数是不是“快乐数”。  一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。">
+<meta name="keywords" content="力扣 快乐数 递归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【InvocationTargetException】使用spring创建代理对象工厂时出现的问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:title" content="【LeetCode】力扣-202-快乐数">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;21&#x2F;%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-202-%E5%BF%AB%E4%B9%90%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。">
+<meta property="og:description" content="力扣——快乐数题目描述编写一个算法来判断一个数是不是“快乐数”。  一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;exception.png">
-<meta property="og:updated_time" content="2019-12-12T12:11:30.790Z">
+<meta property="og:updated_time" content="2019-12-21T13:03:48.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;exception.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -147,30 +145,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【InvocationTargetException】使用spring创建代理对象工厂时出现的问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【LeetCode】力扣-202-快乐数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【InvocationTargetException】使用spring创建代理对象工厂时出现的问题
+      【LeetCode】力扣-202-快乐数
     </h1>
   
 
         
-        <a href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2019-12-12T11:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-12</time>
+        <a href="/2019/12/21/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-202-%E5%BF%AB%E4%B9%90%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2019-12-21T12:46:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"><a href="#最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。" class="headerlink" title="最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。"></a>最近在学习spring，在学习到如何利用spring来创建代理对象工厂时（事务管理）遇到了一个问题。</h3><p><img src="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/exception.png" alt="ex">   </p>
-<a id="more"></a> 
-<h3 id="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"><a href="#由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。" class="headerlink" title="由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。"></a>由于是第一次使用spring来创建代理对象工厂，所以出现的问题并不能及时很好的解决，在发现问题之后发现其实并不是一个大问题，也是由于没有好好排查问题的原因，白白浪费了十几分钟的时间来寻找。</h3><h3 id="1-当问题出现的时候，我先是了解了这个异常是什么意思？"><a href="#1-当问题出现的时候，我先是了解了这个异常是什么意思？" class="headerlink" title="1.当问题出现的时候，我先是了解了这个异常是什么意思？"></a>1.当问题出现的时候，我先是了解了这个异常是什么意思？</h3><p> 当被调用的方法的内部抛出了异常而没有被捕获时，将由此异常接收  </p>
-<h3 id="2-知悉异常之后去排查代码并没有发现没有处理的异常。"><a href="#2-知悉异常之后去排查代码并没有发现没有处理的异常。" class="headerlink" title="2.知悉异常之后去排查代码并没有发现没有处理的异常。"></a>2.知悉异常之后去排查代码并没有发现没有处理的异常。</h3><h3 id="3-排查对象代理工厂类中的代码，没有问题。"><a href="#3-排查对象代理工厂类中的代码，没有问题。" class="headerlink" title="3.排查对象代理工厂类中的代码，没有问题。"></a>3.排查对象代理工厂类中的代码，没有问题。</h3><h3 id="4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"><a href="#4-排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean-xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）" class="headerlink" title="4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）"></a>4.排查空指针异常（因为最开始使用的模式是直接使用接口的实现类来调用方法，在后面学习了代理对象的模式之后，并没有在配置文件bean.xml中指明要注入的新类，指定的路径依然还是旧类的路径，且旧类中需要两个注入对象的配置，而现在剩下一个的配置，在spring没有注入对象的情况下使用实例，自然就会出现空指针的异常问题）</h3>
+        <h2 id="力扣——快乐数"><a href="#力扣——快乐数" class="headerlink" title="力扣——快乐数"></a>力扣——快乐数</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><pre><code>编写一个算法来判断一个数是不是“快乐数”。
+
+一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。</code></pre><a id="more"></a>
+<pre><code>示例: 
+
+输入: 19
+输出: true
+解释: 
+1^2 + 9^2 = 82
+8^2 + 2^2 = 68
+6^2 + 8^2 = 100
+1^2 + 0^2 + 0^2 = 1</code></pre><h3 id="解法一（其中使用到集合和递归）："><a href="#解法一（其中使用到集合和递归）：" class="headerlink" title="解法一（其中使用到集合和递归）："></a>解法一（其中使用到集合和递归）：</h3><p>在循环执行十次之后基本认为该数不是快乐数，所以该方法存在缺陷。  </p>
+<pre><code>public static boolean isHappy(int n) {
+    int nLength = (n + &quot;&quot;).length();
+    ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+    while (nLength != 0) {
+        int temp = n;
+        list.add(temp % 10);
+        n /= 10;
+        nLength--;
+    }
+    int res = squarePlus(list);
+    count++;
+    if(count == 10) return false;//防止stackOverFlow
+    if(res == 1) return true;
+    return isHappy(res);
+}
+
+//将集合中的数的平方相加
+public static int squarePlus(ArrayList&lt;Integer&gt; list) {
+    int res = 0;
+    for (int i : list) {
+        res += (i*i);
+    }
+    return res;
+}</code></pre><h3 id="解法二（在其中列举出循环的不是快乐数的数）"><a href="#解法二（在其中列举出循环的不是快乐数的数）" class="headerlink" title="解法二（在其中列举出循环的不是快乐数的数）"></a>解法二（在其中列举出循环的不是快乐数的数）</h3><pre><code>public boolean isHappy(int n) {
+    if (n == 1) return true;
+    if((n == 4) || (n == 16) || (n == 37) || ( n == 58) || (n == 89) || (n == 145) || (n ==42) || (n == 20)) return false;
+    int res = 0;
+    do {
+        int remainder = n % 10;
+        res += remainder * remainder;
+        n = n / 10;
+    } while (n &gt; 0);
+    return isHappy(res);
+}</code></pre>
       
 
       
@@ -204,7 +244,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">力扣 快乐数 递归</a>
         		</li>
       		
 		</ul>
@@ -260,7 +300,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/21/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-202-%E5%BF%AB%E4%B9%90%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +314,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/21/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-202-%E5%BF%AB%E4%B9%90%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【LeetCode】力扣-202-快乐数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/08/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【LeetCode】力扣--70-爬楼梯</div>
+    <a href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【InvocationTargetException】使用spring创建代理对象工厂时出现的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
