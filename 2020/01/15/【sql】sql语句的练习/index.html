@@ -31,7 +31,15 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;boxoffice01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;boxoffice02.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;boxoffice03.png">
-<meta property="og:updated_time" content="2020-01-15T09:06:03.029Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;outer_joins.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;left_join.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;right_join.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;full_join.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;employees01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;employees02.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;employees03.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;buildings.png">
+<meta property="og:updated_time" content="2020-01-16T12:30:22.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;table_movies.png">
   
@@ -223,7 +231,16 @@
 <h3 id="1-找到所有电影的线下Domestic-sales和线上销售额"><a href="#1-找到所有电影的线下Domestic-sales和线上销售额" class="headerlink" title="1.找到所有电影的线下Domestic_sales和线上销售额"></a>1.找到所有电影的线下Domestic_sales和线上销售额</h3><p>SELECT * FROM movies inner join boxoffice on id = movie_id;</p>
 <h3 id="2-找到所有线上销售额比线下销售大的电影"><a href="#2-找到所有线上销售额比线下销售大的电影" class="headerlink" title="2.找到所有线上销售额比线下销售大的电影"></a>2.找到所有线上销售额比线下销售大的电影</h3><p>SELECT * FROM movies inner join boxoffice on id = movie_id<br>where International_sales &gt; Domestic_sales;</p>
 <h3 id="3-找出所有电影按市场占有率rating倒序排列"><a href="#3-找出所有电影按市场占有率rating倒序排列" class="headerlink" title="3.找出所有电影按市场占有率rating倒序排列"></a>3.找出所有电影按市场占有率rating倒序排列</h3><p>SELECT * FROM movies inner join boxoffice on id = movie_id<br>rating order by rating desc;</p>
-<h3 id="4-每部电影按线上销售额比较-排名最靠前的导演是谁-线上销量多少"><a href="#4-每部电影按线上销售额比较-排名最靠前的导演是谁-线上销量多少" class="headerlink" title="4.每部电影按线上销售额比较,排名最靠前的导演是谁,线上销量多少"></a>4.每部电影按线上销售额比较,排名最靠前的导演是谁,线上销量多少</h3><p>SELECT director,international_sales FROM movies<br>inner join boxoffice on id = movie_id and<br>International_sales order by International_sales desc limit 1;</p>
+<h3 id="4-每部电影按线上销售额比较-排名最靠前的导演是谁-线上销量多少"><a href="#4-每部电影按线上销售额比较-排名最靠前的导演是谁-线上销量多少" class="headerlink" title="4.每部电影按线上销售额比较,排名最靠前的导演是谁,线上销量多少"></a>4.每部电影按线上销售额比较,排名最靠前的导演是谁,线上销量多少</h3><p>SELECT director,international_sales FROM movies<br>inner join boxoffice on id = movie_id and<br>International_sales order by International_sales desc limit 1;  </p>
+<h2 id="six-外连接（OUTER-JOINs）"><a href="#six-外连接（OUTER-JOINs）" class="headerlink" title="six-外连接（OUTER JOINs）"></a>six-外连接（OUTER JOINs）</h2><h3 id="INNER-JOIN-只会保留两个表都存在的数据，这看起来意味着一些数据的丢失，在某些场景下会有问题"><a href="#INNER-JOIN-只会保留两个表都存在的数据，这看起来意味着一些数据的丢失，在某些场景下会有问题" class="headerlink" title="INNER JOIN 只会保留两个表都存在的数据，这看起来意味着一些数据的丢失，在某些场景下会有问题."></a>INNER JOIN 只会保留两个表都存在的数据，这看起来意味着一些数据的丢失，在某些场景下会有问题.</h3><h3 id="真实世界中两个表存在差异很正常，所以我们需要更多的连表方式，也就是本节要介绍的左连接LEFT-JOIN-右连接RIGHT-JOIN-和-全连接FULL-JOIN-这几个-连接方式都会保留不能匹配的行。"><a href="#真实世界中两个表存在差异很正常，所以我们需要更多的连表方式，也就是本节要介绍的左连接LEFT-JOIN-右连接RIGHT-JOIN-和-全连接FULL-JOIN-这几个-连接方式都会保留不能匹配的行。" class="headerlink" title="真实世界中两个表存在差异很正常，所以我们需要更多的连表方式，也就是本节要介绍的左连接LEFT JOIN,右连接RIGHT JOIN 和 全连接FULL JOIN. 这几个 连接方式都会保留不能匹配的行。"></a>真实世界中两个表存在差异很正常，所以我们需要更多的连表方式，也就是本节要介绍的左连接LEFT JOIN,右连接RIGHT JOIN 和 全连接FULL JOIN. 这几个 连接方式都会保留不能匹配的行。</h3><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/outer_joins.png" alt="outerjoins">  </p>
+<h2 id="图示描述："><a href="#图示描述：" class="headerlink" title="图示描述："></a>图示描述：</h2><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/left_join.png" alt="left"><br><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/right_join.png" alt="right"><br><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/full_join.png" alt="full">  </p>
+<h2 id="用两个新的表雇员表-Employees-和-办公室表-Buildings-有一些办公室是新的，还没有雇员"><a href="#用两个新的表雇员表-Employees-和-办公室表-Buildings-有一些办公室是新的，还没有雇员" class="headerlink" title="用两个新的表雇员表 Employees 和 办公室表 Buildings. 有一些办公室是新的，还没有雇员."></a>用两个新的表雇员表 Employees 和 办公室表 Buildings. 有一些办公室是新的，还没有雇员.</h2><h2 id="注意：因为我们这个练习DB的限制-只可以用-LEFT-JOIN来解决问题"><a href="#注意：因为我们这个练习DB的限制-只可以用-LEFT-JOIN来解决问题" class="headerlink" title="注意：因为我们这个练习DB的限制,只可以用 LEFT JOIN来解决问题."></a>注意：因为我们这个练习DB的限制,只可以用 LEFT JOIN来解决问题.</h2><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/employees01.png" alt="employees01"><br><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/employees02.png" alt="employees02"><br><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/employees03.png" alt="employees03">    </p>
+<hr>
+<p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/buildings.png" alt="buildings">  </p>
+<h3 id="1-找到所有有雇员的办公室-buildings-名字"><a href="#1-找到所有有雇员的办公室-buildings-名字" class="headerlink" title="1.找到所有有雇员的办公室(buildings)名字"></a>1.找到所有有雇员的办公室(buildings)名字</h3><p>SELECT distinct building FROM employees; </p>
+<h3 id="2-找到所有办公室和他们的最大容量"><a href="#2-找到所有办公室和他们的最大容量" class="headerlink" title="2.找到所有办公室和他们的最大容量"></a>2.找到所有办公室和他们的最大容量</h3><p>SELECT * FROM buildings; </p>
+<h3 id="3-找到所有办公室里的所有角色（包含没有雇员的）-并做唯一输出-DISTINCT"><a href="#3-找到所有办公室里的所有角色（包含没有雇员的）-并做唯一输出-DISTINCT" class="headerlink" title="3.找到所有办公室里的所有角色（包含没有雇员的）,并做唯一输出(DISTINCT)"></a>3.找到所有办公室里的所有角色（包含没有雇员的）,并做唯一输出(DISTINCT)</h3><p>SELECT distinct building_name,role FROM buildings<br>left join employees on building_name = building; </p>
+<h3 id="4-找到所有有雇员的办公室-buildings-和对应的容量"><a href="#4-找到所有有雇员的办公室-buildings-和对应的容量" class="headerlink" title="4.找到所有有雇员的办公室(buildings)和对应的容量"></a>4.找到所有有雇员的办公室(buildings)和对应的容量</h3><p>SELECT distinct building_name,capacity FROM buildings<br>left join employees on building_name = building where building is not null; </p>
 
       
 
@@ -456,11 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,15 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">力扣 快乐数 递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">力扣 快乐数 递归</a>
               </li>
              
               <li class="article-tag-list-item">
