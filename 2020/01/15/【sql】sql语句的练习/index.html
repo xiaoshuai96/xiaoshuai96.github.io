@@ -43,7 +43,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;expression.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;as.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;as02.png">
-<meta property="og:updated_time" content="2020-01-18T06:22:39.504Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;function.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;group_by.png">
+<meta property="og:updated_time" content="2020-01-19T14:28:08.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;table_movies.png">
   
@@ -234,7 +236,11 @@ FROM movies
 left join boxoffice on id = movie_id 
 where director like &quot;john lasseter&quot; 
 and value order by value desc limit 3;  </code></pre><h3 id="5-电影名最长的3部电影和他们的总销量是多少"><a href="#5-电影名最长的3部电影和他们的总销量是多少" class="headerlink" title="5.电影名最长的3部电影和他们的总销量是多少"></a>5.电影名最长的3部电影和他们的总销量是多少</h3><pre><code>SELECT title,Domestic_sales+International_sales AS total FROM Movies 
-join Boxoffice on Movie_id=id ORDER BY length(Title) DESC LIMIT 3;</code></pre>
+join Boxoffice on Movie_id=id ORDER BY length(Title) DESC LIMIT 3;  </code></pre><h1 id="Nine-在查询中进行统计I-Pt-1"><a href="#Nine-在查询中进行统计I-Pt-1" class="headerlink" title="Nine-在查询中进行统计I (Pt. 1)"></a>Nine-在查询中进行统计I (Pt. 1)</h1><h3 id="如果不指明如何分组，那统计函数将对查询结果全部数据进行统计，当然每一个统计也可以像之前用AS来取一个别名，以增加可读性"><a href="#如果不指明如何分组，那统计函数将对查询结果全部数据进行统计，当然每一个统计也可以像之前用AS来取一个别名，以增加可读性" class="headerlink" title="如果不指明如何分组，那统计函数将对查询结果全部数据进行统计，当然每一个统计也可以像之前用AS来取一个别名，以增加可读性."></a>如果不指明如何分组，那统计函数将对查询结果全部数据进行统计，当然每一个统计也可以像之前用AS来取一个别名，以增加可读性.</h3><h2 id="常见统计函数"><a href="#常见统计函数" class="headerlink" title="常见统计函数"></a>常见统计函数</h2><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/function.png" alt="function">  </p>
+<h2 id="分组统计"><a href="#分组统计" class="headerlink" title="分组统计"></a>分组统计</h2><h3 id="GROUP-BY-数据分组语法可以按某个col-name对数据进行分组，如：GROUP-BY-Year指对数据按年份分组，-相同年份的分到一个组里。如果把统计函数和GROUP-BY结合，那统计结果就是对分组内的数据统计了"><a href="#GROUP-BY-数据分组语法可以按某个col-name对数据进行分组，如：GROUP-BY-Year指对数据按年份分组，-相同年份的分到一个组里。如果把统计函数和GROUP-BY结合，那统计结果就是对分组内的数据统计了" class="headerlink" title="GROUP BY 数据分组语法可以按某个col_name对数据进行分组，如：GROUP BY Year指对数据按年份分组， 相同年份的分到一个组里。如果把统计函数和GROUP BY结合，那统计结果就是对分组内的数据统计了."></a>GROUP BY 数据分组语法可以按某个col_name对数据进行分组，如：GROUP BY Year指对数据按年份分组， 相同年份的分到一个组里。如果把统计函数和GROUP BY结合，那统计结果就是对分组内的数据统计了.</h3><h3 id="GROUP-BY-分组结果的数据条数，就是分组数量，比如：GROUP-BY-Year，全部数据里有几年，就返回几条数据，-不管是否应用了统计函数"><a href="#GROUP-BY-分组结果的数据条数，就是分组数量，比如：GROUP-BY-Year，全部数据里有几年，就返回几条数据，-不管是否应用了统计函数" class="headerlink" title="GROUP BY 分组结果的数据条数，就是分组数量，比如：GROUP BY Year，全部数据里有几年，就返回几条数据， 不管是否应用了统计函数."></a>GROUP BY 分组结果的数据条数，就是分组数量，比如：GROUP BY Year，全部数据里有几年，就返回几条数据， 不管是否应用了统计函数.</h3><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/group_by.png" alt="groupby">  </p>
+<h2 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h2><h3 id="1-找出就职年份最高的雇员-列出雇员名字-年份）"><a href="#1-找出就职年份最高的雇员-列出雇员名字-年份）" class="headerlink" title="1.找出就职年份最高的雇员(列出雇员名字+年份）"></a>1.找出就职年份最高的雇员(列出雇员名字+年份）</h3><pre><code>SELECT name,max(years_employed) FROM employees;</code></pre><h3 id="2-按角色-Role-统计一下每个角色的平均就职年份"><a href="#2-按角色-Role-统计一下每个角色的平均就职年份" class="headerlink" title="2.按角色(Role)统计一下每个角色的平均就职年份"></a>2.按角色(Role)统计一下每个角色的平均就职年份</h3><pre><code>SELECT role,avg(years_employed) FROM employees group by role;  </code></pre><h3 id="3-按办公室名字总计一下就职年份总和"><a href="#3-按办公室名字总计一下就职年份总和" class="headerlink" title="3.按办公室名字总计一下就职年份总和"></a>3.按办公室名字总计一下就职年份总和</h3><pre><code>SELECT building,sum(years_employed) FROM employees group by building;  </code></pre><h3 id="4-每栋办公室按人数排名-不要统计无办公室的雇员"><a href="#4-每栋办公室按人数排名-不要统计无办公室的雇员" class="headerlink" title="4.每栋办公室按人数排名,不要统计无办公室的雇员"></a>4.每栋办公室按人数排名,不要统计无办公室的雇员</h3><pre><code>SELECT building,count(name) as count FROM employees 
+where building group by building
+order by count;</code></pre><h3 id="5-就职1-3-5-7年的人分别占总人数的百分比率是多少-给出年份和比率”50-”-记为-50"><a href="#5-就职1-3-5-7年的人分别占总人数的百分比率是多少-给出年份和比率”50-”-记为-50" class="headerlink" title="5.就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)"></a>5.就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)</h3>
       
 
       
@@ -466,7 +472,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,19 +480,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +500,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +516,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
             
             <div class="clearfix"></div>
