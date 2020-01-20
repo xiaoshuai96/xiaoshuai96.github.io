@@ -45,7 +45,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;as02.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;function.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;group_by.png">
-<meta property="og:updated_time" content="2020-01-19T14:28:08.969Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;having.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;all_select.png">
+<meta property="og:updated_time" content="2020-01-20T04:06:59.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;15&#x2F;%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0&#x2F;table_movies.png">
   
@@ -240,7 +242,45 @@ join Boxoffice on Movie_id=id ORDER BY length(Title) DESC LIMIT 3;  </code></pre
 <h2 id="分组统计"><a href="#分组统计" class="headerlink" title="分组统计"></a>分组统计</h2><h3 id="GROUP-BY-数据分组语法可以按某个col-name对数据进行分组，如：GROUP-BY-Year指对数据按年份分组，-相同年份的分到一个组里。如果把统计函数和GROUP-BY结合，那统计结果就是对分组内的数据统计了"><a href="#GROUP-BY-数据分组语法可以按某个col-name对数据进行分组，如：GROUP-BY-Year指对数据按年份分组，-相同年份的分到一个组里。如果把统计函数和GROUP-BY结合，那统计结果就是对分组内的数据统计了" class="headerlink" title="GROUP BY 数据分组语法可以按某个col_name对数据进行分组，如：GROUP BY Year指对数据按年份分组， 相同年份的分到一个组里。如果把统计函数和GROUP BY结合，那统计结果就是对分组内的数据统计了."></a>GROUP BY 数据分组语法可以按某个col_name对数据进行分组，如：GROUP BY Year指对数据按年份分组， 相同年份的分到一个组里。如果把统计函数和GROUP BY结合，那统计结果就是对分组内的数据统计了.</h3><h3 id="GROUP-BY-分组结果的数据条数，就是分组数量，比如：GROUP-BY-Year，全部数据里有几年，就返回几条数据，-不管是否应用了统计函数"><a href="#GROUP-BY-分组结果的数据条数，就是分组数量，比如：GROUP-BY-Year，全部数据里有几年，就返回几条数据，-不管是否应用了统计函数" class="headerlink" title="GROUP BY 分组结果的数据条数，就是分组数量，比如：GROUP BY Year，全部数据里有几年，就返回几条数据， 不管是否应用了统计函数."></a>GROUP BY 分组结果的数据条数，就是分组数量，比如：GROUP BY Year，全部数据里有几年，就返回几条数据， 不管是否应用了统计函数.</h3><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/group_by.png" alt="groupby">  </p>
 <h2 id="练习-2"><a href="#练习-2" class="headerlink" title="练习"></a>练习</h2><h3 id="1-找出就职年份最高的雇员-列出雇员名字-年份）"><a href="#1-找出就职年份最高的雇员-列出雇员名字-年份）" class="headerlink" title="1.找出就职年份最高的雇员(列出雇员名字+年份）"></a>1.找出就职年份最高的雇员(列出雇员名字+年份）</h3><pre><code>SELECT name,max(years_employed) FROM employees;</code></pre><h3 id="2-按角色-Role-统计一下每个角色的平均就职年份"><a href="#2-按角色-Role-统计一下每个角色的平均就职年份" class="headerlink" title="2.按角色(Role)统计一下每个角色的平均就职年份"></a>2.按角色(Role)统计一下每个角色的平均就职年份</h3><pre><code>SELECT role,avg(years_employed) FROM employees group by role;  </code></pre><h3 id="3-按办公室名字总计一下就职年份总和"><a href="#3-按办公室名字总计一下就职年份总和" class="headerlink" title="3.按办公室名字总计一下就职年份总和"></a>3.按办公室名字总计一下就职年份总和</h3><pre><code>SELECT building,sum(years_employed) FROM employees group by building;  </code></pre><h3 id="4-每栋办公室按人数排名-不要统计无办公室的雇员"><a href="#4-每栋办公室按人数排名-不要统计无办公室的雇员" class="headerlink" title="4.每栋办公室按人数排名,不要统计无办公室的雇员"></a>4.每栋办公室按人数排名,不要统计无办公室的雇员</h3><pre><code>SELECT building,count(name) as count FROM employees 
 where building group by building
-order by count;</code></pre><h3 id="5-就职1-3-5-7年的人分别占总人数的百分比率是多少-给出年份和比率”50-”-记为-50"><a href="#5-就职1-3-5-7年的人分别占总人数的百分比率是多少-给出年份和比率”50-”-记为-50" class="headerlink" title="5.就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)"></a>5.就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)</h3>
+order by count;</code></pre><h3 id="5-就职1-3-5-7年的人分别占总人数的百分比率是多少-给出年份和比率”50-”-记为-50"><a href="#5-就职1-3-5-7年的人分别占总人数的百分比率是多少-给出年份和比率”50-”-记为-50" class="headerlink" title="5.就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)"></a>5.就职1,3,5,7年的人分别占总人数的百分比率是多少(给出年份和比率”50%” 记为 50)</h3><pre><code>SELECT years_employed,count(*)*100/(select count(*)from employees)
+as rating FROM employees 
+where years_employed in(1,3,5,7) 
+group by years_employed;  </code></pre><h1 id="Ten-在查询中进行统计II-Pt-2"><a href="#Ten-在查询中进行统计II-Pt-2" class="headerlink" title="Ten-在查询中进行统计II (Pt. 2)"></a>Ten-在查询中进行统计II (Pt. 2)</h1><h3 id="到目前为止，我们的Query查询已经有点复杂了，不过还好我们已经基本把查询语法介绍完了。在-GROUP-BY-分组语法中，我们知道数据库是先对数据做WHERE，然后对结果做分组，如果我们要对分组完的数据再筛选出几条如何办？-（想一下按年份统计电影票房，要筛选出-gt-100万的年份？）"><a href="#到目前为止，我们的Query查询已经有点复杂了，不过还好我们已经基本把查询语法介绍完了。在-GROUP-BY-分组语法中，我们知道数据库是先对数据做WHERE，然后对结果做分组，如果我们要对分组完的数据再筛选出几条如何办？-（想一下按年份统计电影票房，要筛选出-gt-100万的年份？）" class="headerlink" title="到目前为止，我们的Query查询已经有点复杂了，不过还好我们已经基本把查询语法介绍完了。在 GROUP BY 分组语法中，我们知道数据库是先对数据做WHERE，然后对结果做分组，如果我们要对分组完的数据再筛选出几条如何办？ （想一下按年份统计电影票房，要筛选出&gt;100万的年份？）"></a>到目前为止，我们的Query查询已经有点复杂了，不过还好我们已经基本把查询语法介绍完了。在 GROUP BY 分组语法中，我们知道数据库是先对数据做WHERE，然后对结果做分组，如果我们要对分组完的数据再筛选出几条如何办？ （想一下按年份统计电影票房，要筛选出&gt;100万的年份？）</h3><h3 id="一个不常用的语法-HAVING-语法将用来解决这个问题，他可以对分组之后的数据再做SELECT筛选"><a href="#一个不常用的语法-HAVING-语法将用来解决这个问题，他可以对分组之后的数据再做SELECT筛选" class="headerlink" title="一个不常用的语法 HAVING 语法将用来解决这个问题，他可以对分组之后的数据再做SELECT筛选."></a>一个不常用的语法 HAVING 语法将用来解决这个问题，他可以对分组之后的数据再做SELECT筛选.</h3><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/having.png" alt="having">  </p>
+<h3 id="HAVING-和-WHERE-语法一样，只不过作用的结果集不一样-在我们例子数据表数据量小的情况下可能感觉-HAVING没有什么用，但当你的数据量成千上万属性又很多时也许能帮上大忙"><a href="#HAVING-和-WHERE-语法一样，只不过作用的结果集不一样-在我们例子数据表数据量小的情况下可能感觉-HAVING没有什么用，但当你的数据量成千上万属性又很多时也许能帮上大忙" class="headerlink" title="HAVING 和 WHERE 语法一样，只不过作用的结果集不一样. 在我们例子数据表数据量小的情况下可能感觉 HAVING没有什么用，但当你的数据量成千上万属性又很多时也许能帮上大忙 ."></a>HAVING 和 WHERE 语法一样，只不过作用的结果集不一样. 在我们例子数据表数据量小的情况下可能感觉 HAVING没有什么用，但当你的数据量成千上万属性又很多时也许能帮上大忙 .</h3><h4 id="tips-在不使用分组查询时，where完全够用。"><a href="#tips-在不使用分组查询时，where完全够用。" class="headerlink" title="tips:在不使用分组查询时，where完全够用。"></a>tips:在不使用分组查询时，where完全够用。</h4><h3 id="1-统计一下Artist角色的雇员数量"><a href="#1-统计一下Artist角色的雇员数量" class="headerlink" title="1.统计一下Artist角色的雇员数量"></a>1.统计一下Artist角色的雇员数量</h3><pre><code>SELECT count(*) FROM employees where role like &quot;artist&quot;;</code></pre><h3 id="2-按角色统计一下每个角色的雇员数量"><a href="#2-按角色统计一下每个角色的雇员数量" class="headerlink" title="2.按角色统计一下每个角色的雇员数量"></a>2.按角色统计一下每个角色的雇员数量</h3><pre><code>SELECT role,count(*) as em FROM employees group by role;</code></pre><h3 id="3-算出Engineer角色的就职年份总计"><a href="#3-算出Engineer角色的就职年份总计" class="headerlink" title="3.算出Engineer角色的就职年份总计"></a>3.算出Engineer角色的就职年份总计</h3><pre><code>SELECT sum(years_employed) as sum FROM employees where role like &quot;engineer&quot;;</code></pre><h3 id="4-按角色分组算出每个角色按有办公室和没办公室的统计人数-列出角色，数量，有无办公室-注意一个角色如果部分有办公室，部分没有需分开统计）"><a href="#4-按角色分组算出每个角色按有办公室和没办公室的统计人数-列出角色，数量，有无办公室-注意一个角色如果部分有办公室，部分没有需分开统计）" class="headerlink" title="4.按角色分组算出每个角色按有办公室和没办公室的统计人数(列出角色，数量，有无办公室,注意一个角色如果部分有办公室，部分没有需分开统计）"></a>4.按角色分组算出每个角色按有办公室和没办公室的统计人数(列出角色，数量，有无办公室,注意一个角色如果部分有办公室，部分没有需分开统计）</h3><pre><code>SELECT role,building is null as bn,count(*)
+FROM employees group by role,bn</code></pre><h3 id="5-按角色和就职年份统计人数-年份按0-3，3-6，6-9这种阶梯分组，最后按角色-阶梯分组排序"><a href="#5-按角色和就职年份统计人数-年份按0-3，3-6，6-9这种阶梯分组，最后按角色-阶梯分组排序" class="headerlink" title="5.按角色和就职年份统计人数,年份按0-3，3-6，6-9这种阶梯分组，最后按角色+阶梯分组排序"></a>5.按角色和就职年份统计人数,年份按0-3，3-6，6-9这种阶梯分组，最后按角色+阶梯分组排序</h3><pre><code>SELECT role,years_employed/3 as yearr,count(name)
+FROM employees
+group by role,yearr
+order by role,yearr;  </code></pre><h1 id="Eleven-查询执行顺序"><a href="#Eleven-查询执行顺序" class="headerlink" title="Eleven-查询执行顺序"></a>Eleven-查询执行顺序</h1><h2 id="完整的select查询"><a href="#完整的select查询" class="headerlink" title="完整的select查询"></a>完整的select查询</h2><p><img src="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/all_select.png" alt="all">  </p>
+<h2 id="查询的执行顺序"><a href="#查询的执行顺序" class="headerlink" title="查询的执行顺序"></a>查询的执行顺序</h2><pre><code>1.FROM 和 JOINs
+FROM 或 JOIN会第一个执行，确定一个整体的数据范围. 如果要JOIN不同表，可能会生成一个临时Table来用于 下面的过程。总之第一步可以简单理解为确定一个数据源表（含临时表)
+
+2.WHERE
+我们确定了数据来源 WHERE 语句就将在这个数据源中按要求进行数据筛选，并丢弃不符合要求的数据行，所有的筛选col属性 只能来自FROM圈定的表. AS别名还不能在这个阶段使用，因为可能别名是一个还没执行的表达式
+
+3.GROUP BY
+如果你用了 GROUP BY 分组，那GROUP BY 将对之前的数据进行分组，统计等，并将是结果集缩小为分组数.这意味着 其他的数据在分组后丢弃.
+
+4.HAVING
+如果你用了 GROUP BY 分组, HAVING 会在分组完成后对结果集再次筛选。AS别名也不能在这个阶段使用.
+
+5.SELECT    
+确定结果之后，SELECT用来对结果col简单筛选或计算，决定输出什么数据.
+
+6.DISTINCT    
+如果数据行有重复DISTINCT 将负责排重.
+
+7.ORDER BY    
+在结果集确定的情况下，ORDER BY 对结果做排序。因为SELECT中的表达式已经执行完了。此时可以用AS别名.
+
+8.LIMIT / OFFSET
+最后LIMIT 和 OFFSET 从排序的结果中截取部分数据.</code></pre><h3 id="1-统计出每一个导演的电影数量（列出导演名字和数量）"><a href="#1-统计出每一个导演的电影数量（列出导演名字和数量）" class="headerlink" title="1.统计出每一个导演的电影数量（列出导演名字和数量）"></a>1.统计出每一个导演的电影数量（列出导演名字和数量）</h3><pre><code>SELECT director,count(*) FROM movies group by director;</code></pre><h3 id="2-统计一下每个导演的销售总额-列出导演名字和销售总额"><a href="#2-统计一下每个导演的销售总额-列出导演名字和销售总额" class="headerlink" title="2.统计一下每个导演的销售总额(列出导演名字和销售总额)"></a>2.统计一下每个导演的销售总额(列出导演名字和销售总额)</h3><pre><code>SELECT director,sum(Domestic_sales+International_sales) as sale FROM movies 
+left join boxoffice on id = movie_id
+group by director;   </code></pre><h3 id="3-按导演分组计算销售总额-求出平均销售额冠军（统计结果过滤掉只有单部电影的导演，列出导演名，总销量，电影数量，平均销量-（unfinished）"><a href="#3-按导演分组计算销售总额-求出平均销售额冠军（统计结果过滤掉只有单部电影的导演，列出导演名，总销量，电影数量，平均销量-（unfinished）" class="headerlink" title="3.按导演分组计算销售总额,求出平均销售额冠军（统计结果过滤掉只有单部电影的导演，列出导演名，总销量，电影数量，平均销量) （unfinished）"></a>3.按导演分组计算销售总额,求出平均销售额冠军（统计结果过滤掉只有单部电影的导演，列出导演名，总销量，电影数量，平均销量) （unfinished）</h3><pre><code>SELECT director,
+(Domestic_sales+International_sales) as sales,
+count(title) as movie_sum,
+(Domestic_sales+International_sales)/count(title) as avg_sales
+FROM movies left join boxoffice on movie_id = id 
+group by director having movie_sum &gt; 1 order by avg_sales desc limit 1;</code></pre><h3 id="4-找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额"><a href="#4-找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额" class="headerlink" title="4.找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额"></a>4.找出每部电影和单部电影销售冠军之间的销售差，列出电影名，销售额差额</h3>
       
 
       
@@ -476,11 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,11 +528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">力扣 快乐数 递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">力扣 快乐数 递归</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +544,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,14 +565,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
             
             <div class="clearfix"></div>
