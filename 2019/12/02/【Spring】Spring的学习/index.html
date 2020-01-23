@@ -52,7 +52,11 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;afterThrowing_advice.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;after_advice.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;around_advice_anno.png">
-<meta property="og:updated_time" content="2020-01-17T10:57:12.481Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;base_use.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;dataSource_xml.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;template_xml.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;CRUD.png">
+<meta property="og:updated_time" content="2020-01-23T11:56:58.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -450,7 +454,29 @@ IOC的作用：
 <h3 id="后置通知"><a href="#后置通知" class="headerlink" title="后置通知"></a>后置通知</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/afterReturning_advice.png" alt="afterReturning"></p>
 <h3 id="异常通知"><a href="#异常通知" class="headerlink" title="异常通知"></a>异常通知</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/afterThrowing_advice.png" alt="afterThrowing"></p>
 <h3 id="最终通知"><a href="#最终通知" class="headerlink" title="最终通知"></a>最终通知</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/after_advice.png" alt="after"></p>
-<h3 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a>环绕通知</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/around_advice_anno.png" alt="around_anno">  </p>
+<h3 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a>环绕通知</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/around_advice_anno.png" alt="around_anno">    </p>
+<h2 id="Spring中的JdbcTemplate"><a href="#Spring中的JdbcTemplate" class="headerlink" title="Spring中的JdbcTemplate"></a>Spring中的JdbcTemplate</h2><h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><pre><code>它是spring框架中提供的一个对象，是对原始Jdbc API对象的简单封装。spring框架为我们提供了很多操作模板类。  
+JdbcTemplate的作用：与数据库进行交互，实现对table的crud操作。</code></pre><h3 id="如何创建该对象："><a href="#如何创建该对象：" class="headerlink" title="如何创建该对象："></a>如何创建该对象：</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/base_use.png" alt="baseUse">  </p>
+<h3 id="显然，上述创建JdbcTemplate对象的方法显得很繁琐，并且是“死”代码，在学习过spring的ioc配置后，下面使用xml配置的方式来简化代码。"><a href="#显然，上述创建JdbcTemplate对象的方法显得很繁琐，并且是“死”代码，在学习过spring的ioc配置后，下面使用xml配置的方式来简化代码。" class="headerlink" title="显然，上述创建JdbcTemplate对象的方法显得很繁琐，并且是“死”代码，在学习过spring的ioc配置后，下面使用xml配置的方式来简化代码。"></a>显然，上述创建JdbcTemplate对象的方法显得很繁琐，并且是“死”代码，在学习过spring的ioc配置后，下面使用xml配置的方式来简化代码。</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/dataSource_xml.png" alt="xml"><br><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/template_xml.png" alt="template">  </p>
+<pre><code>对象中的常用方法：  
+查询所需的方法：
+List&lt;T&gt; query(String sql,Object[] args,RowMapper&lt;T&gt; rowMapper);//所有jdk版本均可以使用
+List&lt;T&gt; query(String sql,RowMapper&lt;T&gt; rowMapper,Object...args);//在jdk1.5之后可以使用  </code></pre><h3 id="上述方法中的参数列表中的参数，sql语句和可扩展参数都是可以确定下来，唯一不同的是RowMapper-rowMapper，发现该参数是一个接口类型的参数。"><a href="#上述方法中的参数列表中的参数，sql语句和可扩展参数都是可以确定下来，唯一不同的是RowMapper-rowMapper，发现该参数是一个接口类型的参数。" class="headerlink" title="上述方法中的参数列表中的参数，sql语句和可扩展参数都是可以确定下来，唯一不同的是RowMapper rowMapper，发现该参数是一个接口类型的参数。"></a>上述方法中的参数列表中的参数，sql语句和可扩展参数都是可以确定下来，唯一不同的是RowMapper<T> rowMapper，发现该参数是一个接口类型的参数。</T></h3><h3 id="1-手动实现RowMapper接口"><a href="#1-手动实现RowMapper接口" class="headerlink" title="1.手动实现RowMapper接口"></a>1.手动实现RowMapper接口</h3><pre><code>class AccountRowMapper implements RowMapper&lt;Account&gt; {
+    /**
+     * 把结果集中的数据封装到account中，由spring把每个account加到集合中
+     * @param resultSet
+     * @param i
+     * @return
+     * @throws SQLException
+     */
+    public Account mapRow(ResultSet resultSet, int i) throws SQLException {
+        Account account = new Account();
+        account.setId(resultSet.getInt(&quot;id&quot;));
+        account.setName(resultSet.getString(&quot;name&quot;));
+        account.setMoney(resultSet.getFloat(&quot;money&quot;));
+        return account;
+    }
+}</code></pre><h3 id="2-直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。"><a href="#2-直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。" class="headerlink" title="2.直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。"></a>2.直接new它的一个实现类BeanPropertyRowMapper<T>即可实现上述相同的功能。</T></h3><h3 id="实现crud"><a href="#实现crud" class="headerlink" title="实现crud"></a>实现crud</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/CRUD.png" alt="crud">  </p>
 
       
 
@@ -692,11 +718,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,7 +750,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,11 +758,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,7 +770,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
