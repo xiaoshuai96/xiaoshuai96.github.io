@@ -56,7 +56,10 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;dataSource_xml.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;template_xml.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;CRUD.png">
-<meta property="og:updated_time" content="2020-01-23T11:56:58.407Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;dao_impl.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;rep_code.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;dataSource.png">
+<meta property="og:updated_time" content="2020-01-25T08:09:03.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -87,7 +90,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://m.qpic.cn/psc?/V14aOwPs0TMTYX/T0po5IVZeaNliPGRfxFJTuFOTxQMti*9RbqUyccQSyG6Ny2YeeOnbizBOuUhBQVgM3N1ruUEoVpiL4tZgCliivVN7d39DtVXaKO41ynu.6c!/b&amp;bo=QAZVCEAIAAsRGXY!&amp;rf=viewer_4&amp;t=5" class="js-avatar">
+			<img src="https://pan.baidu.com/disk/home#/all?vmode=list&amp;path=%2F%E6%88%91%E7%9A%84%E8%B5%84%E6%BA%90%2Fphoto" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Xander</a></h1>
@@ -141,7 +144,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://m.qpic.cn/psc?/V14aOwPs0TMTYX/T0po5IVZeaNliPGRfxFJTuFOTxQMti*9RbqUyccQSyG6Ny2YeeOnbizBOuUhBQVgM3N1ruUEoVpiL4tZgCliivVN7d39DtVXaKO41ynu.6c!/b&amp;bo=QAZVCEAIAAsRGXY!&amp;rf=viewer_4&amp;t=5" class="js-avatar">
+				<img src="https://pan.baidu.com/disk/home#/all?vmode=list&amp;path=%2F%E6%88%91%E7%9A%84%E8%B5%84%E6%BA%90%2Fphoto" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Xander</h1>
@@ -476,8 +479,31 @@ List&lt;T&gt; query(String sql,RowMapper&lt;T&gt; rowMapper,Object...args);//在
         account.setMoney(resultSet.getFloat(&quot;money&quot;));
         return account;
     }
-}</code></pre><h3 id="2-直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。"><a href="#2-直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。" class="headerlink" title="2.直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。"></a>2.直接new它的一个实现类BeanPropertyRowMapper<T>即可实现上述相同的功能。</T></h3><h3 id="实现crud"><a href="#实现crud" class="headerlink" title="实现crud"></a>实现crud</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/CRUD.png" alt="crud">  </p>
+}</code></pre><h3 id="2-直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。"><a href="#2-直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。" class="headerlink" title="2.直接new它的一个实现类BeanPropertyRowMapper即可实现上述相同的功能。"></a>2.直接new它的一个实现类BeanPropertyRowMapper<T>即可实现上述相同的功能。</T></h3><h3 id="实现crud"><a href="#实现crud" class="headerlink" title="实现crud"></a>实现crud</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/CRUD.png" alt="crud">    </p>
+<h3 id="平时在开发过程中，例如dao接口的有很多的实现类"><a href="#平时在开发过程中，例如dao接口的有很多的实现类" class="headerlink" title="平时在开发过程中，例如dao接口的有很多的实现类"></a>平时在开发过程中，例如dao接口的有很多的实现类</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/dao_impl.png" alt="daoImpl">   </p>
+<h3 id="但是上述实现类中存在一个问题，就是重复性的代码"><a href="#但是上述实现类中存在一个问题，就是重复性的代码" class="headerlink" title="但是上述实现类中存在一个问题，就是重复性的代码"></a>但是上述实现类中存在一个问题，就是重复性的代码</h3><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/rep_code.png" alt="rep_code">  </p>
+<h3 id="1-手动实现抽取共同代码"><a href="#1-手动实现抽取共同代码" class="headerlink" title="1.手动实现抽取共同代码"></a>1.手动实现抽取共同代码</h3><h4 id="让实现类继承一个JDBCDaoSupport类（在该类中定义用两个set方法，一个是jdbcTemplate方法，一个是setDataSource方法，而在xml文件中的配置就只需要配置如下图所示的步骤，代码更加的简洁，因为配置dataSource时，下方的代码中包含了创建一个JdbcTemplate的方法）"><a href="#让实现类继承一个JDBCDaoSupport类（在该类中定义用两个set方法，一个是jdbcTemplate方法，一个是setDataSource方法，而在xml文件中的配置就只需要配置如下图所示的步骤，代码更加的简洁，因为配置dataSource时，下方的代码中包含了创建一个JdbcTemplate的方法）" class="headerlink" title="让实现类继承一个JDBCDaoSupport类（在该类中定义用两个set方法，一个是jdbcTemplate方法，一个是setDataSource方法，而在xml文件中的配置就只需要配置如下图所示的步骤，代码更加的简洁，因为配置dataSource时，下方的代码中包含了创建一个JdbcTemplate的方法）"></a>让实现类继承一个JDBCDaoSupport类（在该类中定义用两个set方法，一个是jdbcTemplate方法，一个是setDataSource方法，而在xml文件中的配置就只需要配置如下图所示的步骤，代码更加的简洁，因为配置dataSource时，下方的代码中包含了创建一个JdbcTemplate的方法）</h4><pre><code>public class JDBCDaoSupport {
+    private JdbcTemplate jdbcTemplate;
 
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        if (jdbcTemplate == null) {
+            jdbcTemplate = createJdbcTemplate(dataSource);
+        }
+    }
+
+    private JdbcTemplate createJdbcTemplate(DataSource dataSource){
+        return new JdbcTemplate(dataSource);
+    }
+}</code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/dataSource.png" alt="dataSource">  </p>
+<h3 id="2-spring提供的专属类"><a href="#2-spring提供的专属类" class="headerlink" title="2.spring提供的专属类"></a>2.spring提供的专属类</h3><h4 id="当我们需要抽取出存在与dao类中的相同代码时，spring提供了一个JDBCDaoSupport类。要实现上述该功能只需要继承该类即可。"><a href="#当我们需要抽取出存在与dao类中的相同代码时，spring提供了一个JDBCDaoSupport类。要实现上述该功能只需要继承该类即可。" class="headerlink" title="当我们需要抽取出存在与dao类中的相同代码时，spring提供了一个JDBCDaoSupport类。要实现上述该功能只需要继承该类即可。"></a>当我们需要抽取出存在与dao类中的相同代码时，spring提供了一个JDBCDaoSupport类。要实现上述该功能只需要继承该类即可。</h4><pre><code>import org.springframework.jdbc.core.support.JdbcDaoSupport;</code></pre><h3 id="使用继承（也就是xml配置的方式）和注解的方式的不同之处就是一个需要继承、另一个不要继承（直接使用注解）"><a href="#使用继承（也就是xml配置的方式）和注解的方式的不同之处就是一个需要继承、另一个不要继承（直接使用注解）" class="headerlink" title="使用继承（也就是xml配置的方式）和注解的方式的不同之处就是一个需要继承、另一个不要继承（直接使用注解）"></a>使用继承（也就是xml配置的方式）和注解的方式的不同之处就是一个需要继承、另一个不要继承（直接使用注解）</h3>
       
 
       
@@ -718,11 +744,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,15 +788,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
