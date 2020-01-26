@@ -62,7 +62,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;transaction_configuration.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;attributes.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;tx_anno_half.png">
-<meta property="og:updated_time" content="2020-01-26T08:09:12.119Z">
+<meta property="og:updated_time" content="2020-01-26T13:27:31.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;runtime.png">
   
@@ -560,7 +560,72 @@ no-rollback-for:用于指定一个异常，当产生该异常时事务不回滚�
 <h2 id="Spring中基于注解的声明式事务控制配置步骤"><a href="#Spring中基于注解的声明式事务控制配置步骤" class="headerlink" title="Spring中基于注解的声明式事务控制配置步骤"></a>Spring中基于注解的声明式事务控制配置步骤</h2><pre><code>1.配置事务管理器
 2.开启Spring对注解事务的支持
 3.在需要事务支持的地方使用@Transactional注解  </code></pre><p><img src="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/tx_anno_half.png" alt="anno">  </p>
+<h2 id="Spring基于纯注解的声明式事务控制"><a href="#Spring基于纯注解的声明式事务控制" class="headerlink" title="Spring基于纯注解的声明式事务控制"></a>Spring基于纯注解的声明式事务控制</h2><h4 id="1-在前面工程的基础上，对dao层-Repository-“accountDao”-和service层-Service-“accountService”-进行注解，对于其中的成员变量使用-Autowired的注解代替set方法在xml中进行配置的方式。"><a href="#1-在前面工程的基础上，对dao层-Repository-“accountDao”-和service层-Service-“accountService”-进行注解，对于其中的成员变量使用-Autowired的注解代替set方法在xml中进行配置的方式。" class="headerlink" title="1.在前面工程的基础上，对dao层(@Repository(“accountDao”))和service层(@Service(“accountService”))进行注解，对于其中的成员变量使用@Autowired的注解代替set方法在xml中进行配置的方式。"></a>1.在前面工程的基础上，对dao层(@Repository(“accountDao”))和service层(@Service(“accountService”))进行注解，对于其中的成员变量使用@Autowired的注解代替set方法在xml中进行配置的方式。</h4><h4 id="2-要彻底去除掉bean-xml（ApplicationContext-xml），这里使用到了三个配置类"><a href="#2-要彻底去除掉bean-xml（ApplicationContext-xml），这里使用到了三个配置类" class="headerlink" title="2.要彻底去除掉bean.xml（ApplicationContext.xml），这里使用到了三个配置类"></a>2.要彻底去除掉bean.xml（ApplicationContext.xml），这里使用到了三个配置类</h4><pre><code>a.Spring的配置类   
+b.和事务相关的配置类
+c.和数据库连接相关的配置类    </code></pre><hr>
+<pre><code>/**
+ * spring的配置类，相当于bean.xml
+ */
+@Configuration
+@ComponentScan(&quot;com.itheima&quot;)
+@Import({JdbcConfig.class, transactionConfig.class})
+@PropertySource(&quot;jdbcConfig.properties&quot;)
+@EnableTransactionManagement
+public class SpringConfiguration {
 
+}</code></pre><hr>
+<pre><code>public class transactionConfig {
+    /**
+     * 用于创建事务管理器对象
+     * @param dataSource
+     * @return
+     */
+    @Bean(name=&quot;transactionManager&quot;)
+    public PlatformTransactionManager createTransactionManager(DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
+    }
+}</code></pre><hr>
+<pre><code>/**
+ * 和连接数据库相关的配置类
+ */
+public class JdbcConfig {
+    @Value(&quot;${jdbc.driver}&quot;)
+    private String driver;
+
+    @Value(&quot;${jdbc.url}&quot;)
+    private String url;
+
+    @Value(&quot;${jdbc.username}&quot;)
+    private String username;
+
+    @Value(&quot;${jdbc.password}&quot;)
+    private String password;
+
+    /**
+     * 创建JdbcTemplate对象
+     *
+     * @param dataSource
+     * @return
+     */
+    @Bean(name = &quot;JdbcTemplate&quot;)
+    public JdbcTemplate createJdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
+    /**
+     * 创建一个数据源对象
+     *
+     * @return
+     */
+    @Bean(name = &quot;dataSource&quot;)
+    public DataSource createDataSource() {
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(driver);
+        ds.setUrl(url);
+        ds.setUsername(username);
+        ds.setPassword(password);
+        return ds;
+    }
+}</code></pre>
       
 
       
@@ -837,10 +902,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
@@ -849,11 +910,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,7 +926,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
               </li>
             
             <div class="clearfix"></div>
