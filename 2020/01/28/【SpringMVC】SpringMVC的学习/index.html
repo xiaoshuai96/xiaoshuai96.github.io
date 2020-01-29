@@ -17,7 +17,8 @@
 <meta property="og:description" content="SpringMVC框架Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。   Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。 使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的SpringMVC框架或集成其他MVC开发框架， 如Struts1(现在一般不">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
-<meta property="og:updated_time" content="2020-01-28T13:25:54.501Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;encoding.png">
+<meta property="og:updated_time" content="2020-01-29T06:53:09.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
   
@@ -209,10 +210,77 @@ Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。
     * springmvc.xml文件被加载
     * HelloController创建成对象
 2.发送请求，后台处理请求</code></pre><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/firstView.png" alt="view">    </p>
-<h4 id="过程描述"><a href="#过程描述" class="headerlink" title="过程描述"></a>过程描述</h4><pre><code>当用户在页面上点击该超链接，也就是向控制中心(DispatcherServlet)发送了请求，根据前端的链接找到了注解的路径path为hello的方法并执行该方法，  
+<h4 id="过程描述："><a href="#过程描述：" class="headerlink" title="过程描述："></a>过程描述：</h4><pre><code>当用户在页面上点击该超链接，也就是向控制中心(DispatcherServlet)发送了请求，根据前端的链接找到了注解的路径path为hello的方法并执行该方法，  
 在该方法执行完成之后会返回一个String类型的参数到控制中心，也就是DispatcherServlet。  
 控制中心拿着返回的参数来利用视图解析器对象(InternalResourceViewsolver)中的配置进行筛选查找，  
-最终找到了success.jsp。然后将该结果返回到控制中心，控制中心将最终的结果呈现到页面上。</code></pre>
+最终找到了success.jsp。然后将该结果返回到控制中心，控制中心将最终的结果呈现到页面上。  </code></pre><h3 id="RequestMapping注解："><a href="#RequestMapping注解：" class="headerlink" title="RequestMapping注解："></a>RequestMapping注解：</h3><pre><code>@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Mapping
+public @interface RequestMapping {
+
+}
+作用：  
+    用于建立请求URL与处理请求方法之间的对应关系。
+出现的位置：  
+    类上、方法上（请求URL的第二级访问目录）。
+    1. 作用在类上：第一级的访问目录   
+    2. 作用在方法上：第二级的访问目录 
+    3. 细节：路径可以不编写 / 表示应用的根目录开始   
+    4. 细节：${ pageContext.request.contextPath }也可以省略不写，但是路径上不能写 /   
+属性：
+    value:用于指定请求的URL。和path的作用相同。
+    method:用于指定请求的方式(GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE)。
+    params:用于指定限制请求参数的条件。支持简单的表达式，要求请求参数的key和value必须和配置的相同。
+    headers:用于指定限制请求消息头的条件。
+
+注意：以上四个属性只要出现两个或以上，它们之间的是与的关系。    </code></pre><h2 id="请求参数的绑定"><a href="#请求参数的绑定" class="headerlink" title="请求参数的绑定"></a>请求参数的绑定</h2><pre><code>1. 请求参数的绑定说明 
+    1. 绑定机制 
+        1. 表单提交的数据都是k=v格式的 username=haha&amp;password=123 
+        2. SpringMVC的参数绑定过程是把表单提交的请求参数，作为控制器中方法的参数进行绑定的  
+        3. 要求：提交表单的name和参数的名称是相同的 
+    2. 支持的数据类型 
+        1. 基本数据类型和字符串类型   
+        2. 实体类型（JavaBean）  
+        3. 集合数据类型（List、map集合等） 
+2. 基本数据类型和字符串类型 
+    1. 提交表单的name和参数的名称是相同的 
+    2. 区分大小写 
+3. 实体类型（JavaBean）  
+     1. 提交表单的name和JavaBean中的属性名称需要一致 
+     2. 如果一个JavaBean类中包含其他的引用类型，那么表单的name属性需要编写成：对象.属性 例如： address.name 
+   4. 给集合属性数据封装
+    1. JSP页面编写方式：list[0].属性  </code></pre><h3 id="中文乱码的解决方式（在web-xml文件中配置）"><a href="#中文乱码的解决方式（在web-xml文件中配置）" class="headerlink" title="中文乱码的解决方式（在web.xml文件中配置）"></a>中文乱码的解决方式（在web.xml文件中配置）</h3><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/encoding.png" alt="encoding">  </p>
+<hr>
+<h2 id="自定义类型转换器"><a href="#自定义类型转换器" class="headerlink" title="自定义类型转换器"></a>自定义类型转换器</h2><pre><code>1.表单提交的任何数据类型全部都是字符串类型，但是后台定义Integer类型，数据也可以封装上，说明 Spring框架内部会默认进行数据类型转换。   
+2.如果想自定义数据类型转换，可以实现Converter的接口     </code></pre><hr>
+<pre><code>public class StringToDateConverter implements Converter&lt;String, Date&gt; {
+    /**
+     * @param s
+     * @return
+     */
+    @Override
+    public Date convert(String s) {
+        if (s == null) {
+            throw new RuntimeException(&quot;空值！&quot;);
+        }
+        DateFormat df = new SimpleDateFormat(&quot;yyyy-mm-dd&quot;);
+        try {
+            //把字符串转换成日期
+            return df.parse(s);
+        }catch (Exception e){
+            throw new RuntimeException(&quot;数据类型转换出现错误&quot;);
+        }
+    }
+}</code></pre><hr>
+<h3 id="在springmvc-xml文件中对自定义类型转换器的配置"><a href="#在springmvc-xml文件中对自定义类型转换器的配置" class="headerlink" title="在springmvc.xml文件中对自定义类型转换器的配置"></a>在springmvc.xml文件中对自定义类型转换器的配置</h3><pre><code>&lt;!--配置自定义类型转换器--&gt;
+&lt;bean id=&quot;conversionService&quot; class=&quot;org.springframework.context.support.ConversionServiceFactoryBean&quot;&gt;
+    &lt;property name=&quot;converters&quot;&gt;
+        &lt;set&gt;
+            &lt;bean class=&quot;cn.itcast.utils.StringToDateConverter&quot;&gt;&lt;/bean&gt;
+        &lt;/set&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</code></pre>
       
 
       
@@ -444,15 +512,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,6 +525,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,19 +544,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,7 +556,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,7 +572,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
