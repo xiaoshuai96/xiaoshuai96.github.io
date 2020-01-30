@@ -24,8 +24,12 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;requestHeader.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;cookieValue.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;modelAttribute.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;.png">
-<meta property="og:updated_time" content="2020-01-29T15:44:46.699Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;sessionAttribute.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;requestDispatcher.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;redirect.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;forward_redirect.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;print.png">
+<meta property="og:updated_time" content="2020-01-30T04:30:04.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
   
@@ -317,9 +321,67 @@ public @interface RequestMapping {
      出现在方法上：表示当前方法会在控制器方法执行前线执行。   
      出现在参数上：获取指定的数据给参数赋值。 
 应用场景: 
-     当提交表单数据不是完整的实体数据时，保证没有提交的字段使用数据库原来的数据。 </code></pre><h3 id="SessionAttribute"><a href="#SessionAttribute" class="headerlink" title="SessionAttribute"></a>SessionAttribute</h3><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/.png" alt></p>
-<hr>
+     当提交表单数据不是完整的实体数据时，保证没有提交的字段使用数据库原来的数据。 </code></pre><h3 id="SessionAttributes"><a href="#SessionAttributes" class="headerlink" title="SessionAttributes"></a>SessionAttributes</h3><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/sessionAttribute.png" alt="session"></p>
+<pre><code>作用：
+    用于多次执行控制器间的参数共享。
+属性：    
+    value：用于指定存入的属性名称。
+    type：用于指定存入的数据类型。  
 
+/**
+ * sessionAttributes注解的测试
+ * @return
+ */
+@RequestMapping(path = &quot;/testSessionAttributes&quot;)
+public String testSessionAttributes(Model model) {
+    System.out.println(&quot;testSessionAttributes方法执行&quot;);
+    //底层会存储到request域对象中
+    model.addAttribute(&quot;message&quot;,&quot;hehe&quot;);
+    return &quot;success&quot;;
+}
+/**
+ * 存入session域中
+ * @param modelMap
+ * @return
+ */
+@RequestMapping(path = &quot;/getSessionAttributes&quot;)
+public String getSessionAttributes(ModelMap modelMap) {
+    System.out.println(&quot;getSessionAttributes方法执行&quot;);
+    String message = (String) modelMap.get(&quot;message&quot;);
+    System.out.println(message);
+    return &quot;success&quot;;
+}
+/**
+ * 从session域中删除
+ * @param status
+ * @return
+ */
+@RequestMapping(path = &quot;/delSessionAttributes&quot;)
+public String delSessionAttributes(SessionStatus status) {
+    System.out.println(&quot;delSessionAttributes方法执行&quot;);
+    status.setComplete();
+    return &quot;success&quot;;
+}  </code></pre><hr>
+<h2 id="响应之返回值"><a href="#响应之返回值" class="headerlink" title="响应之返回值"></a>响应之返回值</h2><h3 id="1-返回值为String类型-不作赘述"><a href="#1-返回值为String类型-不作赘述" class="headerlink" title="1.返回值为String类型(不作赘述)"></a>1.返回值为String类型(不作赘述)</h3><hr>
+<h3 id="2-返回值为void类型"><a href="#2-返回值为void类型" class="headerlink" title="2.返回值为void类型"></a>2.返回值为void类型</h3><h4 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/requestDispatcher.png" alt="requestDispatcher">  </p>
+<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/redirect.png" alt="redirect">   </p>
+<h4 id="使用关键字的方式进行请求转发或者重定向"><a href="#使用关键字的方式进行请求转发或者重定向" class="headerlink" title="使用关键字的方式进行请求转发或者重定向"></a>使用关键字的方式进行请求转发或者重定向</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/forward_redirect.png" alt="forward_redirect">    </p>
+<h4 id="直接进行响应（例如下）"><a href="#直接进行响应（例如下）" class="headerlink" title="直接进行响应（例如下）"></a>直接进行响应（例如下）</h4><h2 id><a href="#" class="headerlink" title="  "></a><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/print.png" alt="print">  </h2><h3 id="3-返回值为ModelAndView对象"><a href="#3-返回值为ModelAndView对象" class="headerlink" title="3.返回值为ModelAndView对象"></a>3.返回值为ModelAndView对象</h3><pre><code>@RequestMapping(&quot;/testModelAndView&quot;)
+public ModelAndView testModelAndView() {
+    //创建ModelAndView对象
+    ModelAndView mv = new ModelAndView();
+    System.out.println(&quot;testModelAndView方法执行&quot;);
+    //模拟从数据库中查询数据
+    User user = new User();
+    user.setUsername(&quot;xiaoming&quot;);
+    user.setPassword(&quot;123456&quot;);
+    user.setAge(18);
+    //把user对象存储到mv对象中，底层也会把user对象存入到request对象
+    mv.addObject(&quot;user&quot;,user);
+    //跳转到哪个页面
+    mv.setViewName(&quot;success&quot;);
+    return mv;
+}</code></pre>
       
 
       
@@ -551,15 +613,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,6 +630,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">力扣 快乐数 递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,10 +665,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
               </li>
              
@@ -616,6 +674,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
