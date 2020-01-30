@@ -27,9 +27,10 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;sessionAttribute.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;requestDispatcher.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;redirect.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;forward_redirect.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;print.png">
-<meta property="og:updated_time" content="2020-01-30T04:30:04.231Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;forward_redirect.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;mvc_resources.png">
+<meta property="og:updated_time" content="2020-01-30T11:45:05.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
   
@@ -364,8 +365,7 @@ public String delSessionAttributes(SessionStatus status) {
 }  </code></pre><hr>
 <h2 id="响应之返回值"><a href="#响应之返回值" class="headerlink" title="响应之返回值"></a>响应之返回值</h2><h3 id="1-返回值为String类型-不作赘述"><a href="#1-返回值为String类型-不作赘述" class="headerlink" title="1.返回值为String类型(不作赘述)"></a>1.返回值为String类型(不作赘述)</h3><hr>
 <h3 id="2-返回值为void类型"><a href="#2-返回值为void类型" class="headerlink" title="2.返回值为void类型"></a>2.返回值为void类型</h3><h4 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/requestDispatcher.png" alt="requestDispatcher">  </p>
-<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/redirect.png" alt="redirect">   </p>
-<h4 id="使用关键字的方式进行请求转发或者重定向"><a href="#使用关键字的方式进行请求转发或者重定向" class="headerlink" title="使用关键字的方式进行请求转发或者重定向"></a>使用关键字的方式进行请求转发或者重定向</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/forward_redirect.png" alt="forward_redirect">    </p>
+<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/redirect.png" alt="redirect">     </p>
 <h4 id="直接进行响应（例如下）"><a href="#直接进行响应（例如下）" class="headerlink" title="直接进行响应（例如下）"></a>直接进行响应（例如下）</h4><h2 id><a href="#" class="headerlink" title="  "></a><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/print.png" alt="print">  </h2><h3 id="3-返回值为ModelAndView对象"><a href="#3-返回值为ModelAndView对象" class="headerlink" title="3.返回值为ModelAndView对象"></a>3.返回值为ModelAndView对象</h3><pre><code>@RequestMapping(&quot;/testModelAndView&quot;)
 public ModelAndView testModelAndView() {
     //创建ModelAndView对象
@@ -381,7 +381,55 @@ public ModelAndView testModelAndView() {
     //跳转到哪个页面
     mv.setViewName(&quot;success&quot;);
     return mv;
-}</code></pre>
+}</code></pre><h2 id="SpringMVC框架提供的转发和重定向"><a href="#SpringMVC框架提供的转发和重定向" class="headerlink" title="SpringMVC框架提供的转发和重定向"></a>SpringMVC框架提供的转发和重定向</h2><h3 id="1-使用关键字的方式进行请求转发或者重定向"><a href="#1-使用关键字的方式进行请求转发或者重定向" class="headerlink" title="1.使用关键字的方式进行请求转发或者重定向"></a>1.使用关键字的方式进行请求转发或者重定向</h3><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/forward_redirect.png" alt="forward_redirect">  </p>
+<h3 id="2-ResponseBody响应json数据"><a href="#2-ResponseBody响应json数据" class="headerlink" title="2.ResponseBody响应json数据"></a>2.ResponseBody响应json数据</h3><pre><code>DispatcherServlet会拦截到所有的资源，导致一个问题就是静态资源（img、css、js）也会被拦截到，从而不能被使用。
+解决问题就是需要配置静态资源不进行拦截，在springmvc.xml配置文件添加如下配置 
+mvc:resources标签配置不过滤 
+    1. location元素表示webapp目录下的包下的所有文件 
+    2. mapping元素表示以/static开头的所有请求路径，如/static/a 或者/static/a/b  </code></pre><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/mvc_resources.png" alt="mvc_resources">  </p>
+<h4 id="使用-RequestBody获取请求体数据"><a href="#使用-RequestBody获取请求体数据" class="headerlink" title="使用@RequestBody获取请求体数据"></a>使用@RequestBody获取请求体数据</h4><pre><code>&lt;script&gt;
+    //页面加载，绑定单击事件
+    $(function () {
+        $(&quot;#btn&quot;).click(function () {
+            //发送ajax请求
+            $.ajax({
+                //编写json格式，设置属性和值
+                url:&quot;user/testAjax&quot;,
+                contentType:&quot;application/json;charset=UTF-8&quot;,
+                data:&apos;{&quot;username&quot;:&quot;xiaoming&quot;,&quot;password&quot;:&quot;123456&quot;,&quot;age&quot;:&quot;18&quot;}&apos;,
+                dataType:&quot;json&quot;,
+                type:&quot;post&quot;,
+                success:function (data) {
+                    //data为服务器端响应的json数据，进行解析
+                    alert(data);
+                    alert(data.username);
+                }
+            });
+        });
+    })
+&lt;/script&gt;
+
+//获取请求体的数据
+ @RequestMapping(&quot;/testAjax&quot;)
+public void testAjax(@RequestBody String body) {
+    System.out.println(body);
+}  </code></pre><h3 id="3-json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"><a href="#3-json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包" class="headerlink" title="3.json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"></a>3.json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包</h3><pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+        &lt;version&gt;2.9.0&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+        &lt;version&gt;2.9.0&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+        &lt;version&gt;2.9.0&lt;/version&gt;
+    &lt;/dependency&gt;</code></pre>
       
 
       
@@ -613,11 +661,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,10 +682,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">力扣 快乐数 递归</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,6 +709,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
@@ -674,10 +726,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
