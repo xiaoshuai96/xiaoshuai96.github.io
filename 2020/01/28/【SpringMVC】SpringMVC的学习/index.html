@@ -30,7 +30,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;print.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;forward_redirect.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;mvc_resources.png">
-<meta property="og:updated_time" content="2020-01-30T11:51:55.315Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;mvc_upload.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;upload_jar.png">
+<meta property="og:updated_time" content="2020-01-31T14:48:10.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
   
@@ -415,7 +417,91 @@ public void testAjax(@RequestBody String body) {
     System.out.println(body);
 }  </code></pre><h3 id="3-json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"><a href="#3-json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包" class="headerlink" title="3.json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"></a>3.json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包</h3><pre><code>jackson-annotation-2.9.0.jar
 jackson-databind-2.9.0.jar
-jackson-core-2.9.0.jar</code></pre>
+jackson-core-2.9.0.jar</code></pre><h2 id="SpringMVC实现文件上传"><a href="#SpringMVC实现文件上传" class="headerlink" title="SpringMVC实现文件上传"></a>SpringMVC实现文件上传</h2><h2 id="传统方式"><a href="#传统方式" class="headerlink" title="传统方式"></a>传统方式</h2><h3 id="1-文件上传的必要前提"><a href="#1-文件上传的必要前提" class="headerlink" title="1.文件上传的必要前提"></a>1.文件上传的必要前提</h3><pre><code>A form 表单的 enctype 取值必须是：multipart/form-data  
+    (默认值是:application/x-www-form-urlencoded)     
+    enctype:是表单请求正文的类型 
+B method 属性取值必须是 Post 
+C 提供一个文件选择域&lt;input type=”file” /&gt;   </code></pre><h3 id="2-借助第三方组件实现文件上传"><a href="#2-借助第三方组件实现文件上传" class="headerlink" title="2.借助第三方组件实现文件上传"></a>2.借助第三方组件实现文件上传</h3><pre><code>使用 Commons-fileupload 组件实现文件上传，需要导入该组件相应的支撑 jar 包：Commons-fileupload 和commons-io。  
+commons-io 不属于文件上传组件的开发 jar 文件，但Commons-fileupload 组件从 1.1 版本开始，它工作时需要 commons-io 包的支持。   </code></pre><h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><pre><code> @RequestMapping(&quot;/fileupload01&quot;)
+public String fileupload(HttpServletRequest request) throws Exception{
+    System.out.println(&quot;fileupload方法执行&quot;);
+    //使用fileupload组件
+    //设置上传的位置
+    String path = request.getSession().getServletContext()+&quot;/uploads/&quot;;
+    File file = new File(path);
+    if (!file.exists()) {
+        file.mkdirs();
+    }
+
+    //解析request对象，获取上传文件项
+    DiskFileItemFactory factory = new DiskFileItemFactory();
+    ServletFileUpload upload = new ServletFileUpload(factory);
+    //解析
+    List&lt;FileItem&gt; items = upload.parseRequest(request);
+    for (FileItem item : items) {
+        if (item.isFormField()) {
+            //说明是一个普通表单项
+        }else{
+            //否则说明是一个上传文件项
+            String filename = item.getName();
+            //将文件的名称设置为唯一值,uuid
+            String uuid = UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;);
+            filename = uuid+&quot;_&quot;+filename;
+            //完成文件上传
+            item.write(new File(path, filename));
+            //删除临时文件
+            item.delete();
+        }
+    }
+    return &quot;success&quot;;
+}</code></pre><h2 id="SpringMVC方式的文件上传"><a href="#SpringMVC方式的文件上传" class="headerlink" title="SpringMVC方式的文件上传"></a>SpringMVC方式的文件上传</h2><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/mvc_upload.png" alt="mvc_upload">  </p>
+<h3 id="配置文件上传解析器"><a href="#配置文件上传解析器" class="headerlink" title="配置文件上传解析器"></a>配置文件上传解析器</h3><pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt; 
+ &lt;!-- 设置上传文件的最大尺寸为 5MB --&gt;  
+    &lt;property name=&quot;maxUploadSize&quot; value=5242880&lt;/property&gt; 
+&lt;/bean&gt; 
+注意：  文件上传的解析器 id是固定的，不能起别的名称，否则无法实现请求参数的绑定。</code></pre><h3 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h3><pre><code>@RequestMapping(&quot;/fileupload02&quot;)
+public String fileupload02(HttpServletRequest request, MultipartFile upload) throws Exception{
+    System.out.println(&quot;fileupload02方法执行&quot;);
+    //使用fileupload组件
+    //设置上传的位置
+    String path = request.getSession().getServletContext()+&quot;/uploads/&quot;;
+    File file = new File(path);
+    if (!file.exists()) {
+        file.mkdirs();
+    }
+    String filename = upload.getOriginalFilename();
+    //将文件的名称设置为唯一值,uuid
+    String uuid = UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;);
+    filename = uuid+&quot;_&quot;+filename;
+    //完成文件上传
+    upload.transferTo(new File(path,filename));
+    return &quot;success&quot;;
+}  </code></pre><h2 id="SpringMVC跨服务器方式的文件上传"><a href="#SpringMVC跨服务器方式的文件上传" class="headerlink" title="SpringMVC跨服务器方式的文件上传"></a>SpringMVC跨服务器方式的文件上传</h2><h3 id="负责处理文件上传的项目中拷贝文件上传的必备jar包"><a href="#负责处理文件上传的项目中拷贝文件上传的必备jar包" class="headerlink" title="负责处理文件上传的项目中拷贝文件上传的必备jar包"></a>负责处理文件上传的项目中拷贝文件上传的必备jar包</h3><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/upload_jar.png" alt="upload_jar">   </p>
+<pre><code>/**
+ *SpringMVC跨服务器文件上传
+ * @return
+ */
+@RequestMapping(&quot;/fileupload03&quot;)
+public String fileupload03(MultipartFile upload) throws Exception{
+    System.out.println(&quot;fileupload02方法执行&quot;);
+    //定义上传服务器的路径
+    String path = &quot;http://localhost:9090/fileuploadServer_war/uploads/&quot;;
+    File file = new File(path);
+    if (!file.exists()) {
+        file.mkdirs();
+    }
+    String filename = upload.getOriginalFilename();
+    //将文件的名称设置为唯一值,uuid
+    String uuid = UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;);
+    filename = uuid+&quot;_&quot;+filename;
+    //创建客户端的对象
+    Client client = Client.create();
+    //和图片服务器连接
+    WebResource webResource = client.resource(path + filename);
+    //上传文件
+    webResource.put(upload.getBytes());
+    return &quot;success&quot;;
+}</code></pre>
       
 
       
@@ -647,11 +733,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,11 +745,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,11 +761,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,19 +773,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,11 +785,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
               </li>
             
             <div class="clearfix"></div>
