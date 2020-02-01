@@ -33,7 +33,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;mvc_upload.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;upload_jar.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;springmvc_exception.png">
-<meta property="og:updated_time" content="2020-02-01T07:55:02.236Z">
+<meta property="og:updated_time" content="2020-02-01T14:12:57.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
   
@@ -482,7 +482,8 @@ public String fileupload02(HttpServletRequest request, MultipartFile upload) thr
  *SpringMVC跨服务器文件上传
  * @return
  */
-@RequestMapping(&quot;/fileupload03&quot;)
+
+ @RequestMapping(&quot;/fileupload03&quot;)
 public String fileupload03(MultipartFile upload) throws Exception{
     System.out.println(&quot;fileupload02方法执行&quot;);
     //定义上传服务器的路径
@@ -557,7 +558,54 @@ public class SysExceptionResolver implements HandlerExceptionResolver {
 <pre><code>3.配置异常处理器（跳转到提示页面）  
 在springmvc.xml文件中配置bean标签（指明异常处理器类的位置）
 &lt;!--配置异常处理器--&gt;
-&lt;bean id=&quot;sysExceptionResolver&quot; class=&quot;cn.itcast.exception.SysExceptionResolver&quot;/&gt;</code></pre>
+&lt;bean id=&quot;sysExceptionResolver&quot; class=&quot;cn.itcast.exception.SysExceptionResolver&quot;/&gt;    </code></pre><h2 id="SpringMVC中的拦截器"><a href="#SpringMVC中的拦截器" class="headerlink" title="SpringMVC中的拦截器"></a>SpringMVC中的拦截器</h2><h3 id="拦截器和过滤器的区别："><a href="#拦截器和过滤器的区别：" class="headerlink" title="拦截器和过滤器的区别："></a>拦截器和过滤器的区别：</h3><pre><code>Spring MVC的处理器拦截器类似于 Servlet开发中的过滤器Filter，用于对处理器进行预处理和后处理。 自定义的一些拦截器可以来实现特定的功能。    
+它和过滤器是有几分相似，但是也有区别，接下来我们就来说说他们的区别：   
+1.过滤器是servlet规范中的一部分，任何java web工程都可以使用。   
+2.拦截器是SpringMVC框架自己的，只有使用了SpringMVC框架的工程才能用。   
+3.过滤器在url-pattern中配置了/*之后，可以对所有要访问的资源拦截。    
+4.拦截器它是只会拦截访问的控制器方法，如果访问的是jsp，html,css,image或者js是不会进行拦截的。 它也是AOP思想的具体应用。 
+我们要想自定义拦截器，要求必须实现：HandlerInterceptor 接口。   </code></pre><h3 id="自定义拦截器的步骤："><a href="#自定义拦截器的步骤：" class="headerlink" title="自定义拦截器的步骤："></a>自定义拦截器的步骤：</h3><pre><code>1.编写一个普通类实现HandleInterceptor接口  
+/**
+ * 自定义拦截器
+ */
+public class MyInterceptor implements HandlerInterceptor {
+    @Override
+    public boolean preHandle(HttpServletRequest request, 
+    HttpServletResponse response, Object handler) throws Exception {
+        System.out.println(&quot;preHandle01方法执行……&quot;);
+        return true;
+    }
+    @Override
+    public void postHandle(HttpServletRequest request, 
+    HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        System.out.println(&quot;postHandle01方法执行……&quot;); 
+    }
+    @Override
+    public void afterCompletion(HttpServletRequest request, 
+    HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        System.out.println(&quot;afterCompletion01方法执行……&quot;);
+    }
+}  </code></pre><hr>
+<pre><code>2.配置拦截器  
+
+&lt;!--拦截器配置--&gt;
+&lt;mvc:interceptors&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;!--要拦截的方法--&gt;
+        &lt;mvc:mapping path=&quot;/user/*&quot;/&gt;
+        &lt;!--不要拦截的方法--&gt;
+        &lt;mvc:exclude-mapping path=&quot;/user/testDemo&quot;/&gt;
+        &lt;!--配置拦截器对象--&gt;
+        &lt;bean class=&quot;cn.itcast.interceptor.MyInterceptor01&quot;/&gt;
+    &lt;/mvc:interceptor&gt;
+    &lt;mvc:interceptor&gt;
+        &lt;!--要拦截的方法--&gt;
+        &lt;mvc:mapping path=&quot;/user/*&quot;/&gt;
+        &lt;!--配置拦截器对象--&gt;
+        &lt;bean class=&quot;cn.itcast.interceptor.MyInterceptor02&quot;/&gt;
+    &lt;/mvc:interceptor&gt;
+&lt;/mvc:interceptors&gt;  </code></pre><hr>
+
       
 
       
@@ -789,19 +837,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,6 +862,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,15 +889,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,11 +897,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
               </li>
             
             <div class="clearfix"></div>
