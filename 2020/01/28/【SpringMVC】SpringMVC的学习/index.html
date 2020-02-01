@@ -32,7 +32,8 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;mvc_resources.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;mvc_upload.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;upload_jar.png">
-<meta property="og:updated_time" content="2020-01-31T14:48:10.998Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;springmvc_exception.png">
+<meta property="og:updated_time" content="2020-02-01T07:55:02.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;28&#x2F;%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0&#x2F;firstView.png">
   
@@ -501,7 +502,62 @@ public String fileupload03(MultipartFile upload) throws Exception{
     //上传文件
     webResource.put(upload.getBytes());
     return &quot;success&quot;;
-}</code></pre>
+}  </code></pre><h2 id="SpringMVC中的异常处理"><a href="#SpringMVC中的异常处理" class="headerlink" title="SpringMVC中的异常处理"></a>SpringMVC中的异常处理</h2><p><img src="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/springmvc_exception.png" alt="exception">  </p>
+<h3 id="SpringMVC中处理异常的步骤"><a href="#SpringMVC中处理异常的步骤" class="headerlink" title="SpringMVC中处理异常的步骤"></a>SpringMVC中处理异常的步骤</h3><pre><code>1.编写自定义异常类（做提示信息）  
+/**
+  * 自定义的异常类
+  */
+public class SysException extends Exception {
+    //存储异常提示信息
+    private String message;
+
+    public SysException(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}  </code></pre><hr>
+<pre><code>2.编写异常处理器 
+/**
+ * 异常处理器类
+ */
+public class SysExceptionResolver implements HandlerExceptionResolver {
+    /**
+     * 处理异常业务逻辑
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex 也就是前端捕获到的异常
+     * @return
+     */
+    @Override
+    public ModelAndView resolveException
+    (HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        //获取到异常对象
+        SysException e = null;
+        if (ex instanceof SysException) {
+            e = (SysException) ex;
+        }else{
+            e = new SysException(&quot;系统正忙……&quot;);
+        }
+        //创建ModelAndView对象
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject(&quot;errorMessage&quot;,e.getMessage());
+        modelAndView.setViewName(&quot;error&quot;);
+        return modelAndView;
+    }
+}</code></pre><hr>
+<pre><code>3.配置异常处理器（跳转到提示页面）  
+在springmvc.xml文件中配置bean标签（指明异常处理器类的位置）
+&lt;!--配置异常处理器--&gt;
+&lt;bean id=&quot;sysExceptionResolver&quot; class=&quot;cn.itcast.exception.SysExceptionResolver&quot;/&gt;</code></pre>
       
 
       
@@ -733,15 +789,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,19 +813,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,7 +821,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,15 +833,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
