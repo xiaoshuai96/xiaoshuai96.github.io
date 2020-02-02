@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: sql | Hello World</title>
+  <title>【SSM】Spring+SpringMVC+Mybatis整合 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;sql&#x2F;index.html">
+  <meta name="description" content="Spring+SpringMVC+Mybatis三大框架整合1.创建数据库和表结构（以个人账户为例）create database ssm;  create table account(       id int primary key auto_increment,     name varchar(100),     money double(7,2)  );">
+<meta name="keywords" content="ssm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【SSM】Spring+SpringMVC+Mybatis整合">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="Spring+SpringMVC+Mybatis三大框架整合1.创建数据库和表结构（以个人账户为例）create database ssm;  create table account(       id int primary key auto_increment,     name varchar(100),     money double(7,2)  );">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;ssm.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;directory.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;spring+springmvc.png">
+<meta property="og:updated_time" content="2020-02-02T10:31:00.354Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;ssm.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -141,60 +149,472 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-【SSM】Spring-SpringMVC-Mybatis整合" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-01-15T04:13:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/">【sql】sql语句的练习</a>
+    <h1 class="article-title" itemprop="name">
+      【SSM】Spring+SpringMVC+Mybatis整合
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/02/%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88/" class="archive-article-date">
+  	<time datetime="2020-02-02T08:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-SpringMVC-Mybatis三大框架整合"><a href="#Spring-SpringMVC-Mybatis三大框架整合" class="headerlink" title="Spring+SpringMVC+Mybatis三大框架整合"></a><em>Spring+SpringMVC+Mybatis三大框架整合</em></h1><h2 id="1-创建数据库和表结构（以个人账户为例）"><a href="#1-创建数据库和表结构（以个人账户为例）" class="headerlink" title="1.创建数据库和表结构（以个人账户为例）"></a>1.创建数据库和表结构（以个人账户为例）</h2><pre><code>create database ssm; 
+create table account(  
+    id int primary key auto_increment,
+    name varchar(100),
+    money double(7,2)
+ );</code></pre><a id="more"></a>  
+<h2 id="整合原理和目录结构图"><a href="#整合原理和目录结构图" class="headerlink" title="整合原理和目录结构图"></a>整合原理和目录结构图</h2><p><img src="/2020/02/02/%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88/ssm.png" alt="ssm">  </p>
+<hr>
+<p><img src="/2020/02/02/%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88/directory.png" alt="dir">    </p>
+<h2 id="2-创建maven项目，导入依赖坐标并编写实体类Account、业务层接口AccountService和持久层接口AccountDao"><a href="#2-创建maven项目，导入依赖坐标并编写实体类Account、业务层接口AccountService和持久层接口AccountDao" class="headerlink" title="2.创建maven项目，导入依赖坐标并编写实体类Account、业务层接口AccountService和持久层接口AccountDao"></a>2.创建maven项目，导入依赖坐标并编写实体类Account、业务层接口AccountService和持久层接口AccountDao</h2><pre><code>&lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;spring.version&gt;5.0.2.RELEASE&lt;/spring.version&gt;
+    &lt;slf4j.version&gt;1.6.6&lt;/slf4j.version&gt;
+    &lt;log4j.version&gt;1.2.12&lt;/log4j.version&gt;
+    &lt;shiro.version&gt;1.2.3&lt;/shiro.version&gt;
+    &lt;mysql.version&gt;5.1.6&lt;/mysql.version&gt;
+    &lt;mybatis.version&gt;3.4.5&lt;/mybatis.version&gt;
+  &lt;/properties&gt;  
+
+
+  &lt;dependencies&gt;
+    &lt;!-- spring --&gt;
+    &lt;dependency&gt;
+          &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+        &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+          &lt;version&gt;1.6.8&lt;/version&gt;
+      &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;4.12&lt;/version&gt;
+      &lt;scope&gt;complie&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;mysql&lt;/groupId&gt;
+      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+      &lt;version&gt;${mysql.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+      &lt;version&gt;2.5&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+      &lt;artifactId&gt;jsp-api&lt;/artifactId&gt;
+      &lt;version&gt;2.0&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+    &lt;groupId&gt;jstl&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;!-- log start --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;log4j&lt;/groupId&gt;
+      &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+      &lt;version&gt;${log4j.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+      &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+      &lt;version&gt;${slf4j.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+      &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+      &lt;version&gt;${slf4j.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- log end --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.version}&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+      &lt;version&gt;1.3.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;c3p0&lt;/groupId&gt;
+      &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+      &lt;version&gt;0.9.1.2&lt;/version&gt;
+      &lt;type&gt;jar&lt;/type&gt;
+      &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;  </code></pre><h2 id="3-搭建Spring环境"><a href="#3-搭建Spring环境" class="headerlink" title="3.搭建Spring环境"></a>3.搭建Spring环境</h2><h3 id="3-1-编写Spring配置文件applicationContext-xml"><a href="#3-1-编写Spring配置文件applicationContext-xml" class="headerlink" title="3.1 编写Spring配置文件applicationContext.xml"></a>3.1 <em>编写Spring配置文件applicationContext.xml</em></h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans  xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+&lt;!--开启注解扫描,只处理Service and dao ,controller不需要spring来处理--&gt;
+&lt;context:component-scan base-package=&quot;cn.itcast&quot;&gt;
+    &lt;!--配置哪些注解不扫描--&gt;
+    &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+&lt;/context:component-scan&gt;
+&lt;/beans&gt;  </code></pre><h3 id="3-2-使用注解配置业务层和持久层"><a href="#3-2-使用注解配置业务层和持久层" class="headerlink" title="3.2 使用注解配置业务层和持久层"></a>3.2 <em>使用注解配置业务层和持久层</em></h3><pre><code>主要是用作测试Spring环境是否搭建成功    </code></pre><h2 id="4-搭建SpringMVC环境"><a href="#4-搭建SpringMVC环境" class="headerlink" title="4.搭建SpringMVC环境"></a>4.搭建SpringMVC环境</h2><h3 id="4-1-在web-xml文件中配置核心控制器等-DiapatcherServlet"><a href="#4-1-在web-xml文件中配置核心控制器等-DiapatcherServlet" class="headerlink" title="4.1 在web.xml文件中配置核心控制器等(DiapatcherServlet)"></a>4.1 <em>在web.xml文件中配置核心控制器等(DiapatcherServlet)</em></h3><pre><code>&lt;!DOCTYPE web-app PUBLIC
+ &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+ &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;
+
+&lt;web-app&gt;
+  &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;
+  &lt;!--配置解决中文乱码的过滤器--&gt;
+  &lt;filter&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;encoding&lt;/param-name&gt;
+      &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+
+  &lt;!--配置前端控制器--&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;!--加载初始化文件--&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath*:springmvc.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;!--启动服务器，创建该servlet--&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;</code></pre><h3 id="4-2-编写SpringMVC的配置文件"><a href="#4-2-编写SpringMVC的配置文件" class="headerlink" title="4.2 编写SpringMVC的配置文件"></a>4.2 <em>编写SpringMVC的配置文件</em></h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+       xmlns:mvcc=&quot;http://www.springframework.org/schema/cache&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/cache
+       http://www.springframework.org/schema/cache/spring-cache.xsd&quot;&gt;
+    &lt;!--开启注解扫描，只扫描controller注解--&gt;
+    &lt;context:component-scan base-package=&quot;cn.itcast&quot;&gt;
+        &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+    &lt;/context:component-scan&gt;
+
+    &lt;!--配置视图解析器对象--&gt;
+    &lt;bean id=&quot;internalResourceViewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/pages/&quot;/&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--静态资源的过滤--&gt;
+    &lt;mvc:resources location=&quot;/css/&quot; mapping=&quot;/css/**&quot;/&gt;
+    &lt;mvc:resources location=&quot;/js/&quot; mapping=&quot;/js/**&quot;/&gt;
+    &lt;mvc:resources location=&quot;/images/&quot; mapping=&quot;/images/**&quot;/&gt;
+
+    &lt;!--开启SpringMVC注解的支持--&gt;
+    &lt;mvc:annotation-driven/&gt;
+&lt;/beans&gt;   </code></pre><h2 id="5-Spring整合SpringMVC框架"><a href="#5-Spring整合SpringMVC框架" class="headerlink" title="5.Spring整合SpringMVC框架"></a>5.Spring整合SpringMVC框架</h2><h3 id="5-3-配置监听器实现启动服务器创建容器（在web-xml配置文件中编写）"><a href="#5-3-配置监听器实现启动服务器创建容器（在web-xml配置文件中编写）" class="headerlink" title="5.3 配置监听器实现启动服务器创建容器（在web.xml配置文件中编写）"></a>5.3 <em>配置监听器实现启动服务器创建容器（在web.xml配置文件中编写）</em></h3><p><img src="/2020/02/02/%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88/spring+springmvc.png" alt="spring_springmvc">  </p>
+<pre><code>&lt;!--配置spring的监听器,默认只加载WEB-INF目录下的applicationContext.xml配置文件--&gt;
+  &lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;!--设置配置文件的路径--&gt;
+  &lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;</code></pre><h3 id="5-2-编写controller和jsp页面进行测试前两个框架是否整合成功"><a href="#5-2-编写controller和jsp页面进行测试前两个框架是否整合成功" class="headerlink" title="5.2 编写controller和jsp页面进行测试前两个框架是否整合成功"></a>5.2 <em>编写controller和jsp页面进行测试前两个框架是否整合成功</em></h3><pre><code>整合成功的依据：在用户在页面点击查询按钮，发送请求，执行controller中的方法，如果方法中能成功的使用业务层对象调用业务层的查询方法，  
+并返回查询结果。  这说明Spring和SpringMVC整合成功。 </code></pre><h2 id="6-搭建Mybatis环境并测试"><a href="#6-搭建Mybatis环境并测试" class="headerlink" title="6.搭建Mybatis环境并测试"></a>6.搭建Mybatis环境并测试</h2><h3 id="6-1-编写SqlMapConfig-xml配置文件"><a href="#6-1-编写SqlMapConfig-xml配置文件" class="headerlink" title="6.1 编写SqlMapConfig.xml配置文件"></a>6.1 <em>编写SqlMapConfig.xml配置文件</em></h3><pre><code>注意：这里使用代理dao的方式来操作持久层，所以不需要dao的实现类。  
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration  
+  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;  
+  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+&lt;!-- 配置连接数据库的信息 --&gt;
+&lt;properties resource=&quot;jdbcConfig.properties&quot;&gt;&lt;/properties&gt;
+&lt;!-- 配置mybatis的环境 --&gt;
+&lt;environments default=&quot;mysql&quot;&gt;
+    &lt;environment id=&quot;mysql&quot;&gt;
+        &lt;!-- 配置事务管理 --&gt;
+        &lt;transactionManager type=&quot;JDBC&quot;&gt;&lt;/transactionManager&gt;
+        &lt;dataSource type=&quot;pooled&quot;&gt;
+            &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+            &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
+            &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
+            &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+        &lt;/dataSource&gt;
+    &lt;/environment&gt;
+&lt;/environments&gt;
+
+&lt;!-- 指定映射文件位置，因为在接口中直接使用了注解的方式编写sql语句 --&gt;
+&lt;mappers&gt;
+    &lt;mapper class=&quot;com.itheima.dao.IAccountDao&quot;/&gt;
+&lt;/mappers&gt;
+&lt;/configuration&gt; 
+
+
+properties 文件中的内容： 
+jdbc.driver=com.mysql.jdbc.Driver 
+jdbc.url=jdbc:mysql://localhost:3306/ssm 
+jdbc.username=root 
+jdbc.password=root </code></pre><h3 id="6-2-编写测试类测试mybatis框架是否和数据库正常交互"><a href="#6-2-编写测试类测试mybatis框架是否和数据库正常交互" class="headerlink" title="6.2 编写测试类测试mybatis框架是否和数据库正常交互"></a>6.2 <em>编写测试类测试mybatis框架是否和数据库正常交互</em></h3><h2 id="7-Spring整合Mybatis框架"><a href="#7-Spring整合Mybatis框架" class="headerlink" title="7.Spring整合Mybatis框架"></a>7.Spring整合Mybatis框架</h2><h3 id="7-1-整合成功的依据"><a href="#7-1-整合成功的依据" class="headerlink" title="7.1 整合成功的依据"></a>7.1 <em>整合成功的依据</em></h3><pre><code>在service层能够成功的调用到dao层的方法并返回结果。</code></pre><h3 id="7-2-整合思路"><a href="#7-2-整合思路" class="headerlink" title="7.2 整合思路"></a>7.2 <em>整合思路</em></h3><pre><code>因为持久层accountDao是一个接口，我们使用的是dao的代理对象，如果能将这个代理对象放入ioc容器中，就可以在容器中拿到对象并调用方法。</code></pre><h3 id="7-3-Spring接管Mybatis的session工厂"><a href="#7-3-Spring接管Mybatis的session工厂" class="headerlink" title="7.3 Spring接管Mybatis的session工厂"></a>7.3 <em>Spring接管Mybatis的session工厂</em></h3><pre><code>&lt;!--Spring整合Mybatis--&gt;
+&lt;!--配置连接池--&gt;
+
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+    &lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+    &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/ssm&quot;/&gt;
+    &lt;property name=&quot;user&quot; value=&quot;root&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;221604&quot;/&gt;
+&lt;/bean&gt;
+&lt;!--配置sqlSessionFactory工厂--&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+&lt;!--配置AccountDao所在的包--&gt;
+&lt;bean id=&quot;mapperScanner&quot; class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;cn.itcast.dao&quot;/&gt;
+&lt;/bean&gt;  </code></pre><h2 id="8-配置事务管理"><a href="#8-配置事务管理" class="headerlink" title="8.配置事务管理"></a>8.配置事务管理</h2><pre><code>&lt;!--配置Spring框架声明式事务管理--&gt;
+&lt;!--配置事务管理器--&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--配置事务通知--&gt;
+&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+    &lt;tx:attributes&gt;
+        &lt;tx:method name=&quot;find*&quot; read-only=&quot;true&quot;/&gt;
+        &lt;tx:method name=&quot;*&quot; isolation=&quot;DEFAULT&quot;/&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+
+&lt;!--配置aop增强--&gt;
+&lt;aop:config&gt;
+    &lt;aop:pointcut id=&quot;exp&quot; expression=&quot;(* cn.itcast.service.impl.*.*(..))&quot;/&gt;
+    &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;exp&quot;/&gt;
+&lt;/aop:config&gt;</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/02/%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/01/28/%E3%80%90SpringMVC%E3%80%91SpringMVC%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【SpringMVC】SpringMVC的学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -217,9 +637,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
