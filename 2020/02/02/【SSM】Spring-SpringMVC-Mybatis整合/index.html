@@ -19,7 +19,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;ssm.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;directory.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;spring+springmvc.png">
-<meta property="og:updated_time" content="2020-02-02T10:31:00.354Z">
+<meta property="og:updated_time" content="2020-02-12T09:12:48.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;02&#x2F;%E3%80%90SSM%E3%80%91Spring-SpringMVC-Mybatis%E6%95%B4%E5%90%88&#x2F;ssm.png">
   
@@ -326,7 +326,7 @@ create table account(
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
 &lt;!--开启注解扫描,只处理Service and dao ,controller不需要spring来处理--&gt;
-&lt;context:component-scan base-package=&quot;cn.itcast&quot;&gt;
+&lt;context:component-scan base-package=&quot;com.xiaoshuai885&quot;&gt;
     &lt;!--配置哪些注解不扫描--&gt;
     &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
 &lt;/context:component-scan&gt;
@@ -381,7 +381,7 @@ create table account(
        http://www.springframework.org/schema/cache
        http://www.springframework.org/schema/cache/spring-cache.xsd&quot;&gt;
     &lt;!--开启注解扫描，只扫描controller注解--&gt;
-    &lt;context:component-scan base-package=&quot;cn.itcast&quot;&gt;
+    &lt;context:component-scan base-package=&quot;com.xiaoshuai885&quot;&gt;
         &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
     &lt;/context:component-scan&gt;
 
@@ -432,7 +432,7 @@ create table account(
 
 &lt;!-- 指定映射文件位置，因为在接口中直接使用了注解的方式编写sql语句 --&gt;
 &lt;mappers&gt;
-    &lt;mapper class=&quot;com.itheima.dao.IAccountDao&quot;/&gt;
+    &lt;mapper class=&quot;com.xiaoshuai885.dao.IAccountDao&quot;/&gt;
 &lt;/mappers&gt;
 &lt;/configuration&gt; 
 
@@ -448,7 +448,7 @@ jdbc.password=root </code></pre><h3 id="6-2-编写测试类测试mybatis框架�
     &lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
     &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/ssm&quot;/&gt;
     &lt;property name=&quot;user&quot; value=&quot;root&quot;/&gt;
-    &lt;property name=&quot;password&quot; value=&quot;221604&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;root&quot;/&gt;
 &lt;/bean&gt;
 &lt;!--配置sqlSessionFactory工厂--&gt;
 &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
@@ -456,7 +456,7 @@ jdbc.password=root </code></pre><h3 id="6-2-编写测试类测试mybatis框架�
 &lt;/bean&gt;
 &lt;!--配置AccountDao所在的包--&gt;
 &lt;bean id=&quot;mapperScanner&quot; class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-    &lt;property name=&quot;basePackage&quot; value=&quot;cn.itcast.dao&quot;/&gt;
+    &lt;property name=&quot;basePackage&quot; value=&quot;com.xiaoshuai885.dao&quot;/&gt;
 &lt;/bean&gt;  </code></pre><h2 id="8-配置事务管理"><a href="#8-配置事务管理" class="headerlink" title="8.配置事务管理"></a>8.配置事务管理</h2><pre><code>&lt;!--配置Spring框架声明式事务管理--&gt;
 &lt;!--配置事务管理器--&gt;
 &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
@@ -473,7 +473,7 @@ jdbc.password=root </code></pre><h3 id="6-2-编写测试类测试mybatis框架�
 
 &lt;!--配置aop增强--&gt;
 &lt;aop:config&gt;
-    &lt;aop:pointcut id=&quot;exp&quot; expression=&quot;(* cn.itcast.service.impl.*.*(..))&quot;/&gt;
+    &lt;aop:pointcut id=&quot;exp&quot; expression=&quot;execution(* com.xiaoshuai885.service.impl.*.*(..))&quot;/&gt;
     &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;exp&quot;/&gt;
 &lt;/aop:config&gt;</code></pre>
       
@@ -724,7 +724,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,7 +736,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,15 +744,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,11 +752,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -772,15 +760,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,10 +793,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
