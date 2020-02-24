@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【LeetCode】力扣--70-爬楼梯 | Hello World</title>
+  <title>Tag: FastDFS Nginx | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述假设你正在爬楼梯。需要 n 阶你才能到达楼顶。  每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？  注意：给定 n 是一个正整数。">
-<meta name="keywords" content="爬楼梯 leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="【LeetCode】力扣--70-爬楼梯">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;08&#x2F;%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;FastDFS-Nginx&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="题目描述假设你正在爬楼梯。需要 n 阶你才能到达楼顶。  每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？  注意：给定 n 是一个正整数。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-08T14:34:05.819Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
@@ -145,227 +141,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【LeetCode】力扣-70-爬楼梯" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      【LeetCode】力扣--70-爬楼梯
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2020-02-24T14:44:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/">【FastDFS + Nginx】搭建图片服务器</a>
     </h1>
   
 
-        
-        <a href="/2019/12/08/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="archive-article-date">
-  	<time datetime="2019-12-08T13:59:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><pre><code>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
-
-每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
-
-注意：给定 n 是一个正整数。  </code></pre><a id="more"></a>
-
-<pre><code>示例 1：
-
-输入： 2
-输出： 2
-解释： 有两种方法可以爬到楼顶。
-1.  1 阶 + 1 阶
-2.  2 阶
-
-示例 2：
-
-输入： 3
-输出： 3
-解释： 有三种方法可以爬到楼顶。
-1.  1 阶 + 1 阶 + 1 阶
-2.  1 阶 + 2 阶
-3.  2 阶 + 1 阶  </code></pre><p>在力扣官网上给出了六种之多的解法：在此不一一列举      </p>
-<pre><code>思路：
-   看到这个题，刚开始我是没有将它和斐波那契数列联系在一块的，后来一看解析，忽然之间就想明白了。  
-   将抽象的问题与现实中的问题对应起来对解题和理解是非常有帮助的。  
-   从第四个数(下标为3)开始，当前数总是前两个数之和  
-   通过前后数之间的联系，很快就能解决该问题。  </code></pre><h3 id="1-动态规划"><a href="#1-动态规划" class="headerlink" title="1.动态规划"></a>1.动态规划</h3><pre><code>public static int climbStairs(int n){
-    if(n == 1) return 1;
-    int[] dp = new int[n+1];
-    dp[1] = 1;
-    dp[2] = 2;
-    for (int i = 3;i &lt;= n;i++) {
-        dp[i] += dp[i - 1] + dp[i - 2];
-    }
-    return dp[n];
-}  </code></pre><h3 id="2-斐波那契数列"><a href="#2-斐波那契数列" class="headerlink" title="2.斐波那契数列"></a>2.斐波那契数列</h3><pre><code>思路：
-    斐波那契数列通式：Fib(n)=Fib(n−1)+Fib(n−2)  
-
-public static int climbStairs2(int n){
-    if(n == 1) return 1;
-    int first = 1;
-    int second = 2;
-    for (int i = 3;i &lt;= n;i++) {
-        int third = first + second;
-        first = second;
-        second = third;
-    }
-    return second;
-}  </code></pre><h3 id="3-斐波那契公式"><a href="#3-斐波那契公式" class="headerlink" title="3.斐波那契公式"></a>3.斐波那契公式</h3><pre><code>public static int climbStairs3(int n){
-    double Sqrt=Math.sqrt(5);
-    double fibn=Math.pow((1+Sqrt)/2,n+1)-Math.pow((1-Sqrt)/2,n+1);
-    return (int)(fibn/Sqrt);
-}</code></pre>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬楼梯 leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">FastDFS Nginx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/08/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/12/12/%E3%80%90InvocationTargetException%E3%80%91%E4%BD%BF%E7%94%A8spring%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【InvocationTargetException】使用spring创建代理对象工厂时出现的问题
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/12/02/%E3%80%90Spring%E3%80%91Spring%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【Spring】Spring的学习</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -388,9 +217,9 @@ public static int climbStairs2(int n){
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
