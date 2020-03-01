@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【LeetCode】力扣-942-增减字符串匹配 | Hello World</title>
+  <title>【面试题】为什么要重写hashcode和equals方法？ | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我觉得这道题是力扣上比较有歧义的一道题，因为它的答案是能满足条件的数组的任意组合，所以答案只有一个是不够严谨的，仅仅依靠所给出的“标准答案”是不足以判定答题者答案的正确性的。因为也有很多满足条件的数组并不在他们所给的这些答案中间。">
-<meta name="keywords" content="字符串匹配">
+  <meta name="description" content="一个几乎必问的面试题在面试 Java初级开发的时候，经常会问的一个问题是：*你有没有重写过hashcode方法？*   不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？   而这个时候，候选人说放过，于是两个问题就自相矛盾了。   其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆 从 hash表">
+<meta name="keywords" content="hashcode equals">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【LeetCode】力扣-942-增减字符串匹配">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;22&#x2F;%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-942-%E5%A2%9E%E5%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D&#x2F;index.html">
+<meta property="og:title" content="【面试题】为什么要重写hashcode和equals方法？">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="我觉得这道题是力扣上比较有歧义的一道题，因为它的答案是能满足条件的数组的任意组合，所以答案只有一个是不够严谨的，仅仅依靠所给出的“标准答案”是不足以判定答题者答案的正确性的。因为也有很多满足条件的数组并不在他们所给的这些答案中间。">
+<meta property="og:description" content="一个几乎必问的面试题在面试 Java初级开发的时候，经常会问的一个问题是：*你有没有重写过hashcode方法？*   不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？   而这个时候，候选人说放过，于是两个问题就自相矛盾了。   其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆 从 hash表">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-22T13:09:07.922Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table02.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;code01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table03.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table04.png">
+<meta property="og:updated_time" content="2020-03-01T02:29:30.482Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table01.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -145,89 +151,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【LeetCode】力扣-942-增减字符串匹配" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【面试题】为什么要重写hashcode和equals方法？" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【LeetCode】力扣-942-增减字符串匹配
+      【面试题】为什么要重写hashcode和equals方法？
     </h1>
   
 
         
-        <a href="/2020/01/22/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-942-%E5%A2%9E%E5%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" class="archive-article-date">
-  	<time datetime="2020-01-22T12:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
+        <a href="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/" class="archive-article-date">
+  	<time datetime="2020-03-01T01:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="我觉得这道题是力扣上比较有歧义的一道题，因为它的答案是能满足条件的数组的任意组合，所以答案只有一个是不够严谨的，仅仅依靠所给出的“标准答案”是不足以判定答题者答案的正确性的。因为也有很多满足条件的数组并不在他们所给的这些答案中间。"><a href="#我觉得这道题是力扣上比较有歧义的一道题，因为它的答案是能满足条件的数组的任意组合，所以答案只有一个是不够严谨的，仅仅依靠所给出的“标准答案”是不足以判定答题者答案的正确性的。因为也有很多满足条件的数组并不在他们所给的这些答案中间。" class="headerlink" title="我觉得这道题是力扣上比较有歧义的一道题，因为它的答案是能满足条件的数组的任意组合，所以答案只有一个是不够严谨的，仅仅依靠所给出的“标准答案”是不足以判定答题者答案的正确性的。因为也有很多满足条件的数组并不在他们所给的这些答案中间。"></a>我觉得这道题是力扣上比较有歧义的一道题，因为它的答案是能满足条件的数组的任意组合，所以答案只有一个是不够严谨的，仅仅依靠所给出的“标准答案”是不足以判定答题者答案的正确性的。因为也有很多满足条件的数组并不在他们所给的这些答案中间。</h3><a id="more"></a>
-<h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><pre><code>给定只含 &quot;I&quot;（增大）或 &quot;D&quot;（减小）的字符串 S ，令 N = S.length。
-返回 [0, 1, ..., N] 的任意排列 A 使得对于所有 i = 0, ..., N-1，都有：
-    如果 S[i] == &quot;I&quot;，那么 A[i] &lt; A[i+1]
-    如果 S[i] == &quot;D&quot;，那么 A[i] &gt; A[i+1]
+        <h2 id="一个几乎必问的面试题"><a href="#一个几乎必问的面试题" class="headerlink" title="一个几乎必问的面试题"></a>一个几乎必问的面试题</h2><pre><code>在面试 Java初级开发的时候，经常会问的一个问题是：*你有没有重写过hashcode方法？*  
+不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？  
+而这个时候，候选人说放过，于是两个问题就自相矛盾了。  
+其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆 从 hash表讲起，讲述HashMap的存数据规则，由此大家就自然清楚上述问题的答案了。 </code></pre><a id="more"></a>
 
-示例 1：
-    输出：&quot;IDID&quot;
-    输出：[0,4,1,3,2]
+<h2 id="再过一遍Hash算法"><a href="#再过一遍Hash算法" class="headerlink" title="再过一遍Hash算法"></a>再过一遍Hash算法</h2><pre><code>先复习一下数据结构里的一个知识点：在一个长度为n（假设是10000）的线性表（假设是ArrayList）里，存放着无序的数字；  
+如果我们要找一个指定的数字，就不得不通过从头到尾依次遍历来查找。  
+我们再来观察Hash表（这里的Hash表纯粹是数据结构上的概念，和Java无关）。它的平均查找次数接近于1，  
+代价相当小，关键是在Hash表里，存放在其中的数据和它的存储位置是用Hash函数关联的。
+我们假设一个Hash函数是x*x%5。当然实际情况里不可能用这么简单的Hash函数，这里纯粹为了说明方便，而  
+Hash表是一个长度是11的线性表。如果我们要把6放入其中，那么我们首先会对6用Hash函数计算一下，结果是1，所以我们就把6放入到索引号是 1这个位置。  
+同样如果我们要放数字7，经过Hash函数计算，7的结果是4，那么它将被放入索引是4的这个位置。这个效果如下图所示。</code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table01.png" alt="table01"> </p>
+<pre><code>这样做的好处非常明显。比如我们要从中找6这个元素，我们可以先通过Hash函数计算6的索引位置，然后直接从 1号索引里找到它了。   
+不过我们会遇到“Hash值冲突”这个问题。比如经过Hash函数计算后,7和8会有相同的Hash值，对此Java的HashMap对象采用的是&quot;链地址法&quot;的解决方案。
+如下图所示    </code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table02.png" alt="table02"> </p>
+<pre><code>具体的做法是，为所有Hash值是 i的对象建立一个同义词链表。假设我们在放入 8的时候，发现 4号位置已经被占，那么就会新建一个链表结点放入 8。
+同样，如果我们要找 8，那么发现 4号索引里不是 8，那会沿着链表依次查找。  
+虽然我们还是无法彻底避免Hash值冲突的问题，但是Hash函数设计合理，仍能保证同义词链表的长度被控制在一个合理的范围里。  
+这里讲的理论知识并非无的放矢，大家能在后文里清晰地了解到重写hashCode方法的重要性。  </code></pre><h2 id="为毛要重写equals和hashCode方法"><a href="#为毛要重写equals和hashCode方法" class="headerlink" title="为毛要重写equals和hashCode方法 ?"></a>为毛要重写equals和hashCode方法 ?</h2><pre><code>当我们用 HashMap存入自定义的类时，如果不重写这个自定义类的equals和hashCode方法，得到的结果会和我们预期的不一样。如下例：
+在其中的第2到第18行，我们定义了一个Key类；在其中的第3行定义了唯一的一个属性id。当前我们先注释掉第9行的equals方法和第16行的hashCode方法。</code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/code01.png" alt="code01"> </p>
+<pre><code>在 main函数里的第22和23行，我们定义了两个Key对象，它们的id都是1，就好比它们是两把相同的都能打开同一扇门的钥匙。  
+在第24行里，我们通过泛型创建了一个HashMap对象。它的键部分可以存放Key类型的对象，值部分可以存储String类型的对象。 
+在第25行里，我们通过put方法把k1和一串字符放入到 hm里；而在第26行，我们想用k2去从HashMap里得到值；
+这就好比我们想用 k1这把钥匙来锁门，用k2来开门。这是符合逻辑的，但从当前结果看，26行的返回结果不是我们想象中的那个字符串，而是null。  
+原因有两个：一是没有重写hashCode方法，二是没有重写equals方法。  
+当我们往HashMap里放k1时，首先会调用Key这个类的hashCode方法计算它的hash值，随后把k1放入hash值所指引的内存位置。  
+关键是我们没有在Key里定义hashCode方法。
+此调用的仍是Object类的hashCode方法（所有的类都是Object的子类），而Object类的hashCode方法返回的hash值其实是k1对象的内存地址（假设是1000）  </code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table03.png" alt="table03"> </p>
+<pre><code>如果我们随后是调用 hm.get(k1)，那么我们会再次调用 hashCode方法（还是返回 k1的地址1000），随后根据得到的 hash值，能很快地找到 k1。  
+但我们这里的代码是hm.get(k2)，当我们调用Object类的hashCode方法(因为Key里没定义)计算k2的 hash值时，其实得到的是k2的内存地址（假设是2000）
+由于k1和k2是两个不同的对象，所以它们的内存地址一定不会相同，也就是说它们的hash值一定不同，这就是我们无法用k2的hash值去拿k1的原因。  
+当我们把第16和17行的hashCode方法的注释去掉后，会发现它是返回id属性的hashCode值，这里k1和k2的id都是1,所以它们的hash值是相等的。
+我们再来更正一下存 k1和取 k2的动作。存 k1时，是根据它 id的 hash值，假设这里是 100，把 k1对象放入到对应的位置。  
+而取 k2时，是先计算它的 hash值（由于 k2的 id也是 1，这个值也是 100），随后到这个位置去找。  
+但结果会出乎我们意料：明明 100号位置已经有 k1，但第 26行的输出结果依然是 null。其原因就是没有重写 Key对象的 equals方法。
+HashMap是用链地址法来处理冲突，也就是说，在100号位置上，有可能存在着多个用链表形式存储的对象。它们通过hashCode方法返回的hash值都是100。</code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table04.png" alt="table04">   </p>
+<pre><code>当我们通过 k2的 hashCode到 100号位置查找时，确实会得到 k1。但 k1有可能仅仅是和 k2具有相同的 hash值
+但未必和 k2相等（ k1和 k2两把钥匙未必能开同一扇门），这个时候，就需要调用 Key对象的 equals方法来判断两者是否相等了。
+由于我们在 Key对象里没有定义 equals方法，系统就不得不调用 Object类的 equals方法。由于 Object的固有方法是根据两个对象的内存地址来判断
+所以 k1和 k2一定不会相等，这就是为什么依然在 26行通过 hm.get(k2)依然得到 null的原因。  
+为了解决这个问题，我们需要打开第 9到 14行 equals方法的注释。
+在这个方法里，只要两个对象都是 Key类型，而且它们的 id相等，它们就相等。</code></pre><h2 id="再次强调"><a href="#再次强调" class="headerlink" title="再次强调"></a>再次强调</h2><pre><code>由于在项目里经常会用到HashMap，所以在面试的时候几乎一定会问这个问题：</code></pre><h3 id="你有没有重写过-hashCode方法？你在使用HashMap时有没有重写-hashCode和-equals方法？你是怎么写的？"><a href="#你有没有重写过-hashCode方法？你在使用HashMap时有没有重写-hashCode和-equals方法？你是怎么写的？" class="headerlink" title="你有没有重写过 hashCode方法？你在使用HashMap时有没有重写 hashCode和 equals方法？你是怎么写的？"></a><em>你有没有重写过 hashCode方法？你在使用HashMap时有没有重写 hashCode和 equals方法？你是怎么写的？</em></h3><pre><code>最后再强调一下：如果大家要在HashMap的 “键” 部分存放自定义的对象，一定要在这个对象里用自己的equals和hashCode方法来覆盖Object里的同名方法。</code></pre><p>本文转载自CodeSheep的微信公众号  </p>
 
-示例 2：
-    输出：&quot;III&quot;
-    输出：[0,1,2,3]
-
-示例 3：
-    输出：&quot;DDI&quot;
-    输出：[3,2,0,1]
-
-提示：
-    1 &lt;= S.length &lt;= 1000
-    S 只包含字符 &quot;I&quot; 或 &quot;D&quot;。</code></pre><h3 id="先在下方给出我的代码"><a href="#先在下方给出我的代码" class="headerlink" title="先在下方给出我的代码"></a>先在下方给出我的代码</h3><h4 id="代码思路：由题意可知在生成最终的目标数组后，题目中给定的条件一定是满足的，那么先对数组进行初始化，然后根据给定的字符串S来判断数组中的元素是否满足要求，满足要求的直接跳过该次循环，不满足的将数字进行调换（因为这其中只涉及到了大小的问题），循环结束之后，该数组就是满足题意要求的数组。"><a href="#代码思路：由题意可知在生成最终的目标数组后，题目中给定的条件一定是满足的，那么先对数组进行初始化，然后根据给定的字符串S来判断数组中的元素是否满足要求，满足要求的直接跳过该次循环，不满足的将数字进行调换（因为这其中只涉及到了大小的问题），循环结束之后，该数组就是满足题意要求的数组。" class="headerlink" title="代码思路：由题意可知在生成最终的目标数组后，题目中给定的条件一定是满足的，那么先对数组进行初始化，然后根据给定的字符串S来判断数组中的元素是否满足要求，满足要求的直接跳过该次循环，不满足的将数字进行调换（因为这其中只涉及到了大小的问题），循环结束之后，该数组就是满足题意要求的数组。"></a>代码思路：由题意可知在生成最终的目标数组后，题目中给定的条件一定是满足的，那么先对数组进行初始化，然后根据给定的字符串S来判断数组中的元素是否满足要求，满足要求的直接跳过该次循环，不满足的将数字进行调换（因为这其中只涉及到了大小的问题），循环结束之后，该数组就是满足题意要求的数组。</h4><pre><code>public static int[] diStringMatch(String S) {
-    int[] res = new int[S.length()+1];
-    String[] s = S.split(&quot;&quot;);
-    for (int i = 0; i &lt; res.length; i++) {
-        res[i] = i;
-    }
-    for (int i = 0; i &lt; s.length; i++) {
-        if (s[i].equals(&quot;I&quot;)) {
-            //判断指定位置的数字是否符合条件
-            if (res[i] &lt; res[i + 1]) {
-                continue;
-            } else {
-                //否则交换两个数字的位置
-                res[i] = res[i] ^ res[i+1];
-                res[i+1] = res[i] ^ res[i+1];
-                res[i] = res[i] ^ res[i+1];
-            }
-        } else if (s[i].equals(&quot;D&quot;)) {
-            if (res[i] &gt; res[i + 1]) {
-                continue;
-            } else {
-                res[i] = res[i] ^ res[i+1];
-                res[i+1] = res[i] ^ res[i+1];
-                res[i] = res[i] ^ res[i+1];
-            }
-        } else {
-            break;
-        }
-    }
-    return res;
-}</code></pre><h3 id="显然，上述的代码显得繁琐，并不优雅。这里给出LeetCode官方给出的代码进行学习。"><a href="#显然，上述的代码显得繁琐，并不优雅。这里给出LeetCode官方给出的代码进行学习。" class="headerlink" title="显然，上述的代码显得繁琐，并不优雅。这里给出LeetCode官方给出的代码进行学习。"></a>显然，上述的代码显得繁琐，并不优雅。这里给出LeetCode官方给出的代码进行学习。</h3><pre><code>public int[] diStringMatch(String S) {
-    int N = S.length();
-    int lo = 0, hi = N;
-    int[] ans = new int[N + 1];
-    for (int i = 0; i &lt; N; ++i) {
-        if (S.charAt(i) == &apos;I&apos;)
-            ans[i] = lo++;
-        else
-            ans[i] = hi--;
-    }
-    ans[N] = lo;
-    return ans;
-}</code></pre>
       
 
       
@@ -261,7 +247,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">字符串匹配</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hashcode equals</a>
         		</li>
       		
 		</ul>
@@ -317,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/22/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-942-%E5%A2%9E%E5%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -331,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/25/%E3%80%90%E6%8A%A2%E7%BA%A2%E5%8C%85%E7%AE%97%E6%B3%95%E3%80%91%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%A2%E7%BA%A2%E5%8C%85%E7%AE%97%E6%B3%95%EF%BC%9F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【抢红包算法】如何实现抢红包算法？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【sql】sql语句的练习</div>
+    <a href="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【FastDFS + Nginx】搭建图片服务器</div>
       <i class="icon-circle-right"></i>
     </a>
   
