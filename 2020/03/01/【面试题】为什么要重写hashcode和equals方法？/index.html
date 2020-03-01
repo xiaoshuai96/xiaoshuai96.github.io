@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【面试题】为什么要重写hashcode和equals方法？ | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个几乎必问的面试题在面试 Java初级开发的时候，经常会问的一个问题是：*你有没有重写过hashcode方法？*   不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？   而这个时候，候选人说放过，于是两个问题就自相矛盾了。   其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆 从 hash表">
+  <meta name="description" content="一个几乎必问的面试题在面试 Java初级开发的时候，经常会问的一个问题是：你有没有重写过hashcode方法？不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？   而这个时候，候选人说放过，于是两个问题就自相矛盾了。   其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆从hash表讲起，讲述Ha">
 <meta name="keywords" content="hashcode equals">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【面试题】为什么要重写hashcode和equals方法？">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="一个几乎必问的面试题在面试 Java初级开发的时候，经常会问的一个问题是：*你有没有重写过hashcode方法？*   不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？   而这个时候，候选人说放过，于是两个问题就自相矛盾了。   其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆 从 hash表">
+<meta property="og:description" content="一个几乎必问的面试题在面试 Java初级开发的时候，经常会问的一个问题是：你有没有重写过hashcode方法？不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？   而这个时候，候选人说放过，于是两个问题就自相矛盾了。   其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆从hash表讲起，讲述Ha">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table02.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;code01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table03.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table04.png">
-<meta property="og:updated_time" content="2020-03-01T02:29:30.482Z">
+<meta property="og:updated_time" content="2020-03-01T02:33:57.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F&#x2F;table01.png">
   
@@ -171,23 +171,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一个几乎必问的面试题"><a href="#一个几乎必问的面试题" class="headerlink" title="一个几乎必问的面试题"></a>一个几乎必问的面试题</h2><pre><code>在面试 Java初级开发的时候，经常会问的一个问题是：*你有没有重写过hashcode方法？*  
-不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？  
+        <h2 id="一个几乎必问的面试题"><a href="#一个几乎必问的面试题" class="headerlink" title="一个几乎必问的面试题"></a>一个几乎必问的面试题</h2><pre><code>在面试 Java初级开发的时候，经常会问的一个问题是：</code></pre><h3 id="你有没有重写过hashcode方法？"><a href="#你有没有重写过hashcode方法？" class="headerlink" title="你有没有重写过hashcode方法？"></a><em>你有没有重写过hashcode方法？</em></h3><pre><code>不少候选人直接说没写过。或许是真的没写过，于是还可以再通过一个问题确认：你在用HashMap的时候，键（key）部分，有没有放过自定义的对象？  
 而这个时候，候选人说放过，于是两个问题就自相矛盾了。  
-其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆 从 hash表讲起，讲述HashMap的存数据规则，由此大家就自然清楚上述问题的答案了。 </code></pre><a id="more"></a>
+其实很多人这个问题普遍回答得都不大好，于是在本文里，就干脆从hash表讲起，讲述HashMap的存数据规则，由此大家就自然清楚上述问题的答案了。 </code></pre><a id="more"></a>
 
 <h2 id="再过一遍Hash算法"><a href="#再过一遍Hash算法" class="headerlink" title="再过一遍Hash算法"></a>再过一遍Hash算法</h2><pre><code>先复习一下数据结构里的一个知识点：在一个长度为n（假设是10000）的线性表（假设是ArrayList）里，存放着无序的数字；  
 如果我们要找一个指定的数字，就不得不通过从头到尾依次遍历来查找。  
 我们再来观察Hash表（这里的Hash表纯粹是数据结构上的概念，和Java无关）。它的平均查找次数接近于1，  
 代价相当小，关键是在Hash表里，存放在其中的数据和它的存储位置是用Hash函数关联的。
 我们假设一个Hash函数是x*x%5。当然实际情况里不可能用这么简单的Hash函数，这里纯粹为了说明方便，而  
-Hash表是一个长度是11的线性表。如果我们要把6放入其中，那么我们首先会对6用Hash函数计算一下，结果是1，所以我们就把6放入到索引号是 1这个位置。  
-同样如果我们要放数字7，经过Hash函数计算，7的结果是4，那么它将被放入索引是4的这个位置。这个效果如下图所示。</code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table01.png" alt="table01"> </p>
-<pre><code>这样做的好处非常明显。比如我们要从中找6这个元素，我们可以先通过Hash函数计算6的索引位置，然后直接从 1号索引里找到它了。   
+Hash表是一个长度是11的线性表。如果我们要把6放入其中，那么我们首先会对6用Hash函数计算一下，结果是1，所以我们就把6放入到索引号是1这个位置。  
+同样如果我们要放数字7，经过Hash函数计算7的结果是4，那么它将被放入索引是4的这个位置。这个效果如下图所示。</code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table01.png" alt="table01"> </p>
+<pre><code>这样做的好处非常明显。比如我们要从中找6这个元素，我们可以先通过Hash函数计算6的索引位置，然后直接从1号索引里找到它了。   
 不过我们会遇到“Hash值冲突”这个问题。比如经过Hash函数计算后,7和8会有相同的Hash值，对此Java的HashMap对象采用的是&quot;链地址法&quot;的解决方案。
 如下图所示    </code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/table02.png" alt="table02"> </p>
-<pre><code>具体的做法是，为所有Hash值是 i的对象建立一个同义词链表。假设我们在放入 8的时候，发现 4号位置已经被占，那么就会新建一个链表结点放入 8。
-同样，如果我们要找 8，那么发现 4号索引里不是 8，那会沿着链表依次查找。  
+<pre><code>具体的做法是，为所有Hash值是 i的对象建立一个同义词链表。假设我们在放入8的时候，发现4号位置已经被占，那么就会新建一个链表结点放入8。
+同样，如果我们要找8，那么发现4号索引里不是8，那会沿着链表依次查找。  
 虽然我们还是无法彻底避免Hash值冲突的问题，但是Hash函数设计合理，仍能保证同义词链表的长度被控制在一个合理的范围里。  
 这里讲的理论知识并非无的放矢，大家能在后文里清晰地了解到重写hashCode方法的重要性。  </code></pre><h2 id="为毛要重写equals和hashCode方法"><a href="#为毛要重写equals和hashCode方法" class="headerlink" title="为毛要重写equals和hashCode方法 ?"></a>为毛要重写equals和hashCode方法 ?</h2><pre><code>当我们用 HashMap存入自定义的类时，如果不重写这个自定义类的equals和hashCode方法，得到的结果会和我们预期的不一样。如下例：
 在其中的第2到第18行，我们定义了一个Key类；在其中的第3行定义了唯一的一个属性id。当前我们先注释掉第9行的equals方法和第16行的hashCode方法。</code></pre><p><img src="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/code01.png" alt="code01"> </p>
@@ -449,11 +448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FastDFS Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">github repository</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">github repository</a>
+                <a href="javascript:void(0)" class="js-tag color4">FastDFS Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,11 +472,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+                <a href="javascript:void(0)" class="js-tag color5">堆 排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">堆 排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,6 +492,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
               </li>
              
@@ -505,10 +508,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssm</a>
               </li>
              
@@ -517,15 +516,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源项目  github halo</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,15 +540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">IDEA tomcat jdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
               </li>
             
             <div class="clearfix"></div>
