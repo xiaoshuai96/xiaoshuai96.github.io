@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【Reflect】深入理解Java反射 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。一.反射的三种方式（获取类的字节码文件，也就是.class文件）：1.Object中的getClass()">
+  <meta name="description" content="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。java反射机制类java.lang.Class; &#x2F;&#x2F;类                java.lang.reflect.Constructor;&#x2F;&#x2F;构造方法  java.lang.refl">
 <meta name="keywords" content="反射">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Reflect】深入理解Java反射">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;10&#x2F;%E3%80%90Reflect%E3%80%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E5%8F%8D%E5%B0%84&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。一.反射的三种方式（获取类的字节码文件，也就是.class文件）：1.Object中的getClass()">
+<meta property="og:description" content="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。java反射机制类java.lang.Class; &#x2F;&#x2F;类                java.lang.reflect.Constructor;&#x2F;&#x2F;构造方法  java.lang.refl">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;10&#x2F;%E3%80%90Reflect%E3%80%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E5%8F%8D%E5%B0%84&#x2F;getClass.png">
-<meta property="og:updated_time" content="2020-03-10T06:41:49.840Z">
+<meta property="og:updated_time" content="2020-03-10T07:10:42.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;10&#x2F;%E3%80%90Reflect%E3%80%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E5%8F%8D%E5%B0%84&#x2F;getClass.png">
   
@@ -171,8 +171,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。"><a href="#反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。" class="headerlink" title="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。"></a>反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。</h3><h2 id="一-反射的三种方式（获取类的字节码文件，也就是-class文件）："><a href="#一-反射的三种方式（获取类的字节码文件，也就是-class文件）：" class="headerlink" title="一.反射的三种方式（获取类的字节码文件，也就是.class文件）："></a>一.反射的三种方式（获取类的字节码文件，也就是.class文件）：</h2><h3 id="1-Object中的getClass"><a href="#1-Object中的getClass" class="headerlink" title="1.Object中的getClass()"></a>1.Object中的getClass()</h3><a id="more"></a>
-<p><img src="/2020/03/10/%E3%80%90Reflect%E3%80%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E5%8F%8D%E5%B0%84/getClass.png" alt="getclass">  </p>
+        <h3 id="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。"><a href="#反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。" class="headerlink" title="反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。"></a>反射的概述：java的反射机制是在程序的运行过程中，对于任何一个类，能够知道它的有哪些属性和方法；对于任何一个对象，都能对它的方法和属性进行调用；将这种动态获取对象信息以及调用对象方法的功能称为j反射机制。</h3><h3 id="java反射机制类"><a href="#java反射机制类" class="headerlink" title="java反射机制类"></a>java反射机制类</h3><pre><code>java.lang.Class; //类               
+java.lang.reflect.Constructor;//构造方法 
+java.lang.reflect.Field; //类的成员变量（字段）       
+java.lang.reflect.Method;//类的方法
+java.lang.reflect.Modifier;//访问权限</code></pre><a id="more"></a>
+<h2 id="一-反射的三种方式（获取类的字节码文件，也就是-class文件）："><a href="#一-反射的三种方式（获取类的字节码文件，也就是-class文件）：" class="headerlink" title="一.反射的三种方式（获取类的字节码文件，也就是.class文件）："></a>一.反射的三种方式（获取类的字节码文件，也就是.class文件）：</h2><h3 id="1-Object中的getClass"><a href="#1-Object中的getClass" class="headerlink" title="1.Object中的getClass()"></a>1.Object中的getClass()</h3><p><img src="/2020/03/10/%E3%80%90Reflect%E3%80%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E5%8F%8D%E5%B0%84/getClass.png" alt="getclass">  </p>
 <pre><code>public static void main(String[] args) {
     Demo demo = new Demo();
     //获取该类的全路径名称
@@ -295,7 +299,8 @@ Method[] declaredMethods = user.getDeclaredMethods();
 Method test01 = user.getMethod(&quot;test01&quot;, String.class,Integer.class);
 Object obj = user.getConstructor().newInstance();
 Object invoke = test01.invoke(obj, &quot;xiaoming&quot;,18);  
-System.out.println(invoke);</code></pre>
+System.out.println(invoke);</code></pre><h2 id="反射的优缺点："><a href="#反射的优缺点：" class="headerlink" title="反射的优缺点："></a>反射的优缺点：</h2><pre><code>优点：增加程序的灵活性、外部调用方便
+缺点：性能比起源代码执行效率低；内部暴露（比如一些在正常情况下不允许访问的私有属性和方法）</code></pre>
       
 
       
@@ -535,11 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">github repository</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">github repository</a>
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,19 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">堆 排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心算法 数组</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+                <a href="javascript:void(0)" class="js-tag color3">贪心算法 数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,19 +580,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,11 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,11 +612,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,11 +636,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英文 经典短语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
             
             <div class="clearfix"></div>
