@@ -6,38 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【FastDFS + Nginx】搭建图片服务器 | Hello World</title>
+  <title>Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建环境：CentOS-6.5  VMware_Workstation-15Pro">
-<meta name="keywords" content="FastDFS Nginx">
-<meta property="og:type" content="article">
-<meta property="og:title" content="【FastDFS + Nginx】搭建图片服务器">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;page&#x2F;4&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="搭建环境：CentOS-6.5  VMware_Workstation-15Pro">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;version.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;tracker_basepath.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;fdfs_tracker01.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;fdfs_tracker01.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;fdfs_storage01.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;fdfs_storage02.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;fdfs_storage03.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;fdfs_storage04.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;checkStart.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;clientConf.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;test.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;picturePath.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;changePath.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;mod_fastdfs_conf01.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;mod_fastdfs_conf02.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;mod_fastdfs_conf03.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;mod_fastdfs_conf04.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;nginx.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;nginxStart.png">
-<meta property="og:updated_time" content="2020-02-25T10:10:44.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;version.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -169,108 +145,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【FastDFS-Nginx】搭建图片服务器" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      【FastDFS + Nginx】搭建图片服务器
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">英文经典短句摘录</a>
     </h1>
   
 
         
-        <a href="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-02-24T14:44:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
+        <a href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2019-10-24T04:08:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="搭建环境：CentOS-6-5-VMware-Workstation-15Pro"><a href="#搭建环境：CentOS-6-5-VMware-Workstation-15Pro" class="headerlink" title="搭建环境：CentOS-6.5  VMware_Workstation-15Pro"></a>搭建环境：CentOS-6.5  VMware_Workstation-15Pro</h2><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/version.png" alt="version">  </p>
-<a id="more"></a>  
-<h2 id="前段时间在学习电商项目的时候用到了图片服务器，照网上的视频来做的话出现的问题非常多，花了大半天的时间最终才搭建完成。今天抽出时间来将整个搭建的过程作一记录，还有其中涉及到的问题。"><a href="#前段时间在学习电商项目的时候用到了图片服务器，照网上的视频来做的话出现的问题非常多，花了大半天的时间最终才搭建完成。今天抽出时间来将整个搭建的过程作一记录，还有其中涉及到的问题。" class="headerlink" title="前段时间在学习电商项目的时候用到了图片服务器，照网上的视频来做的话出现的问题非常多，花了大半天的时间最终才搭建完成。今天抽出时间来将整个搭建的过程作一记录，还有其中涉及到的问题。"></a>前段时间在学习电商项目的时候用到了图片服务器，照网上的视频来做的话出现的问题非常多，花了大半天的时间最终才搭建完成。今天抽出时间来将整个搭建的过程作一记录，还有其中涉及到的问题。</h2><h3 id="将以上涉及都的文件拷贝到-opt目录下"><a href="#将以上涉及都的文件拷贝到-opt目录下" class="headerlink" title="将以上涉及都的文件拷贝到/opt目录下"></a>将以上涉及都的文件拷贝到/opt目录下</h3><h1 id="1-因为FastDFS是C语言编写的，要运行在Linux上就需要安装一些支持它运行的环境。"><a href="#1-因为FastDFS是C语言编写的，要运行在Linux上就需要安装一些支持它运行的环境。" class="headerlink" title="1.因为FastDFS是C语言编写的，要运行在Linux上就需要安装一些支持它运行的环境。"></a>1.因为FastDFS是C语言编写的，要运行在Linux上就需要安装一些支持它运行的环境。</h1><pre><code>a.首先安装gcc依赖环境 yum install gcc-c++ -y
-b.如果没有perl库 yum install perl *
- yum -y install zlib zlib-devel pcre pcre-devel gcc gcc-c++ openssl openssl-devel libevent libevent-devel perl unzip net-tools wget  </code></pre><h1 id="2-安装libfastcommon"><a href="#2-安装libfastcommon" class="headerlink" title="2.安装libfastcommon"></a>2.安装libfastcommon</h1><pre><code>a.解压libfastcommon压缩包 tar -zxvf libfastcommonV1.0.7.tar.gz
-b.进入解压目录进行编译 ./make.sh
-c.编译完成之后安装 ./make.sh install
-d.libfastcommon安装好后会自动将库文件拷贝至/usr/lib64下，由于FastDFS程序引用usr/lib目录
-所以执行这条命令： cp /usr/lib64/libfastcommon.so /usr/lib/</code></pre><h1 id="3-安装tracker"><a href="#3-安装tracker" class="headerlink" title="3.安装tracker"></a>3.安装tracker</h1><pre><code>a.解压FastDFS压缩包 tar -zxvf FastDFS_v5.05.tar.gz
-b.进入解压包，依次执行 ./make.sh  和 ./make.sh install 与上述相似
-c.之后将conf目录下的文件拷贝至 /etc/fdfs/下
-    cd conf
-    cp  *  /etc/fdfs/
-d.修改配置文件 vim /etc/fdfs/tracker.conf    
-e.创建fastdfs文件夹 mkdir /opt/fastdfs  </code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/tracker_basepath.png" alt="trackerBasePath"></p>
-<h2 id="3-1-设置fastdfs启动项"><a href="#3-1-设置fastdfs启动项" class="headerlink" title="3.1 设置fastdfs启动项"></a>3.1 设置fastdfs启动项</h2><pre><code>a.创建文件夹 mkdir /usr/local/fdfs，并拷贝安装目录下的stop.sh和start.sh文件到该目录下 
-    cp restart.sh  /usr/local/fdfs/
-    cp stop.sh  /usr/local/fdfs/  
-b.修改启动脚本 vim /etc/init.d/fdfs_trackerd</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/fdfs_tracker01.png" alt="fdfs_tracker01"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/fdfs_tracker01.png" alt="fdfs_tracker02">  </p>
-<pre><code>c.注册服务 chkconfig --add fdfs_trackerd
-d.在init.d目录下启动 service fdfs_trackerd start  </code></pre><h2 id="3-2-FastDFS—storage配置"><a href="#3-2-FastDFS—storage配置" class="headerlink" title="3.2 FastDFS—storage配置"></a>3.2 FastDFS—storage配置</h2><pre><code>a.修改配置文件 vim /etc/fdfs/storage.conf</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/fdfs_storage01.png" alt="fdfs_storage01"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/fdfs_storage02.png" alt="fdfs_storage02">  </p>
-<pre><code>b. 创建fdfs_storage文件夹  mkdir /opt/fastdfs/fdfs_storage
-c.设置storage服务  vim /etc/init.d/fdfs_storaged</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/fdfs_storage03.png" alt="fdfs_storage03"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/fdfs_storage04.png" alt="fdfs_storage04">  </p>
-<pre><code>d.加入和启动服务
-    chkconfig --add fdfs_storaged
-    service fdfs_storaged start
-检查下是否启动fastdfs</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/checkStart.png" alt="check">  </p>
-<h2 id="3-3-fastdfs安装好之后，进行上传图片测试"><a href="#3-3-fastdfs安装好之后，进行上传图片测试" class="headerlink" title="3.3 fastdfs安装好之后，进行上传图片测试"></a>3.3 fastdfs安装好之后，进行上传图片测试</h2><pre><code>a.vim /etc/fdfs/client.conf  </code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/clientConf.png" alt="clientConf">  </p>
-<pre><code>b.现在从本地找张图片进行测试，放在目录/opt下
-c.执行命令/usr/bin/fdfs_test  /etc/fdfs/client.conf  upload  /opt/test.jpg</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/test.png" alt="test">  </p>
-<pre><code>d.图片上传成功之后，按根据图片路径我们可以找到它</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/picturePath.png" alt="picturePath">  </p>
-<h1 id="FastDFS整合Nginx"><a href="#FastDFS整合Nginx" class="headerlink" title="FastDFS整合Nginx"></a>FastDFS整合Nginx</h1><pre><code>因为fastdfs是不支持http协议的，所有我们通过http的图片路径是无法访问到服务器上的图片的，所以我们用到了nginx这个反向代理服务器来为我们打通fastdfs和http之间的墙壁</code></pre><h2 id="安装插件fastdfs-nginx-module"><a href="#安装插件fastdfs-nginx-module" class="headerlink" title="安装插件fastdfs-nginx-module"></a>安装插件fastdfs-nginx-module</h2><pre><code>a.解压fastdfs-nginx-module的压缩包，并修改它的config配置文件
-    tar -zxvf fastdfs-nginx-module_v1.16.tar.gz
-    vim fastdfs-nginx-module/src/config</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/changePath.png" alt="changePath">  </p>
-<pre><code>b.将FastDFS-nginx-module/src下的mod_fastdfs.conf拷贝至/etc/fdfs/下
-    cp mod_fastdfs.conf /etc/fdfs/
-    vim /etc/fdfs/mod_fastdfs.conf</code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/mod_fastdfs_conf01.png" alt="mod01"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/mod_fastdfs_conf02.png" alt="mod02"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/mod_fastdfs_conf03.png" alt="mod03"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/mod_fastdfs_conf04.png" alt="mod04">  </p>
-<pre><code>c.cp /usr/lib64/libfdfsclient.so /usr/lib/</code></pre><h1 id="4-安装Nginx"><a href="#4-安装Nginx" class="headerlink" title="4.安装Nginx"></a>4.安装Nginx</h1><h2 id="4-1-安装环境"><a href="#4-1-安装环境" class="headerlink" title="4.1 安装环境"></a>4.1 安装环境</h2><pre><code>a.创建nginx/client目录 mkdir -p /var/temp/nginx/client
-b.安装pcre库和zlib库
-    yum install -y pcre-devel
-    yum install -y zlib-devel
-c.解压nginx安装包 tar -zxvf nginx-1.12.2.tar.gz 进入解压包中，添加fastdfs_nginx_module模块
-    ./configure \
-    --prefix=/usr/local/nginx \
-    --pid-path=/var/run/nginx/nginx.pid \
-    --lock-path=/var/lock/nginx.lock \
-    --error-log-path=/var/log/nginx/error.log \
-    --http-log-path=/var/log/nginx/access.log \
-    --with-http_gzip_static_module \
-    --http-client-body-temp-path=/var/temp/nginx/client \
-    --http-proxy-temp-path=/var/temp/nginx/proxy \
-    --http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
-    --http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
-    --http-scgi-temp-path=/var/temp/nginx/scgi \
-    --add-module=/opt/fastdfs-nginx-module/src
-d.对nginx进行编译和安装
-    分别执行命令 make 和 make install 
-e.vim /usr/local/nginx/conf/nginx.conf  </code></pre><p><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/nginx.png" alt="nginx"><br><img src="/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/nginxStart.png" alt="nginxstart">   </p>
-<h2 id="启动成功，现在可以直接在浏览器上查看到上传到fastdfs上的图片了"><a href="#启动成功，现在可以直接在浏览器上查看到上传到fastdfs上的图片了" class="headerlink" title="启动成功，现在可以直接在浏览器上查看到上传到fastdfs上的图片了"></a>启动成功，现在可以直接在浏览器上查看到上传到fastdfs上的图片了</h2>
+        <h2 id="英文短句"><a href="#英文短句" class="headerlink" title="英文短句"></a>英文短句</h2><p>It always works out in the end.<br>船到桥头自然直  摘自《三个老枪手》</p>
+<p>When i was young,I wanted to be anybody but self.<br>年轻的时候我想成为任何人，除了我自己。</p>
+        
+          <a class="article-more-a" href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -281,7 +184,7 @@ e.vim /usr/local/nginx/conf/nginx.conf  </code></pre><p><img src="/2020/02/24/%E
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">FastDFS Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">英文 经典短语</a>
         		</li>
       		
 		</ul>
@@ -290,84 +193,16 @@ e.vim /usr/local/nginx/conf/nginx.conf  </code></pre><p><img src="/2020/02/24/%E
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/24/%E3%80%90FastDFS-Nginx%E3%80%91%E6%90%AD%E5%BB%BA%E5%9B%BE%E7%89%87%E6%9C%8D%E5%8A%A1%E5%99%A8/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/01/%E3%80%90%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashcode%E5%92%8Cequals%E6%96%B9%E6%B3%95%EF%BC%9F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【面试题】为什么要重写hashcode和equals方法？
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/02/23/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-1338-%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F%E5%87%8F%E5%8D%8A/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【LeetCode】力扣-1338-数组大小减半</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -387,14 +222,12 @@ e.vim /usr/local/nginx/conf/nginx.conf  </code></pre><p><img src="/2020/02/24/%E
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -417,8 +250,8 @@ e.vim /usr/local/nginx/conf/nginx.conf  </code></pre><p><img src="/2020/02/24/%E
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
