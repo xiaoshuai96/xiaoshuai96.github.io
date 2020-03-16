@@ -147,6 +147,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-【底层原理】为什么Map桶中个数超过8才转为树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/">【底层原理】为什么Map桶中个数超过8才转为树?</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-03-16T14:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O-n-，而树结构能将查找性能提升到O-log-n-。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。"><a href="#大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O-n-，而树结构能将查找性能提升到O-log-n-。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。" class="headerlink" title="大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O(n)，而树结构能将查找性能提升到O(log(n))。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。"></a>大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O(n)，而树结构能将查找性能提升到O(log(n))。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。</h4><h4 id="8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8："><a href="#8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8：" class="headerlink" title="8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8："></a>8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8：</h4>
+        
+          <a class="article-more-a" href="/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashMap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-【欧几里得算法】leetcode-1071" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -853,82 +929,6 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n &gt;= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 
 
   
-    <article id="post-【Github】上传项目到github仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/05/%E3%80%90Github%E3%80%91%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github%E4%BB%93%E5%BA%93/">【Github】上传项目到github仓库</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/05/%E3%80%90Github%E3%80%91%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github%E4%BB%93%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2020-02-05T05:36:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="初次上传工程项目到github仓库的步骤："><a href="#初次上传工程项目到github仓库的步骤：" class="headerlink" title="初次上传工程项目到github仓库的步骤："></a><em>初次上传工程项目到github仓库的步骤：</em></h2><h2 id="1-打开github官网，新建仓库"><a href="#1-打开github官网，新建仓库" class="headerlink" title="1.打开github官网，新建仓库"></a>1.打开github官网，新建仓库</h2><p><img src="/2020/02/05/%E3%80%90Github%E3%80%91%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github%E4%BB%93%E5%BA%93/create_new_repository.png" alt="create_new_repository">  </p>
-        
-          <a class="article-more-a" href="/2020/02/05/%E3%80%90Github%E3%80%91%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github%E4%BB%93%E5%BA%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">github repository</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/05/%E3%80%90Github%E3%80%91%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0github%E4%BB%93%E5%BA%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1026,6 +1026,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FastDFS Nginx</a>
               </li>
              
@@ -1038,7 +1042,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据结构 二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color4">面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1047,10 +1051,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">二叉树 力扣</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,11 +1074,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1086,11 +1086,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color2">LeetCode 算法 杨辉三角 动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬楼梯 leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1118,11 +1118,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcd</a>
+                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">抢红包</a>
+                <a href="javascript:void(0)" class="js-tag color3">HashMap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcd</a>
               </li>
              
               <li class="article-tag-list-item">

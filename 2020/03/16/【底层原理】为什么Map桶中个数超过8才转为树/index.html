@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LeetCode-Happy_new_year | Hello World</title>
+  <title>【底层原理】为什么Map桶中个数超过8才转为树? | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2020新年好！！！重拳出击—-&amp;gt;">
+  <meta name="description" content="大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O(n)，而树结构能将查找性能提升到O(log(n))。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么">
+<meta name="keywords" content="HashMap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-Happy_new_year">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;01&#x2F;LeetCode-Happy-new-year&#x2F;index.html">
+<meta property="og:title" content="【底层原理】为什么Map桶中个数超过8才转为树?">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="2020新年好！！！重拳出击—-&amp;gt;">
+<meta property="og:description" content="大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O(n)，而树结构能将查找性能提升到O(log(n))。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;01&#x2F;LeetCode-Happy-new-year&#x2F;description.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;01&#x2F;LeetCode-Happy-new-year&#x2F;guessNumber.png">
-<meta property="og:updated_time" content="2020-01-01T13:34:36.508Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91&#x2F;treeify_threshold.png">
+<meta property="og:updated_time" content="2020-03-16T14:17:34.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;01&#x2F;LeetCode-Happy-new-year&#x2F;description.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91&#x2F;treeify_threshold.png">
   
     <link rel="alternative" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -151,29 +151,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LeetCode-Happy-new-year" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【底层原理】为什么Map桶中个数超过8才转为树" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode-Happy_new_year
+      【底层原理】为什么Map桶中个数超过8才转为树?
     </h1>
   
 
         
-        <a href="/2020/01/01/LeetCode-Happy-new-year/" class="archive-article-date">
-  	<time datetime="2020-01-01T13:29:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-01</time>
+        <a href="/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-03-16T14:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2020新年好！！！"><a href="#2020新年好！！！" class="headerlink" title="2020新年好！！！"></a>2020新年好！！！</h2><h2 id="重拳出击—-gt"><a href="#重拳出击—-gt" class="headerlink" title="重拳出击—-&gt;"></a>重拳出击—-&gt;</h2><a id="more"></a>
-<p><img src="/2020/01/01/LeetCode-Happy-new-year/description.png" alt="description"><br><img src="/2020/01/01/LeetCode-Happy-new-year/guessNumber.png" alt="number">  </p>
-
+        <h4 id="大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O-n-，而树结构能将查找性能提升到O-log-n-。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。"><a href="#大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O-n-，而树结构能将查找性能提升到O-log-n-。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。" class="headerlink" title="大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O(n)，而树结构能将查找性能提升到O(log(n))。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。"></a>大部分的文章都是分析链表是怎么转换成红黑树的，但是并没有说明为什么当链表长度为8的时候才做转换动作。要弄明白这个问题，我们首先要明白为什么要转换，这个问题比较简单，因为Map中桶的元素初始化是链表保存的，其查找性能是O(n)，而树结构能将查找性能提升到O(log(n))。当链表长度很小的时候，即使遍历，速度也非常快，但是当链表长度不断变长，肯定会对查询性能有一定的影响，所以才需要转成树。至于为什么阈值是8，去源码中找寻答案应该是最可靠的途径。</h4><h4 id="8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8："><a href="#8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8：" class="headerlink" title="8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8："></a>8这个阈值定义在HashMap中，如下所示，这段注释只说明了8是bin（bin就是bucket，即HashMap中hashCode值一样的元素保存的地方）从链表转成树的阈值，但是并没有说明为什么是8：</h4><a id="more"></a>
+<p><img src="/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/treeify_threshold.png" alt="treeify_threshold">  </p>
+<h4 id="在HashMap中有一段Implementation-notes，大概含义是当bin变得很大的时候，就会被转换成TreeNodes中的bin，其结构和TreeMap相似，也就是红黑树："><a href="#在HashMap中有一段Implementation-notes，大概含义是当bin变得很大的时候，就会被转换成TreeNodes中的bin，其结构和TreeMap相似，也就是红黑树：" class="headerlink" title="在HashMap中有一段Implementation notes，大概含义是当bin变得很大的时候，就会被转换成TreeNodes中的bin，其结构和TreeMap相似，也就是红黑树："></a>在HashMap中有一段Implementation notes，大概含义是当bin变得很大的时候，就会被转换成TreeNodes中的bin，其结构和TreeMap相似，也就是红黑树：</h4><pre><code>This map usually acts as a binned (bucketed) hash table, but
+when bins get too large, they are transformed into bins ofTreeNodes,
+each structured similarly to those in java.util.TreeMap.    </code></pre><h4 id="继续往下看，TreeNodes占用空间是普通Nodes的两倍，所以只有当bin包含足够多的节点时才会转成TreeNodes，而是否足够多就是由TREEIFY-THRESHOLD的值决定的。当bin中节点数变少时，又会转成普通的bin。并且我们查看源码的时候发现，链表长度达到8就转成红黑树，当长度降到6就转成普通bin。"><a href="#继续往下看，TreeNodes占用空间是普通Nodes的两倍，所以只有当bin包含足够多的节点时才会转成TreeNodes，而是否足够多就是由TREEIFY-THRESHOLD的值决定的。当bin中节点数变少时，又会转成普通的bin。并且我们查看源码的时候发现，链表长度达到8就转成红黑树，当长度降到6就转成普通bin。" class="headerlink" title="继续往下看，TreeNodes占用空间是普通Nodes的两倍，所以只有当bin包含足够多的节点时才会转成TreeNodes，而是否足够多就是由TREEIFY_THRESHOLD的值决定的。当bin中节点数变少时，又会转成普通的bin。并且我们查看源码的时候发现，链表长度达到8就转成红黑树，当长度降到6就转成普通bin。"></a>继续往下看，TreeNodes占用空间是普通Nodes的两倍，所以只有当bin包含足够多的节点时才会转成TreeNodes，而是否足够多就是由TREEIFY_THRESHOLD的值决定的。当bin中节点数变少时，又会转成普通的bin。并且我们查看源码的时候发现，链表长度达到8就转成红黑树，当长度降到6就转成普通bin。</h4><h4 id="这样就解析了为什么不是一开始就将其转换为TreeNodes，而是需要一定节点数才转为TreeNodes，说白了就是trade-off，空间和时间的权衡："><a href="#这样就解析了为什么不是一开始就将其转换为TreeNodes，而是需要一定节点数才转为TreeNodes，说白了就是trade-off，空间和时间的权衡：" class="headerlink" title="这样就解析了为什么不是一开始就将其转换为TreeNodes，而是需要一定节点数才转为TreeNodes，说白了就是trade-off，空间和时间的权衡："></a>这样就解析了为什么不是一开始就将其转换为TreeNodes，而是需要一定节点数才转为TreeNodes，说白了就是trade-off，空间和时间的权衡：</h4><pre><code>Because TreeNodes are about twice the size of regular nodes, we
+use them only when bins contain enough nodes to warrant use
+(see TREEIFY_THRESHOLD). And when they become too small (due to
+removal or resizing) they are converted back to plain bins.  In
+usages with well-distributed user hashCodes, tree bins are
+rarely used.  Ideally, under random hashCodes, the frequency of
+nodes in bins follows a Poisson distribution
+(http://en.wikipedia.org/wiki/Poisson_distribution) with a
+parameter of about 0.5 on average for the default resizing
+threshold of 0.75, although with a large variance because of
+resizing granularity. Ignoring variance, the expected
+occurrences of list size k are (exp(-0.5)*pow(0.5, k)/factorial(k)). 
+The first values are:
+0:    0.60653066
+1:    0.30326533
+2:    0.07581633
+3:    0.01263606
+4:    0.00157952
+5:    0.00015795
+6:    0.00001316
+7:    0.00000094
+8:    0.00000006
+more: less than 1 in ten million  </code></pre><h4 id="这段内容还说到：当hashCode离散性很好的时候，树型bin用到的概率非常小，因为数据均匀分布在每个bin中，几乎不会有bin中链表长度会达到阈值。但是在随机hashCode下，离散性可能会变差，然而JDK又不能阻止用户实现这种不好的hash算法，因此就可能导致不均匀的数据分布。不过理想情况下随机hashCode算法下所有bin中节点的分布频率会遵循泊松分布，我们可以看到，一个bin中链表长度达到8个元素的概率为0-00000006，几乎是不可能事件。所以，之所以选择8，不是拍拍屁股决定的，而是根据概率统计决定的。由此可见，发展30年的Java每一项改动和优化都是非常严谨和科学的。"><a href="#这段内容还说到：当hashCode离散性很好的时候，树型bin用到的概率非常小，因为数据均匀分布在每个bin中，几乎不会有bin中链表长度会达到阈值。但是在随机hashCode下，离散性可能会变差，然而JDK又不能阻止用户实现这种不好的hash算法，因此就可能导致不均匀的数据分布。不过理想情况下随机hashCode算法下所有bin中节点的分布频率会遵循泊松分布，我们可以看到，一个bin中链表长度达到8个元素的概率为0-00000006，几乎是不可能事件。所以，之所以选择8，不是拍拍屁股决定的，而是根据概率统计决定的。由此可见，发展30年的Java每一项改动和优化都是非常严谨和科学的。" class="headerlink" title="这段内容还说到：当hashCode离散性很好的时候，树型bin用到的概率非常小，因为数据均匀分布在每个bin中，几乎不会有bin中链表长度会达到阈值。但是在随机hashCode下，离散性可能会变差，然而JDK又不能阻止用户实现这种不好的hash算法，因此就可能导致不均匀的数据分布。不过理想情况下随机hashCode算法下所有bin中节点的分布频率会遵循泊松分布，我们可以看到，一个bin中链表长度达到8个元素的概率为0.00000006，几乎是不可能事件。所以，之所以选择8，不是拍拍屁股决定的，而是根据概率统计决定的。由此可见，发展30年的Java每一项改动和优化都是非常严谨和科学的。"></a>这段内容还说到：当hashCode离散性很好的时候，树型bin用到的概率非常小，因为数据均匀分布在每个bin中，几乎不会有bin中链表长度会达到阈值。但是在随机hashCode下，离散性可能会变差，然而JDK又不能阻止用户实现这种不好的hash算法，因此就可能导致不均匀的数据分布。不过理想情况下随机hashCode算法下所有bin中节点的分布频率会遵循泊松分布，我们可以看到，一个bin中链表长度达到8个元素的概率为0.00000006，几乎是不可能事件。所以，之所以选择8，不是拍拍屁股决定的，而是根据概率统计决定的。由此可见，发展30年的Java每一项改动和优化都是非常严谨和科学的。</h4><h2 id="文章转自-https-www-jianshu-com-p-f6487d4103d0"><a href="#文章转自-https-www-jianshu-com-p-f6487d4103d0" class="headerlink" title="文章转自 https://www.jianshu.com/p/f6487d4103d0"></a>文章转自 <a><a href="https://www.jianshu.com/p/f6487d4103d0" target="_blank" rel="noopener">https://www.jianshu.com/p/f6487d4103d0</a></a></h2>
       
 
       
@@ -202,6 +226,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashMap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -252,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/01/LeetCode-Happy-new-year/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/16/%E3%80%90%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88Map%E6%A1%B6%E4%B8%AD%E4%B8%AA%E6%95%B0%E8%B6%85%E8%BF%878%E6%89%8D%E8%BD%AC%E4%B8%BA%E6%A0%91/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,18 +301,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/15/%E3%80%90sql%E3%80%91sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%83%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【sql】sql语句的练习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/31/%E3%80%90LeetCode%E3%80%91%E5%8A%9B%E6%89%A3-160-%E4%B8%A4%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E4%BA%A4%E7%BB%93%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【LeetCode】力扣-160-两个单链表的相交结点</div>
+    <a href="/2020/03/12/%E3%80%90%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E3%80%91leetcode-1071/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【欧几里得算法】leetcode-1071</div>
       <i class="icon-circle-right"></i>
     </a>
   
