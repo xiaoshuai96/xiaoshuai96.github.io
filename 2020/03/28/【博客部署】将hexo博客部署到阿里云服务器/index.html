@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【博客部署】将hexo博客部署到阿里云服务器 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo博客部署到阿里云服务器上之前最开始的时候是将博客部署在github上的，但是因为国内访问github的速度一向是慢的可以，所以就下手了阿里云的一年的服务器使用权，趁着在家有时间，将博客部署到服务器上的整个过程做一记录。 公网IP： **** 本地环境：windows10(64-bit)  +  hexo  +  git  +  Nodejs 服务器环境：CentOS 8(64-bit)">
+  <meta name="description" content="Hexo博客部署到阿里云服务器上之前最开始的时候是将博客部署在github上的，但是因为国内访问github的速度一向是慢的可以，所以就下手了阿里云的一年的服务器使用权，趁着在家有时间，将博客部署到服务器上的整个过程做一记录。 公网IP： *** 本地环境：windows10(64-bit)  +  hexo  +  git  +  Nodejs 服务器环境：CentOS 8(64-bit)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【博客部署】将hexo博客部署到阿里云服务器">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;%E3%80%90%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E3%80%91%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="Hexo博客部署到阿里云服务器上之前最开始的时候是将博客部署在github上的，但是因为国内访问github的速度一向是慢的可以，所以就下手了阿里云的一年的服务器使用权，趁着在家有时间，将博客部署到服务器上的整个过程做一记录。 公网IP： **** 本地环境：windows10(64-bit)  +  hexo  +  git  +  Nodejs 服务器环境：CentOS 8(64-bit)">
+<meta property="og:description" content="Hexo博客部署到阿里云服务器上之前最开始的时候是将博客部署在github上的，但是因为国内访问github的速度一向是慢的可以，所以就下手了阿里云的一年的服务器使用权，趁着在家有时间，将博客部署到服务器上的整个过程做一记录。 公网IP： *** 本地环境：windows10(64-bit)  +  hexo  +  git  +  Nodejs 服务器环境：CentOS 8(64-bit)">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;%E3%80%90%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E3%80%91%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;Port-80.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;%E3%80%90%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E3%80%91%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;nginxSuccessed.png">
-<meta property="og:updated_time" content="2020-03-28T14:04:26.636Z">
+<meta property="og:updated_time" content="2020-03-29T13:23:22.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;%E3%80%90%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E3%80%91%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8&#x2F;Port-80.png">
   
@@ -172,7 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Hexo博客部署到阿里云服务器上"><a href="#Hexo博客部署到阿里云服务器上" class="headerlink" title="Hexo博客部署到阿里云服务器上"></a>Hexo博客部署到阿里云服务器上</h1><p>之前最开始的时候是将博客部署在github上的，但是因为国内访问github的速度一向是慢的可以，所以就下手了阿里云的一年的服务器使用权，趁着在家有时间，将博客部署到服务器上的整个过程做一记录。</p>
-<p><strong>公网IP</strong>： <strong>****</strong></p>
+<p><strong>公网IP</strong>： <strong><strong><strong>***</strong></strong></strong></p>
 <p><strong>本地环境</strong>：windows10(64-bit)  +  hexo  +  git  +  Nodejs</p>
 <p><strong>服务器环境</strong>：CentOS 8(64-bit)</p>
 <a id="more"></a>
